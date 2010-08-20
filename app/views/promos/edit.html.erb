@@ -1,0 +1,8 @@
+<h1>Promos#edit</h1>
+
+<% form_for @promo do |f| %>
+	<%= f.error_messages %>
+	<%= f.label "Promocional " %>
+	<%= f.text_field :name %>
+	<%= f.submit "Actualizar" %>
+<% end %>

@@ -1,0 +1,23 @@
+<h1>Companies#index</h1>
+
+<table class="data">
+	<thead>
+    	<tr>
+      		<th>Nombre</th>
+		    <th>Acciones</th>
+		    <th></th>
+    	</tr>
+    </thead>
+	<tbody>
+	<% @companies.each do |company| %>
+	<tr>
+		<td class="first"><%= link_to h(company.name), company %></td>
+		<td><%= link_to "Editar", edit_company_path(company) %></td>
+		<td><%= link_to "Borrar", company, :confirm => "Esta seguro que desea borrar esta Empresa?", :method => :delete %></td>
+	</tr>
+	<% end %>
+	</tbody>
+</table>
+<p>
+	<%= link_to "Agregar", new_company_path, :class => 'as_button' %>
+</p>

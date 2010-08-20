@@ -1,0 +1,23 @@
+<h1>Registrations#index</h1>
+
+<table class="data">
+	<thead>
+    	<tr>
+      		<th>Nombre</th>
+		    <th>Acciones</th>
+		    <th></th>
+    	</tr>
+    </thead>
+	<tbody>
+	<% @registrations.each do |registration| %>
+	<tr>
+		<td class="first"><%= h(registration.name) %></td>
+		<td><%= link_to "Editar", edit_registration_path(registration) %></td>
+		<td><%= link_to "Borrar", registration, :confirm => "Esta seguro que desea borrar este Tipo de Registro?", :method => :delete %></td>
+	</tr>
+	<% end %>
+	</tbody>
+</table>
+<p>
+	<%= link_to "Agregar", new_registration_path, :class => 'as_button' %>
+</p>

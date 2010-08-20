@@ -1,0 +1,13 @@
+<h1>Detalle de Empresa</h1>
+
+<p><%= h(@company.name)%></p>
+<p><%= h(@company.address1) unless @company.address1.nil? %></p>
+<p><%= h(@company.address2) unless @company.address2.nil? %></p>
+<p><%= h(@company.city) %></p>
+<p><%= h(@company.state.name) unless @company.state.nil? %></p>
+<p><%= h(@company.zip) unless @company.zip.nil? %></p>
+<p><%= h(@company.country.name) unless @company.country.nil? %></p>
+<p><%= h(@company.phone) unless @company.phone.nil? %></p>
+<p><%= h(@company.website) unless @company.website.nil? %></p>
+
+<p><%= link_to "Empresas", companies_path, :class => 'as_button' %></p>

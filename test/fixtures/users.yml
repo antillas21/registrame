@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  registration_id: 1
+  fname: MyString
+  lname: MyString
+  email: MyString
+  job: MyString
+  department_id: 1
+  company_id: 1
+
+two:
+  registration_id: 1
+  fname: MyString
+  lname: MyString
+  email: MyString
+  job: MyString
+  department_id: 1
+  company_id: 1

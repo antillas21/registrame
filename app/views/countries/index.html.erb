@@ -1,0 +1,23 @@
+<h1>Countries#index</h1>
+
+<table class="data">
+	<thead>
+    	<tr>
+      		<th>Nombre</th>
+		    <th>Acciones</th>
+		    <th></th>
+    	</tr>
+    </thead>
+	<tbody>
+	<% @countries.each do |country| %>
+	<tr>
+		<td class="first"><%= h(country.name) %></td>
+		<td><%= link_to "Editar", edit_country_path(country) %></td>
+		<td><%= link_to "Borrar", country, :confirm => "Esta seguro que desea borrar este Pais?", :method => :delete %></td>
+	</tr>
+	<% end %>
+	</tbody>
+</table>
+<p>
+	<%= link_to "Agregar", new_country_path, :class => 'as_button' %>
+</p>

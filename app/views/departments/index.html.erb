@@ -1,0 +1,23 @@
+<h1>Departments#index</h1>
+
+<table class="data">
+	<thead>
+    	<tr>
+      		<th>Nombre</th>
+		    <th>Acciones</th>
+		    <th></th>
+    	</tr>
+    </thead>
+	<tbody>
+	<% @departments.each do |department| %>
+	<tr>
+		<td class="first"><%= h(department.name) %></td>
+		<td><%= link_to "Editar", edit_department_path(department) %></td>
+		<td><%= link_to "Borrar", department, :confirm => "Esta seguro que desea borrar este Departamento?", :method => :delete %></td>
+	</tr>
+	<% end %>
+	</tbody>
+</table>
+<p>
+	<%= link_to "Agregar", new_department_path, :class => 'as_button' %>
+</p>

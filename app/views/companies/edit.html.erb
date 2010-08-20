@@ -1,0 +1,43 @@
+<h1>Companies#edit</h1>
+
+<% form_for @company do |f| %>
+	<%= f.error_messages %>
+	<p>
+		<%= f.label "Empresa " %><br />
+		<%= f.text_field :name %>
+	</p>
+	<p>
+		<%= f.label "Direccion (calle y numero)" %><br />
+		<%= f.text_field :address1 %>
+	</p>
+	<p>
+		<%= f.label "Direccion (colonia, etc.)" %><br />
+		<%= f.text_field :address2 %>
+	</p>
+	<p>
+		<%= f.label "Ciudad" %><br />
+		<%= f.text_field :city %>
+	</p>
+	<p>
+		<%= f.label "Estado" %><br />
+		<%= f.text_field :state_name %>
+	</p>
+	<p>
+		<%= f.label "Codigo Postal" %><br />
+		<%= f.text_field :zip %>
+	</p>
+	<p>
+		<%= f.label "Pais" %><br />
+		<%= f.collection_select :country_id, Country.find(:all), :id, :name, :prompt => "Seleccione un pais" %>
+	</p>
+	<p>
+		<%= f.label "Tel." %><br />
+		<%= f.text_field :phone %>
+	</p>
+	<p>
+		<%= f.label "Website" %><br />
+		<%= f.text_field :website %>
+	</p>
+	<%= f.submit "Actualizar" %>
+<% end %>
+

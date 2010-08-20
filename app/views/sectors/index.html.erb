@@ -1,0 +1,23 @@
+<h1>Sectors#index</h1>
+
+<table class="data">
+	<thead>
+    	<tr>
+      		<th>Nombre</th>
+		    <th>Acciones</th>
+		    <th></th>
+    	</tr>
+    </thead>
+	<tbody>
+	<% @sectors.each do |sector| %>
+	<tr>
+		<td class="first"><%= h(sector.name) %></td>
+		<td><%= link_to "Editar", edit_sector_path(sector) %></td>
+		<td><%= link_to "Borrar", sector, :confirm => "Esta seguro que desea borrar este Sector?", :method => :delete %></td>
+	</tr>
+	<% end %>
+	</tbody>
+</table>
+<p>
+	<%= link_to "Agregar", new_sector_path, :class => 'as_button' %>
+</p>

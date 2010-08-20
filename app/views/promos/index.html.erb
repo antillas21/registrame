@@ -1,0 +1,23 @@
+<h1>Promos#index</h1>
+
+<table class="data">
+	<thead>
+    	<tr>
+      		<th>Nombre</th>
+		    <th>Acciones</th>
+		    <th></th>
+    	</tr>
+    </thead>
+	<tbody>
+	<% @promos.each do |promo| %>
+	<tr>
+		<td class="first"><%= h(promo.name) %></td>
+		<td><%= link_to "Editar", edit_promo_path(promo) %></td>
+		<td><%= link_to "Borrar", promo, :confirm => "Esta seguro que desea borrar este Promocional?", :method => :delete %></td>
+	</tr>
+	<% end %>
+	</tbody>
+</table>
+<p>
+	<%= link_to "Agregar", new_promo_path, :class => 'as_button' %>
+</p>

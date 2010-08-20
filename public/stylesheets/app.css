@@ -1,0 +1,13 @@
+#page { background: #f0f0f0; margin-top: 20px; margin-bottom: 10px; -moz-border-radius: 8px;}
+#header { /*height: 100px;*/ }
+#content { min-height: 500px; }
+#footer, .as_button, input[type=submit] { margin-top: 20px; }
+
+body { background: #30273a url('../images/body.png'); color: #231d2b; line-height: 140%; }
+td { padding: 10px; }
+td.first { width: 760px; }
+form input[type=text] { height: 24px; font-size: 14px; margin: 5px; }
+input[type=text] { padding: 3px; -moz-border-radius: 5px; }
+
+.notes, #footer { font-size: 11px; color: #665874; }
+.errorExplanation, #flash_notice { padding: 10px;}

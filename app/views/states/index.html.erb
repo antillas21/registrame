@@ -1,0 +1,23 @@
+<h1>Estados</h1>
+
+<table class="data">
+	<thead>
+    	<tr>
+      		<th>Nombre</th>
+		    <th>Acciones</th>
+		    <th></th>
+    	</tr>
+    </thead>
+	<tbody>
+	<% @states.each do |state| %>
+	<tr>
+		<td class="first"><%= h(state.name) %></td>
+		<td><%= link_to "Editar", edit_state_path(state) %></td>
+		<td><%= link_to "Borrar", state, :confirm => "Esta seguro que desea borrar este Estado?", :method => :delete %></td>
+	</tr>
+	<% end %>
+	</tbody>
+</table>
+<p>
+	<%= link_to "Agregar", new_state_path, :class => 'as_button' %>
+</p>

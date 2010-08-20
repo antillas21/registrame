@@ -1,0 +1,8 @@
+<h1>Editar estado</h1>
+
+<% form_for @state do |f| %>
+	<%= f.error_messages %>
+	<%= f.label "Estado " %>
+	<%= f.text_field :name %>
+	<%= f.submit "Editar" %>
+<% end %>
