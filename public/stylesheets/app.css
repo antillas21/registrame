@@ -3,11 +3,14 @@
 #content { min-height: 500px; }
 #footer, .as_button, input[type=submit] { margin-top: 20px; }
 
-body { background: #30273a url('../images/body.png'); color: #231d2b; line-height: 140%; }
+body { background: #3383bb url('../images/body.png'); color: #333; line-height: 140%; }
 td { padding: 10px; }
 td.first { width: 760px; }
 form input[type=text] { height: 24px; font-size: 14px; margin: 5px; }
-input[type=text] { padding: 3px; -moz-border-radius: 5px; }
+/*input[type=text] { padding: 3px; -moz-border-radius: 5px; }*/
 
-.notes, #footer { font-size: 11px; color: #665874; }
+.auto_complete { z-index:1; }
+.auto_complete ul { background: #f1f7fb; color: #333; }
+.auto_complete ul li { padding: 5px; }
+.notes, #footer { font-size: 11px; color: #3383bb; }
 .errorExplanation, #flash_notice { padding: 10px;}

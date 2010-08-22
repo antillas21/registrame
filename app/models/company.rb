@@ -14,4 +14,20 @@ class Company < ActiveRecord::Base
   def state_name=(name)
     self.state = State.find_or_create_by_name(name) unless name.blank?
   end
+  
+  def country_name
+    country.name if country
+  end
+  
+  def country_name=(name)
+    self.country = Country.find_or_create_by_name(name) unless name.blank?
+  end
+  
+  def sector_name
+    sector.name if sector
+  end
+  
+  def sector_name=(name)
+    self.sector = Sector.find_or_create_by_name(name) unless name.blank?
+  end
 end

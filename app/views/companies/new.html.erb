@@ -1,6 +1,6 @@
 <h1>Companies#new</h1>
 
-<% form_for @company do |f| %>
+<% semantic_form_for @company do |f| %>
 	<%= f.error_messages %>
 	<p>
 		<%= f.label "Empresa " %><br />
@@ -20,7 +20,7 @@
 	</p>
 	<p>
 		<%= f.label "Estado" %><br />
-		<%= f.text_field :state_id %>
+		<%= text_field_with_auto_complete :company, :state_name, { :size => 30 }, { :url => formatted_states_path(:js), :method => :get, :with => "'search=' + element.value" } %>
 	</p>
 	<p>
 		<%= f.label "Codigo Postal" %><br />
@@ -28,7 +28,7 @@
 	</p>
 	<p>
 		<%= f.label "Pais" %><br />
-		<%= f.collection_select :country_id, Country.find(:all), :id, :name, :prompt => "Seleccione un pais" %>
+		<%= text_field_with_auto_complete :company, :country_name, { :size => 30 }, { :url => formatted_countries_path(:js), :method => :get, :with => "'search=' + element.value" } %>
 	</p>
 	<p>
 		<%= f.label "Tel." %><br />
@@ -37,6 +37,10 @@
 	<p>
 		<%= f.label "Website" %><br />
 		<%= f.text_field :website %>
+	</p>
+	<p>
+		<%= f.label "Sector al que pertenece" %><br />
+		<%= f.input :sector, :as => :radio %>
 	</p>
 	<%= f.submit "Agregar" %>
 <% end %>

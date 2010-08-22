@@ -1,10 +1,11 @@
 class StatesController < ApplicationController
   
   def index
-    @states = State.all
+    @states = State.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @states }
+      format.js
     end
   end
   

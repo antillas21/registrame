@@ -3,6 +3,7 @@ var $j = jQuery.noConflict();
 $j(document).ready(function() {
 	$j('input:submit, .as_button').button();
 	//alert("Nueva alerta");
+	$j('select, input:checkbox, input:radio, input:file').uniform();
 	$j('.data').dataTable({
 		//"sPaginationType": "full_numbers",
 		"iDisplayLength": 10,
@@ -14,23 +15,6 @@ $j(document).ready(function() {
 			"sInfoFiltered": "(filtrados de _MAX_ registros totales)",
 			"sSearch": "Buscar: "
 		}
-	});
-	
-	$j.ajax({
-				url: "../../states.xml",
-				dataType: "xml",
-				success: function(xmlResponse) {
-					var data = $j("state", xmlResponse).map(function() {
-						return {
-							value: $j("name", this).text(),
-							id: $j("id", this).text()
-						};
-					}).get();
-					$j("#company_state_id").autocomplete({
-						source: data,
-						minLength: 2
-					});
-			}
 	});
 	
 	$j('#errorExplanation').addClass('ui-state-error ui-corner-all');

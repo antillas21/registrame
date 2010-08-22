@@ -9,5 +9,6 @@
 <p><%= h(@company.country.name) unless @company.country.nil? %></p>
 <p><%= h(@company.phone) unless @company.phone.nil? %></p>
 <p><%= h(@company.website) unless @company.website.nil? %></p>
+<p><%= h(@company.sector.name) unless @company.sector.nil? %></p>
 
 <p><%= link_to "Empresas", companies_path, :class => 'as_button' %></p>

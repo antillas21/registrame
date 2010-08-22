@@ -1,6 +1,11 @@
 class CountriesController < ApplicationController
   def index
-    @countries = Country.all
+    @countries = Country.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @countries }
+      format.js
+    end
   end
 
   def new

@@ -1,6 +1,11 @@
 class DepartmentsController < ApplicationController
   def index
-    @departments = Department.all
+    @departments = Department.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @departments }
+      format.js
+    end
   end
 
   def new
