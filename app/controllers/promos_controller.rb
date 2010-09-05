@@ -1,4 +1,6 @@
 class PromosController < ApplicationController
+  before_filter :title, :except => [:destroy]
+  
   def index
     @promos = Promo.all
   end
@@ -40,6 +42,10 @@ class PromosController < ApplicationController
     @promo.destroy
     flash[:notice] = "Promocional eliminado exitosamente"
     redirect_to promos_path
+  end
+  
+  def title
+    @title = "M&eacute;todos de Promoci&oacute;n"
   end
 
 end

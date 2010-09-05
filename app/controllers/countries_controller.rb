@@ -1,4 +1,6 @@
 class CountriesController < ApplicationController
+  before_filter :title, :except => [:destroy]
+  
   def index
     @countries = Country.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
     respond_to do |format|
@@ -45,6 +47,10 @@ class CountriesController < ApplicationController
     @country.destroy
     flash[:notice] = "Pais eliminado exitosamente"
     redirect_to countries_path
+  end
+  
+  def title
+    @title = "Pa&iacute;ses"
   end
 
 end

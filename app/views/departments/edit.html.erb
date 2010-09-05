@@ -1,8 +1,3 @@
-<h1>Departments#edit</h1>
+<h1>Editar Departamento</h1>
 
-<% form_for @department do |f| %>
-	<%= f.error_messages %>
-	<%= f.label "Departamento " %>
-	<%= f.text_field :name %>
-	<%= f.submit "Actualizar" %>
-<% end %>
+<%= render :partial => 'form' %>

@@ -2,7 +2,7 @@ class Company < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name
   
-  has_many :users
+  has_many :users, :dependent => :destroy
   belongs_to :country
   belongs_to :state
   belongs_to :sector
@@ -30,4 +30,5 @@ class Company < ActiveRecord::Base
   def sector_name=(name)
     self.sector = Sector.find_or_create_by_name(name) unless name.blank?
   end
+    
 end

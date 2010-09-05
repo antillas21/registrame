@@ -1,8 +1,3 @@
-<h1>Sectors#new</h1>
+<h1>Agregar Sector</h1>
 
-<% form_for @sector do |f| %>
-	<%= f.error_messages %>
-	<%= f.label "Sector " %>
-	<%= f.text_field :name %>
-	<%= f.submit "Agregar" %>
-<% end %>
+<%= render :partial => 'form' %>

@@ -1,4 +1,6 @@
 class LabelsController < ApplicationController
+  before_filter :title, :except => [:destroy]
+  
   def index
     @labels = Label.all
   end
@@ -40,6 +42,10 @@ class LabelsController < ApplicationController
     @label.destroy
     flash[:notice] = "Etiqueta eliminado exitosamente"
     redirect_to labels_path
+  end
+  
+  def title
+    @title = "Gafete"
   end
 
 end

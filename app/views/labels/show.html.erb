@@ -1,11 +1,24 @@
-<h1>Detalle de etiqueta</h1>
+<h1>Gafete: <%= h(@label.name) %></h1>
 
-<p><%= h(@label.name) %></p>
-<p>Medidas: <%= h(@label.width) %>pts ancho x <%= h(@label.height) %>pts alto</p>
-<p>Margenes:<br />
-	Superior: <%= h(@label.top)  unless @label.top.nil? %><br />
-	Inferior: <%= h(@label.bottom) unless @label.bottom.nil? %><br />
-	Izquierdo: <%= h(@label.left) unless @label.left.nil? %><br />
-	Derecho: <%= h(@label.right) unless @label.right.nil? %>
-</p>
+<p></p>
+<p><strong>Medidas:</strong> <%= h(@label.width) %>pts ancho x <%= h(@label.height) %>pts alto</p>
+<p><strong>Margenes:</strong></p>
+<table>
+	<tr>
+		<td>Superior:</td>
+		<td><%= h(@label.top)  unless @label.top.nil? %> pts</td>
+	</tr>
+	<tr>
+		<td>Inferior:</td>
+		<td><%= h(@label.bottom) unless @label.bottom.nil? %> pts</td>
+	</tr>
+	<tr>
+		<td>Izquierdo:</td>
+		<td><%= h(@label.left) unless @label.left.nil? %> pts</td>
+	</tr>
+	<tr>
+		<td>Derecho:</td>
+		<td><%= h(@label.right) unless @label.right.nil? %> pts</td>
+	</tr>
+</table>
 <p><%= link_to "Editar", edit_label_path(@label), :class=> 'as_button' %></p>

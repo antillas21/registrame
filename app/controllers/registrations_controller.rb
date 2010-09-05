@@ -1,4 +1,6 @@
 class RegistrationsController < ApplicationController
+  before_filter :title, :except => [:destroy]
+  
   def index
     @registrations = Registration.all
   end
@@ -40,6 +42,10 @@ class RegistrationsController < ApplicationController
     @registration.destroy
     flash[:notice] = "Tipo de Registro eliminado exitosamente"
     redirect_to registrations_path
+  end
+  
+  def title
+    @title = "Tipos de Registro"
   end
 
 end

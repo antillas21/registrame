@@ -1,0 +1,79 @@
+<h1>Reportes</h1>
+
+<div id="stats">
+	<div class="grid_8 alpha">
+		<div class="ui-widget ui-widget-content ui-helper-clearfix ui-corner-all dash">
+			<h2 class="ui-widget-header ui-helper-clearfix ui-corner-top">Registros totales</h2>
+			<table>
+				<tbody>
+					<% @registrations.each do |registration| %>
+					<tr>
+						<td><%= h(registration.name) %></td>
+						<td><%= h(registration.users.count) %></td>
+					</tr>
+					<% end %>
+					<tr>
+						<td>Total</td>
+						<td><%= h(@users.size) %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<% if gafete? %>
+		<div class="ui-widget ui-widget-content ui-helper-clearfix ui-corner-all dash">
+			<h2 class="ui-widget-header ui-helper-clearfix ui-corner-top">Gafetes</h2>
+			<table>
+				<tbody>
+					
+					<tr>
+						<td>Gafetes generados </td>
+						<td><%= h(User.attendee.count)%></td>
+					</tr>
+
+					<tr>
+						<td>Total</td>
+						<td><%= h(@users.size) %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<% end %>
+	</div>
+	<% if promos? or intereses? %>
+	<div class="grid_8 omega">
+		<% if intereses? %>
+		<div class="ui-widget ui-widget-content ui-helper-clearfix ui-corner-all dash">
+			<h2 class="ui-widget-header ui-helper-clearfix ui-corner-top">Registros por Inter&eacute;s</h2>
+			<table>
+				<tbody>
+					<% @interests.each do |interest| %>
+					<tr>
+						<td><%= h(interest.name) %></td>
+						<td><%= h(interest.users.count) %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<% end %>
+		<% if promos? %>
+		<div class="ui-widget ui-widget-content ui-helper-clearfix ui-corner-all dash">
+			<h2 class="ui-widget-header ui-helper-clearfix ui-corner-top">Registros por Medio de promoci&oacute;n</h2>
+			<table>
+				<tbody>
+					<% @promos.each do |promo| %>
+					<tr>
+						<td><%= h(promo.name) %></td>
+						<td><%= h(promo.users.count) %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<% end %>
+	</div>
+	<% end %>
+	<div class="clear"></div>
+</div>
+<div></div>

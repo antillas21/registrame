@@ -1,0 +1,31 @@
+<% form_for @label do |f| %>
+	<%= f.error_messages %>
+	<p><%= f.label "Nombre " %>
+		<%= f.text_field :name %>
+		<span class="notes">Nombre para identificar este gafete.</span>
+	</p>
+	<p><%= f.label "Medidas " %>
+	<%= f.text_field :width, :size => 10 %> x <%= f.text_field :height, :size => 10 %> pts<br />
+	<span class="notes">Nota: Las medidas deben ser expresadas en pts. Referencia, 72pts = 1pulg.</span></p>
+	<h3>M&aacute;rgenes:</h3>
+	<span class="notes">Nota: Las medidas deben ser expresadas en pts. Referencia, 72pts = 1pulg.</span>
+	<table>
+		<tr>
+			<td><%= f.label "izquierdo " %></td>
+			<td><%= f.text_field :left, :size => 10 %></td>
+		</tr>
+		<tr>
+			<td><%= f.label "derecho " %></td>
+			<td><%= f.text_field :right, :size => 10 %></td>
+		</tr>
+		<tr>
+			<td><%= f.label "superior " %></td>
+			<td><%= f.text_field :top, :size => 10 %></td>
+		</tr>
+		<tr>
+			<td><%= f.label "inferior " %></td>
+			<td<%= f.text_field :bottom, :size => 10 %></td>
+		</tr>
+	</table>
+	<%= f.submit "Registrar" %>
+<% end %>

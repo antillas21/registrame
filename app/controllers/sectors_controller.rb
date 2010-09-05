@@ -1,4 +1,6 @@
 class SectorsController < ApplicationController
+  before_filter :title, :except => [:destroy]
+  
   def index
     @sectors = Sector.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
     respond_to do |format|
@@ -45,6 +47,10 @@ class SectorsController < ApplicationController
     @sector.destroy
     flash[:notice] = "Sector eliminado exitosamente"
     redirect_to sectors_path
+  end
+  
+  def title
+    @title = "Sectores"
   end
 
 end

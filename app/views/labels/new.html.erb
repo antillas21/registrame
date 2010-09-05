@@ -1,20 +1,3 @@
-<h1>Labels#new</h1>
+<h1>Configurar Gafete</h1>
 
-<% form_for @label do |f| %>
-	<%= f.error_messages %>
-	<p><%= f.label "Nombre " %>
-	<%= f.text_field :name %></p>
-	<p><%= f.label "Medidas " %>
-	<%= f.text_field :width, :size => 10 %> x <%= f.text_field :height, :size => 10 %> pts<br />
-	<span class="notes">Nota: Describir aqui el mecanismo de medidas.</span></p>
-	<h3>M&aacute;rgenes:</h3>
-	<p><%= f.label "izquierdo " %>
-	<%= f.text_field :left, :size => 10 %></p>
-	<p><%= f.label "derecho " %>
-	<%= f.text_field :right, :size => 10 %></p>
-	<p><%= f.label "superior " %>
-	<%= f.text_field :top, :size => 10 %></p>
-	<p><%= f.label "inferior " %>
-	<%= f.text_field :bottom, :size => 10 %></p>
-	<%= f.submit "Agregar" %>
-<% end %>
+<%= render :partial => 'form' %>

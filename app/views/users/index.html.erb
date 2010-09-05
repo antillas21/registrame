@@ -1,0 +1,31 @@
+<h1>Registros</h1>
+
+<table class="data">
+	<thead>
+    	<tr>
+      		<th>Nombre</th>
+    	</tr>
+    </thead>
+	<tbody>
+	<% @users.each do |user| %>
+	<tr>
+		<td class="fourteen">
+			<%= link_to h(user.full_name), user %> &raquo; <%= h(user.email) %><br />
+			<span class="inclinado"><%= h(user.company.name) unless user.company.nil? %></span> &raquo; <span class="inclinado"><%= h(user.registration.name) unless user.registration.nil? %></span>
+			<div class="hovercontrol grid_4">
+				<div>
+				<% if gafete? %>
+				<%= link_to "<span class=\"ui-icon ui-icon-print\" style=\"float: left; margin-right: 10px;\">icon</span>", user_path(user, :format => 'pdf') %>
+				<% end %>
+				<%= link_to "<span class=\"ui-icon ui-icon-pencil\" style=\"float: left; margin-right: 10px;\">icon</span>", edit_user_path(user) %>
+				<%= link_to "<span class=\"ui-icon ui-icon-trash\" style=\"float: left; margin-right: 10px;\">icon</span>", user, :confirm => "Esta seguro que desea borrar este Registro?", :method => :delete %>
+				</div>
+			</div>
+		</td>
+	</tr>
+	<% end %>
+	</tbody>
+</table>
+<p>
+	<%= link_to "<span class=\"ui-icon ui-icon-plusthick\" style=\"float: left; margin-right: 10px;\">icon</span>Agregar", new_user_path, :class => 'as_button' %>
+</p>

@@ -1,0 +1,6 @@
+<% form_for @promo do |f| %>
+	<%= f.error_messages %>
+	<%= f.label "Promocional " %>
+	<%= f.text_field :name %>
+	<%= f.submit "Registrar" %>
+<% end %>

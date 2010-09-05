@@ -1,4 +1,6 @@
 class InterestsController < ApplicationController
+  before_filter :title, :except => [:destroy]
+  
   def index
     @interests = Interest.all
   end
@@ -40,6 +42,10 @@ class InterestsController < ApplicationController
     @interest.destroy
     flash[:notice] = "Interés eliminado exitosamente"
     redirect_to interests_path
+  end
+  
+  def title
+    @title = "Intereses"
   end
 
 end

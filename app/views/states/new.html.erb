@@ -1,8 +1,3 @@
-<h1>Agregar un estado</h1>
+<h1>Agregar Estado</h1>
 
-<% form_for @state do |f| %>
-	<%= f.error_messages %>
-	<%= f.label "Estado " %>
-	<%= f.text_field :name %>
-	<%= f.submit "Agregar" %>
-<% end %>
+<%= render :partial => 'form' %>

@@ -1,8 +1,3 @@
-<h1>Countries#edit</h1>
+<h1>Editar pa&iacute;s</h1>
 
-<% form_for @country do |f| %>
-	<%= f.error_messages %>
-	<%= f.label "Pais" %>
-	<%= f.text_field :name %>
-	<%= f.submit "Editar" %>
-<% end %>
+<%= render :partial => 'form' %>

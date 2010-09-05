@@ -1,8 +1,3 @@
-<h1>Registrations#edit</h1>
+<h1>Editar Tipo de Registro</h1>
 
-<% form_for @registration do |f| %>
-	<%= f.error_messages %>
-	<%= f.label "Tipo de Registro " %>
-	<%= f.text_field :name %>
-	<%= f.submit "Actualizar" %>
-<% end %>
+<%= render :partial => 'form' %>

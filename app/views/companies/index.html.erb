@@ -1,23 +1,28 @@
-<h1>Companies#index</h1>
+<h1>Empresas</h1>
 
 <table class="data">
 	<thead>
     	<tr>
       		<th>Nombre</th>
-		    <th>Acciones</th>
-		    <th></th>
     	</tr>
     </thead>
 	<tbody>
 	<% @companies.each do |company| %>
 	<tr>
-		<td class="first"><%= link_to h(company.name), company %></td>
-		<td><%= link_to "Editar", edit_company_path(company) %></td>
-		<td><%= link_to "Borrar", company, :confirm => "Esta seguro que desea borrar esta Empresa?", :method => :delete %></td>
+		<td class="fourteen">
+			<%= link_to h(company.name), company %> &raquo; 
+			<span class="inclinado"><%= pluralize(company.users.count, "persona") unless company.users.empty? %><br />
+				<%= h(company.city) unless company.city.blank? %> <%= h(company.state.name) unless company.state.nil? %> &raquo; <%= h(company.sector.name) unless company.sector.nil? %>
+			</span>
+			<div class="hovercontrol grid_2">
+				<%= link_to "<span class=\"ui-icon ui-icon-pencil\" style=\"float: left; margin-right: 10px;\">icon</span>", edit_company_path(company) %>
+				<%= link_to "<span class=\"ui-icon ui-icon-trash\" style=\"float: left; margin-right: 10px;\">icon</span>", company, :confirm => "Esta seguro que desea borrar este Registro?", :method => :delete %>
+			</div>
+		</td>
 	</tr>
 	<% end %>
 	</tbody>
 </table>
 <p>
-	<%= link_to "Agregar", new_company_path, :class => 'as_button' %>
+	<%= link_to "<span class=\"ui-icon ui-icon-plusthick\" style=\"float: left; margin-right: 10px;\">icon</span>Agregar", new_company_path, :class => 'as_button' %>
 </p>

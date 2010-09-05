@@ -1,14 +1,40 @@
-<h1>Detalle de Empresa</h1>
+<div class="recordtop">
+	<div class="grid_10 alpha">
+		<h1><%= h(@company.name) %></h1>
 
-<p><%= h(@company.name)%></p>
-<p><%= h(@company.address1) unless @company.address1.nil? %></p>
-<p><%= h(@company.address2) unless @company.address2.nil? %></p>
-<p><%= h(@company.city) %></p>
-<p><%= h(@company.state.name) unless @company.state.nil? %></p>
-<p><%= h(@company.zip) unless @company.zip.nil? %></p>
-<p><%= h(@company.country.name) unless @company.country.nil? %></p>
-<p><%= h(@company.phone) unless @company.phone.nil? %></p>
-<p><%= h(@company.website) unless @company.website.nil? %></p>
-<p><%= h(@company.sector.name) unless @company.sector.nil? %></p>
+		<p><%= h(@company.address1) unless @company.address1.blank? %><%= ", #{@company.address2}" unless @company.address2.blank? %></p>
+		<p><%= h(@company.city) unless @company.city.blank? %><%= ", C.P. #{@company.zip}" unless @company.zip.blank? %></p>
+		<p><%= h(@company.state.name) unless @company.state.nil? %><%= ", #{@company.country.name}" unless @company.country.nil? %></p>
+		<p><%= h(@company.phone) unless @company.phone.blank? %></p>
+		<p><%= h(@company.website) unless @company.website.blank? %></p>
+		<p><%= "Sector: #{@company.sector.name}" unless @company.sector.nil? %></p>
+	</div>
+	<div class="grid_6 omega">
+		<%= link_to "<span class=\"ui-icon ui-icon-pencil\" style=\"float: left; margin-right: 10px;\">icon</span>Editar", edit_company_path(@company), :class => 'as_button' %>
+	</div>
+	<div class="clear"></div>
+</div>
 
-<p><%= link_to "Empresas", companies_path, :class => 'as_button' %></p>
+<table class="data">
+	<thead>
+    	<tr>
+      		<th>Nombre</th>
+    	</tr>
+    </thead>
+	<tbody>
+	<% @company.users.each do |user| %>
+	<tr>
+		<td class="fourteen">
+			<%= link_to h(user.full_name), user %> &raquo; <%= h(user.email) %><br />
+			<span class="inclinado"><%= h(user.job) unless user.job.nil? %> &raquo; <%= h(user.department.name) unless user.department.nil? %></span>
+			<div class="hovercontrol grid_2">
+				<%= link_to "<span class=\"ui-icon ui-icon-pencil\" style=\"float: left; margin-right: 10px;\">icon</span>", edit_user_path(user) %>
+				<%= link_to "<span class=\"ui-icon ui-icon-trash\" style=\"float: left; margin-right: 10px;\">icon</span>", user, :confirm => "Esta seguro que desea borrar este Registro?", :method => :delete %>
+			</div>
+		</td>
+	</tr>
+	<% end %>
+	</tbody>
+</table>
+
+<p><%= link_to "<span class=\"ui-icon ui-icon-arrowreturnthick-1-w\" style=\"float: left; margin-right: 10px;\">icon</span>Listado de Empresas", companies_path, :class => 'as_button' %> <%= link_to "<span class=\"ui-icon ui-icon-plusthick\" style=\"float: left; margin-right: 10px;\">icon</span>Agregar persona", new_user_path, :class => 'as_button' %></p>

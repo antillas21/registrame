@@ -1,4 +1,6 @@
 class CompaniesController < ApplicationController
+  before_filter :title, :except => [:destroy]
+  
   def index
     @companies = Company.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
     respond_to do |format|
@@ -46,6 +48,10 @@ class CompaniesController < ApplicationController
     @company.destroy
     flash[:notice] = "Empresa eliminada exitosamente"
     redirect_to companies_path
+  end
+  
+  def title
+    @title = "Empresas"
   end
 
 end

@@ -1,26 +1,32 @@
 <div id="header" class="grid_16">
 	<div id="logo" class="grid_6 alpha">
-		<p>Application header</p>
+		<img src="/images/registrame-logo.png" />
 	</div>
-	<div id="navigation" class="grid_10 omega">
-		<ul>
-			<li><%= link_to "Empresas", companies_path %></li>
-			<li>Admin
-				<ul>
-					<% if Label.first.nil? %>
-						<li><%= link_to "Configurar etiqueta", new_label_path %></li>
-					<% else %>
-						<li><%= link_to "Etiqueta", label_path(Label.first) %></li>
-					<% end %>
-					<li><%= link_to "Departamentos", departments_path %></li>
-					<li><%= link_to "Estados", states_path %></li>
-					<li><%= link_to "Intereses", interests_path %></li>
-					<li><%= link_to "Medios de promocion", promos_path %></li>
-					<li><%= link_to "Paises", countries_path %></li>
-					<li><%= link_to "Sectores", sectors_path %></li>
-					<li><%= link_to "Tipos de Registro", registrations_path %></li>
-				</ul>
-			</li>
-		</ul>
+	<div id="navigation" class="grid_6 prefix_1 omega">
+		<div id="nav-menu">
+			<ul id="nav" class="dropdown dropdown-horizontal">
+				<li><%= link_to "Registros", users_path %></li>
+				<li><%= link_to "Empresas", companies_path %></li>
+				<li><span class="dir">Admin</span>
+					<ul class="submenu">
+						<% if gafete? %>
+							<li><%= link_to "Gafete", label_path(Label.first) %></li>
+						<% else %>
+							<li><%= link_to "Configurar gafete", new_label_path %></li>
+						<% end %>
+						<li><%= link_to "Departamentos", departments_path %></li>
+						<li><%= link_to "Estados", states_path %></li>
+						<li><%= link_to "Intereses", interests_path %></li>
+						<li><%= link_to "Medios de promoci&oacute;n", promos_path %></li>
+						<li><%= link_to "Pa&iacute;ses", countries_path %></li>
+						<li><%= link_to "Sectores", sectors_path %></li>
+						<li><%= link_to "Tipos de Registro", registrations_path %></li>
+						<li><%= link_to "Reportes", reports_path %></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		
 	</div>
+	<div class="clear"></div>
 </div>

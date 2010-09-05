@@ -1,8 +1,3 @@
-<h1>Interests#new</h1>
+<h1>Agregar Inter&eacute;s</h1>
 
-<% form_for @interest do |f| %>
-	<%= f.error_messages %>
-	<%= f.label "Interes " %>
-	<%= f.text_field :name %>
-	<%= f.submit "Agregar" %>
-<% end %>
+<%= render :partial => 'form' %>

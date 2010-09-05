@@ -1,16 +1,43 @@
-#page { background: #f0f0f0; margin-top: 20px; margin-bottom: 10px; -moz-border-radius: 8px;}
-#header { /*height: 100px;*/ }
+#page { background: #f8f8f8; margin-top: 20px; margin-bottom: 10px; -moz-border-radius: 8px;}
+#header { /*height: 100px;*/ margin-top: 10px; }
 #content { min-height: 500px; }
 #footer, .as_button, input[type=submit] { margin-top: 20px; }
+#nav-menu { float: right; background: #cc0000; margin-top: 15px; }
+#misc ul { list-style: disc inside; margin-bottom: 15px; }
+#flash_notice { margin-bottom: 10px;}
+#stats table { width: 100%;}
+#stats h2 { padding: 7px 10px; font-style: normal; }
 
 body { background: #3383bb url('../images/body.png'); color: #333; line-height: 140%; }
 td { padding: 10px; }
 td.first { width: 760px; }
-form input[type=text] { height: 24px; font-size: 14px; margin: 5px; }
+td.fourteen { width: 940px; }
+form input[type=text] { height: 24px; font-size: 14px; margin: 5px; color: #454545; }
+form p { margin-top: 20px;}
+form h3 { margin-top: 50px; }
+form ul { list-style: none inside;}
+form li { list-style: none inside;}
+a { color: #cc0000; text-decoration: none;}
+a:hover { color: #666;}
+.submenu li { padding: 5px; width: 220px; background: #cc0000; }
+h1, h2 { margin-bottom: 10px; line-height: 140%; font-style: normal; }
+h1 { font-size: 150%; }
+h2 { font-size: 110%;}
+
+.hovercontrol { float: right; vertical-align: top; visibility: hidden;}
+tr:hover div { visibility: visible; }
+
 /*input[type=text] { padding: 3px; -moz-border-radius: 5px; }*/
 
 .auto_complete { z-index:1; }
-.auto_complete ul { background: #f1f7fb; color: #333; }
+.auto_complete ul { background: #fff; color: #333; padding: 5px; }
 .auto_complete ul li { padding: 5px; }
-.notes, #footer { font-size: 11px; color: #3383bb; }
+.notes, #footer { font-size: 11px; color: #777; }
 .errorExplanation, #flash_notice { padding: 10px;}
+.inclinado { font-style: italic; color: #777;}
+.userinfo { border: 2px solid #e6e6e6; padding: 15px; font-size: 16px; line-height: 140%; -moz-border-radius: 8px; margin-bottom: 10px; }
+.recordtop { margin-bottom: 10px; }
+.dash { margin-bottom: 20px; }
+
+/* jQuery menu */
+div.auto_complete ul li.selected { background-color: #f77;}

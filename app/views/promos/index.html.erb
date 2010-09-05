@@ -1,23 +1,24 @@
-<h1>Promos#index</h1>
+<h1>M&eacute;todos de Promoci&oacute;n</h1>
 
 <table class="data">
 	<thead>
     	<tr>
       		<th>Nombre</th>
-		    <th>Acciones</th>
-		    <th></th>
     	</tr>
     </thead>
 	<tbody>
 	<% @promos.each do |promo| %>
 	<tr>
-		<td class="first"><%= h(promo.name) %></td>
-		<td><%= link_to "Editar", edit_promo_path(promo) %></td>
-		<td><%= link_to "Borrar", promo, :confirm => "Esta seguro que desea borrar este Promocional?", :method => :delete %></td>
+		<td class="fourteen"><%= h(promo.name) %>
+			<div class="hovercontrol grid_2">
+				<%= link_to "<span class=\"ui-icon ui-icon-pencil\" style=\"float: left; margin-right: 10px;\">icon</span>", edit_promo_path(promo) %>
+				<%= link_to "<span class=\"ui-icon ui-icon-trash\" style=\"float: left; margin-right: 10px;\">icon</span>", promo, :confirm => "Esta seguro que desea borrar este Registro?", :method => :delete %>
+			</div>
+		</td>
 	</tr>
 	<% end %>
 	</tbody>
 </table>
 <p>
-	<%= link_to "Agregar", new_promo_path, :class => 'as_button' %>
+	<%= link_to "<span class=\"ui-icon ui-icon-plusthick\" style=\"float: left; margin-right: 10px;\">icon</span>Agregar", new_promo_path, :class => 'as_button' %>
 </p>

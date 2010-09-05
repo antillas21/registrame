@@ -1,23 +1,24 @@
-<h1>Interests#index</h1>
+<h1>Intereses</h1>
 
 <table class="data">
 	<thead>
     	<tr>
       		<th>Nombre</th>
-		    <th>Acciones</th>
-		    <th></th>
     	</tr>
     </thead>
 	<tbody>
 	<% @interests.each do |interest| %>
 	<tr>
-		<td class="first"><%= h(interest.name) %></td>
-		<td><%= link_to "Editar", edit_interest_path(interest) %></td>
-		<td><%= link_to "Borrar", interest, :confirm => "Esta seguro que desea borrar este Interes?", :method => :delete %></td>
+		<td class="fourteen"><%= h(interest.name) %>
+			<div class="hovercontrol grid_2">
+				<%= link_to "<span class=\"ui-icon ui-icon-pencil\" style=\"float: left; margin-right: 10px;\">icon</span>", edit_interest_path(interest) %>
+				<%= link_to "<span class=\"ui-icon ui-icon-trash\" style=\"float: left; margin-right: 10px;\">icon</span>", interest, :confirm => "Esta seguro que desea borrar este Registro?", :method => :delete %>
+			</div>
+		</td>
 	</tr>
 	<% end %>
 	</tbody>
 </table>
 <p>
-	<%= link_to "Agregar", new_interest_path, :class => 'as_button' %>
+	<%= link_to "<span class=\"ui-icon ui-icon-plusthick\" style=\"float: left; margin-right: 10px;\">icon</span>Agregar", new_interest_path, :class => 'as_button' %>
 </p>

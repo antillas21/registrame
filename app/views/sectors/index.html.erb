@@ -1,23 +1,24 @@
-<h1>Sectors#index</h1>
+<h1>Sectores</h1>
 
 <table class="data">
 	<thead>
     	<tr>
       		<th>Nombre</th>
-		    <th>Acciones</th>
-		    <th></th>
     	</tr>
     </thead>
 	<tbody>
 	<% @sectors.each do |sector| %>
 	<tr>
-		<td class="first"><%= h(sector.name) %></td>
-		<td><%= link_to "Editar", edit_sector_path(sector) %></td>
-		<td><%= link_to "Borrar", sector, :confirm => "Esta seguro que desea borrar este Sector?", :method => :delete %></td>
+		<td class="fourteen"><%= h(sector.name) %>
+			<div class="hovercontrol grid_2">
+				<%= link_to "<span class=\"ui-icon ui-icon-pencil\" style=\"float: left; margin-right: 10px;\">icon</span>", edit_sector_path(sector) %>
+				<%= link_to "<span class=\"ui-icon ui-icon-trash\" style=\"float: left; margin-right: 10px;\">icon</span>", sector, :confirm => "Esta seguro que desea borrar este Registro?", :method => :delete %>
+			</div>
+		</td>
 	</tr>
 	<% end %>
 	</tbody>
 </table>
 <p>
-	<%= link_to "Agregar", new_sector_path, :class => 'as_button' %>
+	<%= link_to "<span class=\"ui-icon ui-icon-plusthick\" style=\"float: left; margin-right: 10px;\">icon</span>Agregar", new_sector_path, :class => 'as_button' %>
 </p>

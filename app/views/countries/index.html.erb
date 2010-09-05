@@ -1,23 +1,24 @@
-<h1>Countries#index</h1>
+<h1>Pa&iacute;ses</h1>
 
 <table class="data">
 	<thead>
     	<tr>
       		<th>Nombre</th>
-		    <th>Acciones</th>
-		    <th></th>
     	</tr>
     </thead>
 	<tbody>
 	<% @countries.each do |country| %>
 	<tr>
-		<td class="first"><%= h(country.name) %></td>
-		<td><%= link_to "Editar", edit_country_path(country) %></td>
-		<td><%= link_to "Borrar", country, :confirm => "Esta seguro que desea borrar este Pais?", :method => :delete %></td>
+		<td class="fourteen"><%= h(country.name) %>
+			<div class="hovercontrol grid_2">
+				<%= link_to "<span class=\"ui-icon ui-icon-pencil\" style=\"float: left; margin-right: 10px;\">icon</span>", edit_country_path(country) %>
+				<%= link_to "<span class=\"ui-icon ui-icon-trash\" style=\"float: left; margin-right: 10px;\">icon</span>", country, :confirm => "Esta seguro que desea borrar este Registro?", :method => :delete %>
+			</div>
+		</td>
 	</tr>
 	<% end %>
 	</tbody>
 </table>
 <p>
-	<%= link_to "Agregar", new_country_path, :class => 'as_button' %>
+	<%= link_to "<span class=\"ui-icon ui-icon-plusthick\" style=\"float: left; margin-right: 10px;\">icon</span>Agregar", new_country_path, :class => 'as_button' %>
 </p>

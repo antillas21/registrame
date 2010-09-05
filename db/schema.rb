@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100819005124) do
+ActiveRecord::Schema.define(:version => 20100902014431) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -46,6 +46,13 @@ ActiveRecord::Schema.define(:version => 20100819005124) do
     t.datetime "updated_at"
   end
 
+  create_table "interests_users", :id => false, :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "interest_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "labels", :force => true do |t|
     t.string   "name"
     t.integer  "width"
@@ -60,6 +67,13 @@ ActiveRecord::Schema.define(:version => 20100819005124) do
 
   create_table "promos", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "promos_users", :id => false, :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "promo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -92,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20100819005124) do
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "printed"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

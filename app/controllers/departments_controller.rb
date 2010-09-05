@@ -1,4 +1,6 @@
 class DepartmentsController < ApplicationController
+  before_filter :title, :except => [:destroy]
+  
   def index
     @departments = Department.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
     respond_to do |format|
@@ -45,6 +47,10 @@ class DepartmentsController < ApplicationController
     @department.destroy
     flash[:notice] = "Departamento eliminado exitosamente"
     redirect_to departments_path
+  end
+  
+  def title
+    @title = "Departamentos"
   end
 
 end

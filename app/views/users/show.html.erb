@@ -1,0 +1,55 @@
+<div class="grid_10 alpha">
+	<div id="contacto" class="userinfo">
+		<h1><%= h(@user.full_name)%></h1>
+		<p><%= h(@user.email)%></p>
+		<p><%= h(@user.registration.name) unless @user.registration.nil? %></p>
+	</div>
+	<div id="empresa" class="userinfo">
+		<p><%= link_to @user.company.name, company_path(@user.company) unless @user.company.nil? %></p>
+		<p><%= h(@user.job) unless @user.job.blank? %><%= ", #{@user.department.name}" unless @user.department.nil? %></p>
+		<% if @user.company %>
+			<p><%= h(@user.company.address1) unless @user.company.address1.blank? %></p>
+			<p><%= h(@user.company.address2) unless @user.company.address2.blank? %></p>
+			<p><%= h(@user.company.city) unless @user.company.city.blank? %><%= ", C.P. #{@user.company.zip}" unless @user.company.zip.blank? %></p>
+			<p><%= h(@user.company.state.name) unless @user.company.state.nil? %><%= ", #{@user.company.country.name}" unless @user.company.country.nil? %></p>
+			<p><%= h(@user.company.phone) unless @user.company.phone.blank? %></p>
+			<p><%= h(@user.company.website) unless @user.company.website.blank? %></p>
+			<p><%= "Sector: #{@user.company.sector.name}" unless @user.company.sector.nil? %></p>
+		<% end %>
+		<p></p>
+	</div>
+</div>
+<div id="misc" class="grid_6 omega">
+	<% if intereses? or promos? %>
+	<div class="userinfo">
+		<% if intereses? %>
+		<div>
+			<h3>Intereses en el evento:</h3>
+			<ul>
+				<% @user.interests.each do |interest| %>
+					<li><%= h(interest.name) %></li>
+				<% end unless @user.interests.empty? %>
+			</ul>
+		</div>
+		<% end %>
+		<% if promos? %>
+		<div>
+			<h3>Como se entero del evento:</h3>
+			<ul>
+			<% @user.promos.each do |promo| %>
+				<li><%= h(promo.name) %></li>
+			<% end unless @user.promos.empty? %>
+			</ul>
+		</div>
+		<% end %>
+	</div>
+	<% end %>
+</div>
+<div class="clear"></div>
+<p>
+	<%= link_to "<span class=\"ui-icon ui-icon-arrowreturnthick-1-w\" style=\"float: left; margin-right: 10px;\">icon</span>Listado de Registros", users_path, :class => 'as_button' %> 
+	<% if gafete? %>
+		<%= link_to "<span class=\"ui-icon ui-icon-print\" style=\"float: left; margin-right: 10px;\">icon</span>Gafete", user_path(@user, :format => 'pdf'), :class => 'as_button' %>
+	<% end %> 
+	<%= link_to "<span class=\"ui-icon ui-icon-pencil\" style=\"float: left; margin-right: 10px;\">icon</span>Editar", edit_user_path(@user), :class => 'as_button' %> <%= link_to "<span class=\"ui-icon ui-icon-trash\" style=\"float: left; margin-right: 10px;\">icon</span>Borrar", @user, :confirm => "Esta seguro que desea borrar este Registro?", :method => :delete, :class => 'as_button' %>
+</p>

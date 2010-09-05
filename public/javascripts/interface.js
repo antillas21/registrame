@@ -1,9 +1,11 @@
 var $j = jQuery.noConflict();
+TableToolsInit.sSwfPath = "/media/swf/ZeroClipboard.swf";
 
 $j(document).ready(function() {
 	$j('input:submit, .as_button').button();
 	//alert("Nueva alerta");
 	$j('select, input:checkbox, input:radio, input:file').uniform();
+	
 	$j('.data').dataTable({
 		//"sPaginationType": "full_numbers",
 		"iDisplayLength": 10,
@@ -18,5 +20,15 @@ $j(document).ready(function() {
 	});
 	
 	$j('#errorExplanation').addClass('ui-state-error ui-corner-all');
-	$j('#flash_notice').addClass('ui-state-highlight ui-corner-all').fadeOut(3000);
+	$j('#flash_notice').addClass('ui-state-highlight ui-corner-all');
+	
+	$j("ul.dropdown li").hover(function(){
+	   $j(this).addClass("hover");
+	   $j('> .dir',this).addClass("open");
+	   $j('ul:first',this).css('visibility', 'visible');
+	 },function(){
+	   $j(this).removeClass("hover");
+	   $j('.open',this).removeClass("open");
+	   $j('ul:first',this).css('visibility', 'hidden');
+	});	
 });

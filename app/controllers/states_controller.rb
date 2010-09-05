@@ -1,4 +1,5 @@
 class StatesController < ApplicationController
+  before_filter :title, :except => [:destroy]
   
   def index
     @states = State.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
@@ -46,6 +47,10 @@ class StatesController < ApplicationController
     @state.destroy
     flash[:notice] = "Estado eliminado exitosamente"
     redirect_to states_path
+  end
+  
+  def title
+    @title = "Estados"
   end
 
 end
