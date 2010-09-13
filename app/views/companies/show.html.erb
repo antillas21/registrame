@@ -1,15 +1,16 @@
 <div class="recordtop">
-	<div class="grid_10 alpha">
-		<h1><%= h(@company.name) %></h1>
-
+	<div class="grid_10 alpha ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+		<h1 class="ui-widget-header ui-helper-clearfix ui-corner-top pads"><%= h(@company.name) %></h1>
+		<div class="pads">
 		<p><%= h(@company.address1) unless @company.address1.blank? %><%= ", #{@company.address2}" unless @company.address2.blank? %></p>
 		<p><%= h(@company.city) unless @company.city.blank? %><%= ", C.P. #{@company.zip}" unless @company.zip.blank? %></p>
 		<p><%= h(@company.state.name) unless @company.state.nil? %><%= ", #{@company.country.name}" unless @company.country.nil? %></p>
 		<p><%= h(@company.phone) unless @company.phone.blank? %></p>
 		<p><%= h(@company.website) unless @company.website.blank? %></p>
 		<p><%= "Sector: #{@company.sector.name}" unless @company.sector.nil? %></p>
+		</div>
 	</div>
-	<div class="grid_6 omega">
+	<div class="grid_5 omega">
 		<%= link_to "<span class=\"ui-icon ui-icon-pencil\" style=\"float: left; margin-right: 10px;\">icon</span>Editar", edit_company_path(@company), :class => 'as_button' %>
 	</div>
 	<div class="clear"></div>
@@ -37,4 +38,4 @@
 	</tbody>
 </table>
 
-<p><%= link_to "<span class=\"ui-icon ui-icon-arrowreturnthick-1-w\" style=\"float: left; margin-right: 10px;\">icon</span>Listado de Empresas", companies_path, :class => 'as_button' %> <%= link_to "<span class=\"ui-icon ui-icon-plusthick\" style=\"float: left; margin-right: 10px;\">icon</span>Agregar persona", new_user_path, :class => 'as_button' %></p>
+<p><%= link_to "<span class=\"ui-icon ui-icon-arrowreturnthick-1-w\" style=\"float: left; margin-right: 10px;\">icon</span>Listado de Empresas", companies_path, :class => 'as_button' %> <%= link_to "<span class=\"ui-icon ui-icon-plusthick\" style=\"float: left; margin-right: 10px;\">icon</span>Agregar persona", new_user_path(), :class => 'as_button' %></p>

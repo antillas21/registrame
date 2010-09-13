@@ -1,24 +1,27 @@
-<h1>Departmentos</h1>
-
-<table class="data">
-	<thead>
-    	<tr>
-      		<th>Nombre</th>
-    	</tr>
-    </thead>
-	<tbody>
-	<% @departments.each do |department| %>
-	<tr>
-		<td class="fourteen"><%= h(department.name) %>
-			<div class="hovercontrol grid_2">
-				<%= link_to "<span class=\"ui-icon ui-icon-pencil\" style=\"float: left; margin-right: 10px;\">icon</span>", edit_department_path(department) %>
-				<%= link_to "<span class=\"ui-icon ui-icon-trash\" style=\"float: left; margin-right: 10px;\">icon</span>", department, :confirm => "Esta seguro que desea borrar este Registro?", :method => :delete %>
-			</div>
-		</td>
-	</tr>
-	<% end %>
-	</tbody>
-</table>
-<p>
-	<%= link_to "<span class=\"ui-icon ui-icon-plusthick\" style=\"float: left; margin-right: 10px;\">icon</span>Agregar", new_department_path, :class => 'as_button' %>
-</p>
+<div class="ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+<h1 class="ui-widget-header ui-helper-clearfix ui-corner-top pads">Departmentos</h1>
+	<div class="pads">
+		<table class="data">
+			<thead>
+		    	<tr>
+		      		<th>Nombre</th>
+		    	</tr>
+		    </thead>
+			<tbody>
+			<% @departments.each do |department| %>
+			<tr>
+				<td class="fourteen"><%= h(department.name) %>
+					<div class="hovercontrol grid_2">
+						<%= link_to "<span class=\"ui-icon ui-icon-pencil\" style=\"float: left; margin-right: 10px;\">icon</span>", edit_department_path(department) %>
+						<%= link_to "<span class=\"ui-icon ui-icon-trash\" style=\"float: left; margin-right: 10px;\">icon</span>", department, :confirm => "Esta seguro que desea borrar este Registro?", :method => :delete %>
+					</div>
+				</td>
+			</tr>
+			<% end %>
+			</tbody>
+		</table>
+		<p>
+			<%= link_to "<span class=\"ui-icon ui-icon-plusthick\" style=\"float: left; margin-right: 10px;\">icon</span>Agregar", new_department_path, :class => 'as_button' %>
+		</p>
+	</div>
+</div>

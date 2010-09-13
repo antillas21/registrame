@@ -76,4 +76,82 @@
 	<% end %>
 	<div class="clear"></div>
 </div>
-<div></div>
+<div class="clear"></div>
+<div id="userreport">
+	<table id="results">
+		<thead>
+	    	<tr>
+				<th>Registro</th>
+	      		<th>Nombre</th>
+				<th>Email</th>
+				<th>Puesto</th>
+				<th>Departamento</th>
+				<th>Empresa</th>
+				<th>Direccion</th>
+				<th>Ciudad</th>
+				<th>Estado</th>
+				<th>CP</th>
+				<th>Pais</th>
+				<th>Tel.</th>
+				<th>Website</th>
+				<th>Sector</th>
+				<th>Intereses</th>
+				<th>Como se entero</th>
+	    	</tr>
+	    </thead>
+		<tbody>
+		<% @users.each do |user| %>
+		<tr>
+			<td><%= h(user.registration.name) %></td>
+			<td><%= h(user.full_name) %></td>
+			<td><%= h(user.email) %></td>
+			<td><%= h(user.job) %></td>
+			<td><%= h(user.department.name) unless user.department.nil? %></td>
+			<td><%= h(user.company.name) unless user.company.nil? %></td>
+			<td><%= [user.company.address1, user.company.address2].join(' - ').to_s unless user.company.nil? %></td>
+			<td><%= h(user.company.city) unless user.company.nil? %></td>
+			<td><%= h(user.company.state.name) unless user.company.nil? or user.company.state.nil? %></td>
+			<td><%= h(user.company.zip) unless user.company.nil? %></td>
+			<td><%= h(user.company.country.name) unless user.company.nil? or user.company.country.nil? %></td>
+			<td><%= h(user.company.phone) unless user.company.nil? %></td>
+			<td><%= h(user.company.website) unless user.company.nil? %></td>
+			<td><%= h(user.company.sector.name) unless user.company.nil? or user.company.sector.nil? %></td>
+			<td><% user_interests = []
+				   user.interests.each do |interest|
+					user_interests << interest.name
+				   end
+			%>
+				<%= user_interests.join(', ').to_s %>
+			</td>
+			<td><% user_promos = []
+				   user.promos.each do |promo|
+					user_promos << promo.name
+				   end
+			%>
+				<%= user_promos.join(', ').to_s %>
+			</td>
+		</tr>
+		<% end %>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th><input type="text" name="search_engine" value="Tipos de Registro" class="search_init" /></th>
+				<th><input type="text" name="search_browser" value="Nombre" class="search_init" /></th>
+				<th><input type="text" name="search_platform" value="Email" class="search_init" /></th>
+				<th><input type="text" name="search_version" value="Puesto" class="search_init" /></th>
+				<th><input type="text" name="search_grade" value="Departamentos" class="search_init" /></th>
+				<th><input type="text" name="search_grade" value="Empresas" class="search_init" /></th>
+				<th><input type="text" name="search_grade" value="Direccion" class="search_init" /></th>
+				<th><input type="text" name="search_grade" value="Ciudad" class="search_init" /></th>
+				<th><input type="text" name="search_grade" value="Estado" class="search_init" /></th>
+				<th><input type="text" name="search_grade" value="CP" class="search_init" /></th>
+				<th><input type="text" name="search_grade" value="Paises" class="search_init" /></th>
+				<th><input type="text" name="search_grade" value="Tels." class="search_init" /></th>
+				<th><input type="text" name="search_grade" value="Websites" class="search_init" /></th>
+				<th><input type="text" name="search_grade" value="Sectores" class="search_init" /></th>
+				<th><input type="text" name="search_grade" value="Intereses" class="search_init" /></th>
+				<th><input type="text" name="search_grade" value="Medios de promocion" class="search_init" /></th>
+			</tr>
+		</tfoot>
+	</table>
+</div>

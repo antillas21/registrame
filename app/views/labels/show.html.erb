@@ -1,24 +1,27 @@
-<h1>Gafete: <%= h(@label.name) %></h1>
-
-<p></p>
-<p><strong>Medidas:</strong> <%= h(@label.width) %>pts ancho x <%= h(@label.height) %>pts alto</p>
-<p><strong>Margenes:</strong></p>
-<table>
-	<tr>
-		<td>Superior:</td>
-		<td><%= h(@label.top)  unless @label.top.nil? %> pts</td>
-	</tr>
-	<tr>
-		<td>Inferior:</td>
-		<td><%= h(@label.bottom) unless @label.bottom.nil? %> pts</td>
-	</tr>
-	<tr>
-		<td>Izquierdo:</td>
-		<td><%= h(@label.left) unless @label.left.nil? %> pts</td>
-	</tr>
-	<tr>
-		<td>Derecho:</td>
-		<td><%= h(@label.right) unless @label.right.nil? %> pts</td>
-	</tr>
-</table>
-<p><%= link_to "Editar", edit_label_path(@label), :class=> 'as_button' %></p>
+<div class="ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+<h1 class="ui-widget-header ui-helper-clearfix ui-corner-top pads">Gafete: <%= h(@label.name) %></h1>
+	<div class="pads">
+	<p></p>
+	<p><strong>Medidas:</strong> <%= h(@label.width) %>pts ancho x <%= h(@label.height) %>pts alto</p>
+	<p><strong>Margenes:</strong></p>
+	<table>
+		<tr>
+	        <td>Superior:</td>
+	        <td><%= h(@label.top)  unless @label.top.nil? %> pts</td>
+		</tr>
+		<tr>
+	        <td>Inferior:</td>
+	        <td><%= h(@label.bottom) unless @label.bottom.nil? %> pts</td>
+		</tr>
+		<tr>
+	        <td>Izquierdo:</td>
+	        <td><%= h(@label.left) unless @label.left.nil? %> pts</td>
+		</tr>
+		<tr>
+	        <td>Derecho:</td>
+	        <td><%= h(@label.right) unless @label.right.nil? %> pts</td>
+		</tr>
+	</table>
+	<p><%= link_to "Editar", edit_label_path(@label), :class=> 'as_button' %></p>
+	</div>
+</div>

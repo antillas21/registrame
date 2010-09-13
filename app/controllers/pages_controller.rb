@@ -1,9 +1,9 @@
 class PagesController < ApplicationController
   def home
   end
-
-  def guide
-    @message = 'Guia de Configuracion'
+  
+  def help
+    @title = 'Ayuda'
   end
-
+  
 end

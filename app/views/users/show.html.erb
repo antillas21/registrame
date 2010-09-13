@@ -1,10 +1,11 @@
 <div class="grid_10 alpha">
-	<div id="contacto" class="userinfo">
-		<h1><%= h(@user.full_name)%></h1>
-		<p><%= h(@user.email)%></p>
+	<div id="contacto" class="ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+		<h2 class="ui-widget-header ui-helper-clearfix ui-corner-top pads"><%= h(@user.full_name)%></h2>
+		<div class="pads"><p><%= h(@user.email)%></p>
 		<p><%= h(@user.registration.name) unless @user.registration.nil? %></p>
+		</div>
 	</div>
-	<div id="empresa" class="userinfo">
+	<div id="empresa" class="ui-widget ui-widget-content ui-helper-clearfix ui-corner-all pads">
 		<p><%= link_to @user.company.name, company_path(@user.company) unless @user.company.nil? %></p>
 		<p><%= h(@user.job) unless @user.job.blank? %><%= ", #{@user.department.name}" unless @user.department.nil? %></p>
 		<% if @user.company %>
@@ -19,27 +20,31 @@
 		<p></p>
 	</div>
 </div>
-<div id="misc" class="grid_6 omega">
+<div id="misc" class="grid_5 omega ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
 	<% if intereses? or promos? %>
-	<div class="userinfo">
+	<div>
 		<% if intereses? %>
 		<div>
-			<h3>Intereses en el evento:</h3>
+			<h3 class="ui-widget-header ui-helper-clearfix ui-corner-top pads">Intereses en el evento:</h3>
+			<div class="pads">
 			<ul>
 				<% @user.interests.each do |interest| %>
 					<li><%= h(interest.name) %></li>
 				<% end unless @user.interests.empty? %>
 			</ul>
+			</div>
 		</div>
 		<% end %>
 		<% if promos? %>
 		<div>
-			<h3>Como se entero del evento:</h3>
+			<h3 class="ui-widget-header ui-helper-clearfix ui-corner-top pads">Como se entero del evento:</h3>
+			<div class="pads">
 			<ul>
 			<% @user.promos.each do |promo| %>
 				<li><%= h(promo.name) %></li>
 			<% end unless @user.promos.empty? %>
 			</ul>
+			</div>
 		</div>
 		<% end %>
 	</div>

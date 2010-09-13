@@ -1,8 +1,5 @@
-<h1>Editar Inter&eacute;s</h1>
+<div class="ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+<h1 class="ui-widget-header ui-helper-clearfix ui-corner-top pads">Editar Inter&eacute;s</h1>
 
-<% form_for @interest do |f| %>
-	<%= f.error_messages %>
-	<%= f.label "Estado " %>
-	<%= f.text_field :name %>
-	<%= f.submit "Actualizar" %>
-<% end %>
+<%= render :partial => 'form' %>
+</div>
