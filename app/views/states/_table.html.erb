@@ -1,0 +1,9 @@
+{"sEcho":<%= params[:sEcho] || -1 %>,
+ "iTotalRecords": <%= State.count %>,
+ "iTotalDisplayRecords": <%= @iTotalDisplayRecords %>,
+ "aaData":[
+	<% @states.each do |state| %>
+  ["<%= state.name %>","<%= state.created_at %>"<%= "]," unless state == @states.last %>
+<% end %>
+	]
+]}

@@ -1,0 +1,12 @@
+ {
+"sEcho": <%=h @sEcho %>,
+"iTotalRecords": <%= @iTotalRecords %>,
+"iTotalDisplayRecords": <%= @iTotalDisplayRecords %>,
+"aaData" : [ 
+<% @companies.each do |company| %>
+   [   "<a href='<%= url_for(company) %>'><%= company.name %></a> &raquo; <%= pluralize(company.users.count, 'persona') %> &raquo; <%= company.city.blank? ? '--' : company.city %> &raquo; <%= company.state.nil? ? '--' : company.state.name %>"
+   <%= "]," unless company == @companies.last %>
+<% end %>
+   ]
+]
+}

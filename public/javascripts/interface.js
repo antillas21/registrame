@@ -14,18 +14,47 @@ $j(document).ready(function() {
 		"bJQueryUI": true,
 		"sScrollX": 900,
 		"oLanguage": {
-			"sInfo": "Mostrando _START_ a _END_ de _TOTAL_ registros",
-			"sInfoEmpty": "Showing 0 a 0 de 0 registros",
-			"sInfoFiltered": "(filtrados de _MAX_ registros totales)",
-			"sSearch": "Buscar: "
+			"sProcessing":   "Procesando...",
+			"sLengthMenu":   "Mostrar _MENU_ registros",
+			"sZeroRecords":  "No se encontraron resultados",
+			"sInfo":         "Mostrando desde _START_ hasta _END_ de _TOTAL_ registros",
+			"sInfoEmpty":    "Mostrando desde 0 hasta 0 de 0 registros",
+			"sInfoFiltered": "(filtrado de _MAX_ registros en total)",
+			"sInfoPostFix":  "",
+			"sSearch":       "Buscar:",
+			"sUrl":          "",
+			"oPaginate": {
+				"sFirst":    "Primero",
+				"sPrevious": "Anterior",
+				"sNext":     "Siguiente",
+				"sLast":     "Último"
+			}
 		}
 	});
+	
 	
 	var oTable = $j('#results').dataTable({
 		"sScrollX": "100%",
 		"sDom": 'T<"clear">lfrtip',
 		"bJQueryUI": true,
-		"sPaginationType": "full_numbers"
+		"sPaginationType": "full_numbers",
+		"oLanguage": {
+			"sProcessing":   "Procesando...",
+			"sLengthMenu":   "Mostrar _MENU_ registros",
+			"sZeroRecords":  "No se encontraron resultados",
+			"sInfo":         "Mostrando desde _START_ hasta _END_ de _TOTAL_ registros",
+			"sInfoEmpty":    "Mostrando desde 0 hasta 0 de 0 registros",
+			"sInfoFiltered": "(filtrado de _MAX_ registros en total)",
+			"sInfoPostFix":  "",
+			"sSearch":       "Buscar:",
+			"sUrl":          "",
+			"oPaginate": {
+				"sFirst":    "Primero",
+				"sPrevious": "Anterior",
+				"sNext":     "Siguiente",
+				"sLast":     "Último"
+			}
+		}
 	});
 	$j("tfoot input").keyup( function () {
 		/* Filter on the column (the index) of this element */
@@ -67,5 +96,56 @@ $j(document).ready(function() {
 	   $j(this).removeClass("hover");
 	   $j('.open',this).removeClass("open");
 	   $j('ul:first',this).css('visibility', 'hidden');
-	});	
+	});
+	
+	$j('#users').dataTable({
+		"bJQueryUI": true,
+		"bProcessing": true,
+		"bServerSide": true,
+		"sAjaxSource": "datatable",
+		"oLanguage": {
+			"sProcessing":   "Procesando...",
+			"sLengthMenu":   "Mostrar _MENU_ registros",
+			"sZeroRecords":  "No se encontraron resultados",
+			"sInfo":         "Mostrando desde _START_ hasta _END_ de _TOTAL_ registros",
+			"sInfoEmpty":    "Mostrando desde 0 hasta 0 de 0 registros",
+			"sInfoFiltered": "(filtrado de _MAX_ registros en total)",
+			"sInfoPostFix":  "",
+			"sSearch":       "Buscar:",
+			"sUrl":          "",
+			"oPaginate": {
+				"sFirst":    "Primero",
+				"sPrevious": "Anterior",
+				"sNext":     "Siguiente",
+				"sLast":     "Último"
+			}
+		}
+	});
+	
+	$j('#companies').dataTable({
+		"bJQueryUI": true,
+		"bProcessing": true,
+		"bServerSide": true,
+		"sAjaxSource": "companytable",
+		"oLanguage": {
+			"sProcessing":   "Procesando...",
+			"sLengthMenu":   "Mostrar _MENU_ registros",
+			"sZeroRecords":  "No se encontraron resultados",
+			"sInfo":         "Mostrando desde _START_ hasta _END_ de _TOTAL_ registros",
+			"sInfoEmpty":    "Mostrando desde 0 hasta 0 de 0 registros",
+			"sInfoFiltered": "(filtrado de _MAX_ registros en total)",
+			"sInfoPostFix":  "",
+			"sSearch":       "Buscar:",
+			"sUrl":          "",
+			"oPaginate": {
+				"sFirst":    "Primero",
+				"sPrevious": "Anterior",
+				"sNext":     "Siguiente",
+				"sLast":     "Último"
+			}
+		}
+	});
+	
 });
+
+

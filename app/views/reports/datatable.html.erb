@@ -1,0 +1,12 @@
+ {
+"sEcho": <%=h @sEcho %>,
+"iTotalRecords": <%= @iTotalRecords %>,
+"iTotalDisplayRecords": <%= @iTotalDisplayRecords %>,
+"aaData" : [ 
+<% @users.each do |user| %>
+   [   "<a href='<%= url_for(user) %>'><%= user.full_name %></a> &raquo; <%= user.company.name %>"
+   <%= "]," unless user == @users.last %>
+<% end %>
+   ]
+]
+}

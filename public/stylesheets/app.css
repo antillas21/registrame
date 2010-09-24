@@ -8,11 +8,10 @@
 #stats table { width: 100%;}
 #stats h2 { padding: 7px 10px; font-style: normal; }
 #results td, #results th { width: 220px;}
+#users td, #companies td, .data td { width: 940px; color: #555; }
 
 body { background: #3383bb url('../images/body.png'); color: #333; line-height: 140%; }
 td { padding: 10px; }
-td.first { width: 760px; }
-td.fourteen { width: 960px; }
 li { list-style: disc inside;}
 form input[type=text] { height: 24px; font-size: 14px; margin: 5px; color: #454545; }
 form p { margin-top: 20px;}
@@ -35,7 +34,6 @@ tr:hover div { visibility: visible; }
 .auto_complete ul li { padding: 5px; }
 .notes, #footer { font-size: 11px; color: #777; }
 .errorExplanation, #flash_notice { padding: 10px;}
-.inclinado { font-style: italic; color: #777;}
 .userinfo { border: 2px solid #e6e6e6; padding: 15px; font-size: 16px; line-height: 140%; -moz-border-radius: 8px; margin-bottom: 10px; }
 .recordtop { margin-bottom: 10px; }
 .dash { margin-bottom: 20px; }

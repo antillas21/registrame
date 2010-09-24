@@ -1,0 +1,10 @@
+{"sEcho": <%= params[:sEcho] || -1 %>,
+ "iTotalRecords": <%= @total_objects %>,
+ "iTotalDisplayRecords": <%= @total_object %>,
+ "aaData":[
+<% @objects.each do |object| %>
+  ["<%= object.name %>",
+   "<%= object.created_at %>"
+  ],
+<% end %>
+]}

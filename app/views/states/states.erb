@@ -1,0 +1,12 @@
+{
+"sEcho": <%=h @sEcho %>,
+"iTotalRecords": <%= @iTotalRecords %>,
+"iTotalDisplayRecords": <%= @iTotalDisplayRecords %>,
+"aaData" : [ 
+<% @states.each do |state| %>
+   [   "<%=h state.name %>"
+   <%= "]," unless state == @states.last %>
+<% end %>
+   ]
+]
+}

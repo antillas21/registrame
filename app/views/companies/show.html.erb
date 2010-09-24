@@ -25,9 +25,9 @@
 	<tbody>
 	<% @company.users.each do |user| %>
 	<tr>
-		<td class="fourteen">
+		<td>
 			<%= link_to h(user.full_name), user %> &raquo; <%= h(user.email) %><br />
-			<span class="inclinado"><%= h(user.job) unless user.job.nil? %> &raquo; <%= h(user.department.name) unless user.department.nil? %></span>
+			<span><%= h(user.job) unless user.job.nil? %> &raquo; <%= h(user.department.name) unless user.department.nil? %></span>
 			<div class="hovercontrol grid_2">
 				<%= link_to "<span class=\"ui-icon ui-icon-pencil\" style=\"float: left; margin-right: 10px;\">icon</span>", edit_user_path(user) %>
 				<%= link_to "<span class=\"ui-icon ui-icon-trash\" style=\"float: left; margin-right: 10px;\">icon</span>", user, :confirm => "Esta seguro que desea borrar este Registro?", :method => :delete %>

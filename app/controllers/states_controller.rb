@@ -1,12 +1,28 @@
 class StatesController < ApplicationController
   before_filter :title, :except => [:destroy]
   
+  def table
+      @states = State.all
+      @total = State.count
+      respond_to do |format|
+        format.html
+        format.json
+      end
+  end
+  
+  def sample
+    @myvar = "States"
+    render :file => 'app/views/states/sample.html.erb'
+  end
+  
+  
   def index
     @states = State.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @states }
       format.js
+      format.json { render :json => @states }
     end
   end
   
