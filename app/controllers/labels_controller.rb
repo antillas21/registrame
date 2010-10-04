@@ -1,5 +1,6 @@
 class LabelsController < ApplicationController
   before_filter :title, :except => [:destroy]
+  cache_sweeper :label_sweeper, :only => [:create, :update, :destroy]
   
   def index
     @labels = Label.all

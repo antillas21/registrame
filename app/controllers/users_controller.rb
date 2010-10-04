@@ -5,11 +5,11 @@ class UsersController < ApplicationController
     @@label = Label.first
     prawnto :prawn => {
                 :page_layout => :portrait,
-                :page_size => [(@@label.width), (@@label.height)],
                 :left_margin => (@@label.left),
                 :right_margin => (@@label.right),
                 :top_margin => (@@label.top),
-                :bottom_margin => (@@label.bottom)
+                :bottom_margin => (@@label.bottom),
+                :page_size => [(@@label.width), (@@label.height)]
                 }  
   end
   

@@ -28,6 +28,10 @@
 			<td<%= f.text_field :bottom, :size => 10 %></td>
 		</tr>
 	</table>
+	<p><%= f.label "Tamaño de letra " %>
+		<%= f.text_field :font_size, :size => 10 %>
+		<span class="notes">Este tama&ntilde;o se expresa en pts.</span>
+	</p>
 	<%= f.submit "Registrar" %>
 <% end %>
 </div>
