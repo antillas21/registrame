@@ -10,6 +10,7 @@ class LabelSweeper < ActionController::Caching::Sweeper
   end
   
   def expire_cache(label)
-    expire_page :controller => 'users', :action => 'show', :format => 'pdf'
+    #expire_page :controller => 'users', :action => 'show', :id => params[:id], :format => 'pdf'
+    expire_page :controller => 'labels', :action => 'index'
   end
 end
