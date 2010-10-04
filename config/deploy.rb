@@ -1,7 +1,7 @@
-set :spinner_user, "apps"
-set :runner, "apps"
+set :spinner_user, "appsadmin"
+set :runner, "appsadmin"
 set :application, "registrame"
-set :user, "apps"
+set :user, "appsadmin"
 set :password, "aima780804"
 set :use_sudo, true
 
