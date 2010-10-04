@@ -33,7 +33,10 @@ $j(document).ready(function() {
 	});
 	
 	
-	var oTable = $j('#results').dataTable({
+	var oTable = $j('#customreport').dataTable({
+		"bProcessing": true,
+		"bServerSide": true,
+		"sAjaxSource": "reportable",
 		"sScrollX": "100%",
 		"sDom": 'T<"clear">lfrtip',
 		"bJQueryUI": true,
@@ -145,6 +148,31 @@ $j(document).ready(function() {
 			}
 		}
 	});
+	
+	
+	//$j('#customreport').dataTable({
+	//	"bJQueryUI": true,
+	//	"bProcessing": true,
+	//	"bServerSide": true,
+	//	"sAjaxSource": "reportable",
+	//	"oLanguage": {
+	//		"sProcessing":   "Procesando...",
+	//		"sLengthMenu":   "Mostrar _MENU_ registros",
+	//		"sZeroRecords":  "No se encontraron resultados",
+	//		"sInfo":         "Mostrando desde _START_ hasta _END_ de _TOTAL_ registros",
+	//		"sInfoEmpty":    "Mostrando desde 0 hasta 0 de 0 registros",
+	//		"sInfoFiltered": "(filtrado de _MAX_ registros en total)",
+	//		"sInfoPostFix":  "",
+	//		"sSearch":       "Buscar:",
+	//		"sUrl":          "",
+	//		"oPaginate": {
+	//			"sFirst":    "Primero",
+	//			"sPrevious": "Anterior",
+	//			"sNext":     "Siguiente",
+	//			"sLast":     "Último"
+	//		}
+	//	}
+	//});
 	
 });
 

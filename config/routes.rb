@@ -49,6 +49,8 @@ ActionController::Routing::Routes.draw do |map|
   map.states_sample 'sample', :controller => 'states', :action => 'sample'
   map.datatable '/datatable', :controller => 'reports', :action => 'datatable'
   map.companytable '/companytable', :controller => 'reports', :action => 'companytable'
+  map.customreport '/customreport', :controller => 'reports', :action => 'customreport'
+  map.reportable '/reportable', :controller => 'reports', :action => 'reportable'
 
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should

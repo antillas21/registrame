@@ -1,7 +1,7 @@
-set :spinner_user, "aantillon"
-set :runner, "aantillon"
+set :spinner_user, "apps"
+set :runner, "apps"
 set :application, "registrame"
-set :user, "aantillon"
+set :user, "apps"
 set :password, "aima780804"
 set :use_sudo, true
 

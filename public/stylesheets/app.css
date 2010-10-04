@@ -10,7 +10,7 @@
 #results td, #results th { width: 220px;}
 #users td, #companies td, .data td { width: 940px; color: #555; }
 
-body { background: #3383bb url('../images/body.png'); color: #333; line-height: 140%; }
+body { background: #3383bb url('../images/body.png'); color: #333; line-height: 140%; font:12px/1.45em "Lucida Grande",Verdana,Arial,Helvetica,sans-serif }
 td { padding: 10px; }
 li { list-style: disc inside;}
 form input[type=text] { height: 24px; font-size: 14px; margin: 5px; color: #454545; }
