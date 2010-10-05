@@ -8,10 +8,12 @@ class CountriesController < ApplicationController
       format.xml  { render :xml => @countries }
       format.js
     end
+    @title = "Paises"
   end
 
   def new
     @country = Country.new
+    @title = "Agregar Pais"
   end
   
   def create
@@ -30,6 +32,7 @@ class CountriesController < ApplicationController
 
   def edit
     @country = Country.find(params[:id])
+    @title = "Editar Pais"
   end
   
   def update
@@ -50,7 +53,7 @@ class CountriesController < ApplicationController
   end
   
   def title
-    @title = "Pa&iacute;ses"
+    @title = "Paises"
   end
 
 end

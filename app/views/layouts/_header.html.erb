@@ -1,13 +1,17 @@
 <div id="header" class="grid_16">
-	<div id="logo" class="grid_6 alpha">
-		<img src="/images/registrame-logo.png" />
+	<div id="logo" class="grid_4">
+		<%= link_to image_tag("registrame-logo.png"), root_path %>
 	</div>
-	<div id="navigation" class="grid_6 prefix_1 omega">
-		<div id="nav-menu">
+	<div class="clear"></div>
+	<div id="navigation" class="ui-widget-header ui-helper-clearfix ui-corner-all pads">
+		<div class="grid_8 alpha">
+			<h1><%= h(@title) %></h1>
+		</div>
+		<div class="grid_7 omega" id="nav-menu">
 			<ul id="nav" class="dropdown dropdown-horizontal">
 				<li><%= link_to "Registros", users_path %></li>
 				<li><%= link_to "Empresas", companies_path %></li>
-				<li><span class="dir">Admin</span>
+				<li><span class="dir">Configuraci&oacute;n</span>
 					<ul class="submenu">
 						<% if gafete? %>
 							<li><%= link_to "Gafete", label_path(Label.first) %></li>

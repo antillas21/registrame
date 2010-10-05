@@ -19,10 +19,12 @@ class UsersController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @users }
     end
+    @title = "Registros"
   end
 
   def new
     @user = User.new
+    @title = "Agregar Registro"
   end
   
   def create
@@ -37,6 +39,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @title = "Editar Registro"
   end
 
   def show
@@ -45,6 +48,7 @@ class UsersController < ApplicationController
       format.html
       format.pdf { printed }
     end
+    @title = "Registro"
   end
   
   def printed

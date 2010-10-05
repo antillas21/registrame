@@ -8,6 +8,7 @@ class LabelsController < ApplicationController
 
   def new
     @label = Label.new
+    @title = "Configurar Gafete"
   end
   
   def create
@@ -22,6 +23,7 @@ class LabelsController < ApplicationController
 
   def edit
     @label = Label.find(params[:id])
+    @title = "Configurar Gafete"
   end
   
   def show

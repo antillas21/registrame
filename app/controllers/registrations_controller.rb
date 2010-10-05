@@ -7,6 +7,7 @@ class RegistrationsController < ApplicationController
 
   def new
     @registration = Registration.new
+    @title = "Agregar Tipo de Registro"
   end
   
   def create
@@ -21,6 +22,7 @@ class RegistrationsController < ApplicationController
 
   def edit
     @registration = Registration.find(params[:id])
+    @title = "Editar Tipo de Registro"
   end
   
   def show

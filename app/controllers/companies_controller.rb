@@ -8,10 +8,12 @@ class CompaniesController < ApplicationController
       format.xml  { render :xml => @companies }
       format.js
     end
+    @title = "Empresas"
   end
 
   def new
     @company = Company.new
+    @title = "Agregar Empresa"
   end
   
   def create
@@ -26,6 +28,7 @@ class CompaniesController < ApplicationController
 
   def edit
     @company = Company.find(params[:id])
+    @title = "Editar Empresa"
   end
   
   def show

@@ -7,6 +7,7 @@ class InterestsController < ApplicationController
 
   def new
     @interest = Interest.new
+    @title = "Agregar Interes"
   end
   
   def create
@@ -21,6 +22,7 @@ class InterestsController < ApplicationController
 
   def edit
     @interest = Interest.find(params[:id])
+    @title = "Editar Interes"
   end
   
   def show

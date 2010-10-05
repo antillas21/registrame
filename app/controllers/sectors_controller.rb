@@ -12,6 +12,7 @@ class SectorsController < ApplicationController
 
   def new
     @sector = Sector.new
+    @title = "Agregar Sector"
   end
   
   def create
@@ -26,6 +27,7 @@ class SectorsController < ApplicationController
 
   def edit
     @sector = Sector.find(params[:id])
+    @title = "Editar Sector"
   end
   
   def show

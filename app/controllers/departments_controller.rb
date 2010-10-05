@@ -12,6 +12,7 @@ class DepartmentsController < ApplicationController
 
   def new
     @department = Department.new
+    @title = "Agregar Departamento"
   end
   
   def create
@@ -26,6 +27,7 @@ class DepartmentsController < ApplicationController
 
   def edit
     @department = Department.find(params[:id])
+    @title = "Editar Departamento"
   end
   
   def show

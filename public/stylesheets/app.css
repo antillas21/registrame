@@ -1,14 +1,16 @@
 #page { background: #f8f8f8; margin-top: 20px; margin-bottom: 10px; -moz-border-radius: 8px;}
 #header { /*height: 100px;*/ margin-top: 10px; }
-#content { min-height: 500px; }
+#content { min-height: 500px; margin-top: 20px; }
+#footer { margin-bottom: 10px; }
 #footer, .as_button, input[type=submit] { margin-top: 20px; }
-#nav-menu { float: right; background: #cc0000; margin-top: 15px; }
+#nav-menu { float: right; background: #cc0000; }
 #misc ul { list-style: disc inside; margin-bottom: 15px; }
 #flash_notice { margin-bottom: 10px;}
 #stats table { width: 100%;}
 #stats h2 { padding: 7px 10px; font-style: normal; }
 #results td, #results th { width: 220px;}
 #users td, #companies td, .data td { width: 940px; color: #555; }
+#help { font-size: 18px; line-height: 140%;}
 
 body { background: #3383bb url('../images/body.png'); color: #333; line-height: 140%; font:12px/1.45em "Lucida Grande",Verdana,Arial,Helvetica,sans-serif }
 td { padding: 10px; }

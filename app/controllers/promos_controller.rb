@@ -7,12 +7,13 @@ class PromosController < ApplicationController
 
   def new
     @promo = Promo.new
+    @title = "Agregar Medio de Promocion"
   end
   
   def create
     @promo = Promo.new(params[:promo])
     if @promo.save
-      flash[:notice] = "Nuevo Promocional agregado"
+      flash[:notice] = "Nuevo Medio de Promoci&oacute;n agregado"
       redirect_to promos_path
     else
       render 'new'
@@ -21,6 +22,7 @@ class PromosController < ApplicationController
 
   def edit
     @promo = Promo.find(params[:id])
+    @title = "Editar Medio de Promocion"
   end
   
   def show
@@ -30,7 +32,7 @@ class PromosController < ApplicationController
   def update
     @promo = Promo.find(params[:id])
     if @promo.update_attributes(params[:promo])
-      flash[:notice] = "Promocional modificado exitosamente"
+      flash[:notice] = "Medio de Promoci&oacute;n modificado exitosamente"
       redirect_to promos_path
     else
       render 'edit'
@@ -40,12 +42,12 @@ class PromosController < ApplicationController
   def destroy
     @promo = Promo.find(params[:id])
     @promo.destroy
-    flash[:notice] = "Promocional eliminado exitosamente"
+    flash[:notice] = "Medio de Promoci&oacute;n eliminado exitosamente"
     redirect_to promos_path
   end
   
   def title
-    @title = "M&eacute;todos de Promoci&oacute;n"
+    @title = "Medios de Promocion"
   end
 
 end

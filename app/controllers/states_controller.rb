@@ -32,6 +32,7 @@ class StatesController < ApplicationController
 
   def new
     @state = State.new
+    @title = "Agregar Estado"
   end
 
   def create
@@ -46,6 +47,7 @@ class StatesController < ApplicationController
 
   def edit
     @state = State.find(params[:id])
+    @title = "Editar Estado"
   end
 
   def update
