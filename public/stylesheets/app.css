@@ -1,4 +1,4 @@
-#page { background: #f8f8f8; margin-top: 20px; margin-bottom: 10px; -moz-border-radius: 8px;}
+#page { background: #f8f8f8; margin-top: 20px; margin-bottom: 10px; -moz-border-radius: 8px; -webkit-border-radius: 8px;}
 #header { /*height: 100px;*/ margin-top: 10px; }
 #content { min-height: 500px; margin-top: 20px; }
 #footer { margin-bottom: 10px; }
@@ -11,8 +11,10 @@
 #results td, #results th { width: 220px;}
 #users td, #companies td, .data td { width: 940px; color: #555; }
 #help { font-size: 18px; line-height: 140%;}
+#customreport_filter { width: 40%; padding-right: 20px;}
 
-body { background: #3383bb url('../images/body.png'); color: #333; line-height: 140%; font:12px/1.45em "Lucida Grande",Verdana,Arial,Helvetica,sans-serif }
+
+body { background: #362f2d url('../images/body.png'); color: #333; line-height: 140%; font:12px/1.45em "Lucida Grande",Verdana,Arial,Helvetica,sans-serif }
 td { padding: 10px; }
 li { list-style: disc inside;}
 form input[type=text] { height: 24px; font-size: 14px; margin: 5px; color: #454545; }
@@ -36,7 +38,7 @@ tr:hover div { visibility: visible; }
 .auto_complete ul li { padding: 5px; }
 .notes, #footer { font-size: 11px; color: #777; }
 .errorExplanation, #flash_notice { padding: 10px;}
-.userinfo { border: 2px solid #e6e6e6; padding: 15px; font-size: 16px; line-height: 140%; -moz-border-radius: 8px; margin-bottom: 10px; }
+.userinfo { border: 2px solid #e6e6e6; padding: 15px; font-size: 16px; line-height: 140%; -moz-border-radius: 8px; -webkit-border-radius: 8px; margin-bottom: 10px; }
 .recordtop { margin-bottom: 10px; }
 .dash { margin-bottom: 20px; }
 .pads { padding: 10px;}

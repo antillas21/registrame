@@ -6,7 +6,7 @@ $j(document).ready(function() {
 	$j('input:submit, .as_button').button();
 	//alert("Nueva alerta");
 	$j('select, input:checkbox, input:radio, input:file').uniform();
-	
+		
 	$j('.data').dataTable({
 		//"sPaginationType": "full_numbers",
 		"iDisplayLength": 10,
@@ -38,9 +38,12 @@ $j(document).ready(function() {
 		"bServerSide": true,
 		"sAjaxSource": "reportable",
 		"sScrollX": "100%",
-		"sDom": 'T<"clear">lfrtip',
+		"bFilter": true,
+		"bSort": true,
 		"bJQueryUI": true,
 		"sPaginationType": "full_numbers",
+		"sDom": '<"H"lTfr>t<"F"ip>',
+		"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
 		"oLanguage": {
 			"sProcessing":   "Procesando...",
 			"sLengthMenu":   "Mostrar _MENU_ registros",

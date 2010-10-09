@@ -13,3 +13,4 @@ config/s3.yml
 config/mail_servers.yml
 config/backup_fu.yml
 config/billing_on_rails.yml
+config/deploy.rb

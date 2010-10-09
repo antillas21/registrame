@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   #attr_accessible :lname, :fname, :email, :job, :department_id, :company_id
-  validates_presence_of :lname, :fname, :email, :registration_id
+  validates_presence_of :lname, :fname, :registration_id
   validates_uniqueness_of :email, :case_sensitive => false
   
   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

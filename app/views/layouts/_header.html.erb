@@ -4,11 +4,12 @@
 	</div>
 	<div class="clear"></div>
 	<div id="navigation" class="ui-widget-header ui-helper-clearfix ui-corner-all pads">
-		<div class="grid_8 alpha">
+		<div class="grid_7 alpha">
 			<h1><%= h(@title) %></h1>
 		</div>
 		<div class="grid_7 omega" id="nav-menu">
 			<ul id="nav" class="dropdown dropdown-horizontal">
+				<li><%= link_to "Nuevo Registro", new_user_path %></li>
 				<li><%= link_to "Registros", users_path %></li>
 				<li><%= link_to "Empresas", companies_path %></li>
 				<li><span class="dir">Configuraci&oacute;n</span>
