@@ -1,0 +1,27 @@
+<%= semantic_form_for @person do |f| %>
+	<% if registrations? %>
+		<p><%= f.label "Tipo de registro" %><br />
+			<%= f.input :registration, :as => :radio, :label => false %>
+		</p>
+	<% end %>
+	<p><%= f.label :fname, "Nombre(s)" %><br />
+		<%= f.text_field :fname %>
+	</p>
+	<p><%= f.label :lname, "Apellido(s)" %><br />
+		<%= f.text_field :lname %>
+	</p>
+	<p><%= f.label :email, "Email" %><br />
+		<%= f.text_field :email %>
+	</p>
+	<% if interests? %>
+		<p><%= f.label "Intereses" %><br />
+			<%= f.input :interests, :as => :check_boxes, :label => false %>
+		</p>
+	<% end %>
+	<% if promotions? %>
+		<p><%= f.label "Como se entero del evento" %><br />
+			<%= f.input :promotions, :as => :check_boxes, :label => false %>
+		</p>
+	<% end %>
+	<%= f.submit "Registrar" %>
+<% end %>

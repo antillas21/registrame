@@ -1,0 +1,20 @@
+<h2>Sectores</h2>
+
+<%= link_to "Agregar Sector", new_sector_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+			<th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sectors.each do |sector| %>
+      <tr>
+        <td><%= sector.name %></td>
+				<td><%= link_to "Editar", edit_sector_path(sector) %> | <%= link_to "Borrar", sector, :method => :delete, :confirm => "Esta seguro de querer borrar este sector?"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

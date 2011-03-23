@@ -1,0 +1,19 @@
+<h2>Intereses</h2>
+<%= link_to "Agregar interes", new_interest_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+			<th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @interests.each do |interest| %>
+      <tr>
+        <td><%= interest.name %></td>
+				<td><%= link_to "Editar", edit_interest_path(interest) %> | <%= link_to "Borrar", interest, :method => :delete, :confirm => "Esta seguro que desea borrar este interes?" %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

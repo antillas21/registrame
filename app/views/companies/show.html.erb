@@ -1,0 +1,7 @@
+<h2><%= @company.name %></h2>
+<%= link_to 'Editar', edit_company_path(@company) %>
+<%= link_to 'Borrar', company_path(@company), :method => :delete, :confirm => "Esta seguro?" %>
+
+<div>
+	<%= "#{@company.profile.join("<br />")}".html_safe %>
+</div>

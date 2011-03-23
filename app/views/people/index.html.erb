@@ -1,0 +1,21 @@
+<h2>Asistentes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+			<th>Email</th>
+			<th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= link_to person.full_name, person_path(person) %></td>
+				<td><%= person.email %></td>
+				<td><%= link_to "Editar", edit_person_path(person) %> | <%= link_to "Borrar", person, :method => :delete, :confirm => "Esta seguro que desea borrar este reistro?" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

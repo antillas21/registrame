@@ -1,0 +1,20 @@
+<h2>Medios de Promocion</h2>
+
+<%= link_to "Agregar Medio de Promocion", new_promotion_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+			<th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @promotions.each do |promotion| %>
+      <tr>
+        <td><%= promotion.name %></td>
+				<td><%= link_to "Editar", edit_promotion_path(promotion) %> | <%= link_to "Borrar", promotion, :method => :delete, :confirm => "Esta seguro de querer borrar este medio de promocion?"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

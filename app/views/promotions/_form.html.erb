@@ -1,0 +1,8 @@
+<%= form_for @promotion do |f| %>
+  <p>
+    <%= f.label :name, "Nombre" %><br />
+    <%= f.text_field :name %>
+  </p>
+  <%= f.submit "Agregar" %>
+<% end %>
+

@@ -1,0 +1,17 @@
+<h2>Empresas</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= link_to company.name, company_path(company) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

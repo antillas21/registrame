@@ -1,0 +1,33 @@
+<h2>Editar gafete</h2>
+<%= form_for @name_badge do |f| %>
+  <p>
+  <%= f.label :name, "Nombre" %>
+  <%= f.text_field :name %>
+  </p>
+  <p>
+  <%= f.label :width, "Ancho" %>
+  <%= f.text_field :width %>
+  </p>
+  <p>
+  <%= f.label :height, "Alto" %>
+  <%= f.text_field :height %>
+  </p>
+  <h3>M&aacute;rgenes</h3>
+  <p>
+  <%= f.label :top, "Superior" %>
+  <%= f.text_field :top %>
+  </p>
+  <p>
+  <%= f.label :bottom, "Inferior" %>
+  <%= f.text_field :bottom %>
+  </p>
+  <p>
+  <%= f.label :left, "Izquierdo" %>
+  <%= f.text_field :left %>
+  </p>
+  <p>
+  <%= f.label :right, "Derecho" %>
+  <%= f.text_field :right %>
+  </p>
+  <%= f.submit "Guardar" %>
+<% end %>

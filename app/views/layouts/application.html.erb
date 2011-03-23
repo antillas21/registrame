@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registrame02</title>
+  <%= stylesheet_link_tag 'screen', :media => 'screen, projection' %>
+  <%= stylesheet_link_tag 'jquery-ui', :media => 'screen, projection' %>
+  <%= stylesheet_link_tag 'print', :media => 'print' %>
+  <!--[if lt IE 8]><%= stylesheet_link_tag 'ie', :media => 'screen, projection' %><![endif]-->
+  <%= javascript_include_tag 'jquery', 'rails', 'jquery-ui', 'application' %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <div id="wrapper" class="container">
+    <div id="header" class="span-24 last">
+			<%= link_to 'Registrar asistente', new_person_path %>
+      <%= link_to 'Agregar empresa', new_company_path %>
+      <%= link_to 'Empresas', companies_path %>
+      <%= link_to 'Gafete', name_badges_path %>
+    </div>
+    <div id="main" class="span-24 last">
+      <% flash.each do |key, value| %>
+        <div class='flash' id='<%= key %>'>
+          <%= value %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+    <div id="footer" class="span-24 last">
+      Footer
+    </div>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,20 @@
+<h2>Tipos de Registro</h2>
+
+<%= link_to "Agregar Tipo de Registro", new_registration_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+			<th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @registrations.each do |registration| %>
+      <tr>
+        <td><%= registration.name %></td>
+				<td><%= link_to "Editar", edit_registration_path(registration) %> | <%= link_to "Borrar", registration, :method => :delete, :confirm => "Esta seguro de querer borrar este tipo de registro?"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

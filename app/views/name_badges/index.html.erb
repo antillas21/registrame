@@ -1,0 +1,5 @@
+<ul>
+	<% @name_badges.each do |badge| %>
+		<li><%= link_to badge.name, name_badge_path(badge) %></li>
+	<% end %>
+</ul>
