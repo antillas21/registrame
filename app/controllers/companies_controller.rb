@@ -4,6 +4,10 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @companies }
+    end
   end
 
   def new

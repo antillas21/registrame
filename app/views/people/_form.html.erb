@@ -13,6 +13,10 @@
 	<p><%= f.label :email, "Email" %><br />
 		<%= f.text_field :email %>
 	</p>
+	<p>
+    <%= f.label :company_name, "Empresa" %><br />
+    <%= f.text_field :company_name %>
+  </p>
 	<% if interests? %>
 		<p><%= f.label "Intereses" %><br />
 			<%= f.input :interests, :as => :check_boxes, :label => false %>

@@ -3,6 +3,7 @@ class Company < ActiveRecord::Base
   belongs_to :state
   belongs_to :country
   belongs_to :sector
+  has_many :people
 
   def state_name
     state.name if state
@@ -30,5 +31,6 @@ class Company < ActiveRecord::Base
     self.send(attribute)
     end.reject(&:blank?).compact
   end
+  
 end
 

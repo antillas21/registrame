@@ -39,6 +39,26 @@ $(document).ready( function(){
 				});
 			}
 		});
+  
+	$.ajax({
+		url: "/companies.xml",
+		dataType: "xml",
+		success: function( xmlResponse ) {
+			var data = $( "company", xmlResponse ).map(function() {
+				return {
+					value: $( "name", this ).text(),
+					id: $( "id", this ).text()
+				};
+			}).get();
+			$( "#person_company_name" ).autocomplete({
+				source: data,
+				minLength: 0,
+				select: function( event, ui ) {
+
+				}
+			});
+		}
+	});
 
 });
 
