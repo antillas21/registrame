@@ -1,0 +1,11 @@
+{
+"sEcho": <%=h @sEcho %>,
+"iTotalRecords": <%= @iTotalRecords %>,
+"iTotalDisplayRecords": <%= @iTotalDisplayRecords %>,
+"aaData": [ 
+<% @companies.each do |company| %>
+   ["<%= company.name %> <%= pluralize(company.people.count, 'persona') %>"<%= "]," unless company == @companies.last %>
+<% end %>
+   ]
+]
+}

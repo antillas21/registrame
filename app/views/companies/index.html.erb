@@ -5,19 +5,6 @@
 	<%= link_to '<span class="plus icon"></span>Agregar Empresa'.html_safe, new_company_path, :class => 'button' %>
 </div>
 
-
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @companies.each do |company| %>
-      <tr>
-        <td><%= link_to company.name, company_path(company) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div id="Results">
+	
+</div>

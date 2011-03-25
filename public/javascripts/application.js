@@ -64,11 +64,4 @@ $(document).ready( function(){
 
 $(document).ready(function(){
 	$('input:submit').button();
-	//$('.asButton').button({
-	  //          icons: {
-	    //            primary: "ui-icon-check"
-	      //      }
-	      //  });
-	//$('.flash').effect('fade', 4000);
-	//$('input:checkbox, input:radio').uniform();
 });

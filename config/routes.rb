@@ -9,6 +9,8 @@ Registrame02::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
+  match '/companytable', :controller => 'pages', :action => 'companytable'
+  match '/pages/companytable', :controller => 'pages', :action => 'companytable'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

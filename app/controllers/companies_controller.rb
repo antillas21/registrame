@@ -1,13 +1,15 @@
 class CompaniesController < ApplicationController
-
+  respond_to :html, :json, :xml
   before_filter :find_company, :only => [:show, :edit, :update, :destroy]
 
   def index
     @companies = Company.all
-    respond_to do |format|
-      format.html
-      format.xml { render :xml => @companies }
-    end
+    respond_with(@companies)
+    #respond_to do |format|
+     # format.html
+      #format.xml { render :xml => @companies }
+      #format.js
+    #end
   end
 
   def new
@@ -25,7 +27,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-
+    respond_with(@company)
   end
 
   def edit
