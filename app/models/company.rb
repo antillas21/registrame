@@ -1,5 +1,5 @@
 class Company < ActiveRecord::Base
-  validates :name, :presence => true
+  validates_presence_of :name
   belongs_to :state
   belongs_to :country
   belongs_to :sector

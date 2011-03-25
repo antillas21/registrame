@@ -36,6 +36,11 @@ class PeopleController < ApplicationController
     end
   end
   
+  def destroy
+    @person.destroy
+    redirect_to people_path, :notice => "Se ha eliminado el registro."
+  end
+  
   private
     def find_person
       @person = Person.find(params[:id])

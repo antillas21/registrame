@@ -1,0 +1,15 @@
+body { background: #03202a url(images/bg.png);}
+h1, h2 { font-weight: bold; color: #666666; text-shadow: 0 1px 0 #FFFFFF; }
+textarea, input[type=text] { font-size: 110%;}
+textarea, input:not([type="checkbox"]):not([type="radio"]):not([type="file"]) { padding: 8px;}
+thead th { background: #0084b4; color: #f5f5f5;}
+tbody tr:nth-child(2n) td, tbody tr.even td { background: #ddeef6;}
+th, td, caption { padding: 10px 10px;}
+table { border: 1px solid #dddddd;}
+#wrapper { background: #f5f5f5; min-height: 600px;}
+#header { padding-top: 40px; }
+#nav { padding-bottom: 20px; }
+.content { padding: 10px 25px;}
+#footer { padding-bottom: 20px;}
+a.button.middle, a.button.left { margin-right: -3px;}
+a.button.right { margin-left: 0;}

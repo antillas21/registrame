@@ -1,5 +1,10 @@
-<h2>Intereses</h2>
-<%= link_to "Agregar interes", new_interest_path %>
+<div class="span-10">
+	<h2>Intereses</h2>
+</div>
+<div class="span-10">
+	<%= link_to '<span class="plus icon"></span>Agregar Interes'.html_safe, new_interest_path, :class => 'button' %>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -11,7 +16,7 @@
     <% @interests.each do |interest| %>
       <tr>
         <td><%= interest.name %></td>
-				<td><%= link_to "Editar", edit_interest_path(interest) %> | <%= link_to "Borrar", interest, :method => :delete, :confirm => "Esta seguro que desea borrar este interes?" %> </td>
+				<td><%= link_to '<span class="pen icon"></span>Editar'.html_safe, edit_interest_path(interest), :class => 'button left' %> <%= link_to '<span class="trash icon"></span>Borrar'.html_safe, interest, :method => :delete, :confirm => "Esta seguro que desea borrar este interes?", :class => 'button right negative' %> </td>
       </tr>
     <% end %>
   </tbody>

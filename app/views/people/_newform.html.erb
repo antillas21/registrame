@@ -1,0 +1,38 @@
+<%= semantic_form_for @person do |f| %>
+	<% if registrations? %>
+	<div id="radiobutton">
+		<ul>
+		<% Registration.all.each do |option| %>
+				<li>
+					<%= f.radio_button(:registration_id, option.id) %>
+					<%= f.label "#{option.name}" %>
+				</li>
+		<% end %>
+		</ul>
+	</div>
+	<% end %>
+	<p><%= f.label :fname, "Nombre(s)" %><br />
+		<%= f.text_field :fname %>
+	</p>
+	<p><%= f.label :lname, "Apellido(s)" %><br />
+		<%= f.text_field :lname %>
+	</p>
+	<p><%= f.label :email, "Email" %><br />
+		<%= f.text_field :email %>
+	</p>
+	<p>
+    <%= f.label :company_name, "Empresa" %><br />
+    <%= f.text_field :company_name %>
+  </p>
+	<% if interests? %>
+		<p><%= f.label "Intereses" %><br />
+			<%= f.input :interests, :as => :check_boxes, :label => false %>
+		</p>
+	<% end %>
+	<% if promotions? %>
+		<p><%= f.label "Como se entero del evento" %><br />
+			<%= f.input :promotions, :as => :check_boxes, :label => false %>
+		</p>
+	<% end %>
+	<%= f.submit "Registrar" %>
+<% end %>

@@ -2,3 +2,12 @@
 <div class="menu">
 <%= link_to "Editar", edit_name_badge_path(@name_badge) %>
 </div>
+<div>
+	Tama&ntilde;o: <%= @name_badge.width %> x <%= @name_badge.height %><br />
+	M&aacute;rgenes:<br />
+	Izquierdo: <%= @name_badge.left %><br />
+	Derecho: <%= @name_badge.right %><br />
+	Superior: <%= @name_badge.top %><br />
+	Inferior: <%= @name_badge.bottom %><br />
+	Tamã&ntilde;o de letra: <%= @name_badge.font_size %>
+</div>
