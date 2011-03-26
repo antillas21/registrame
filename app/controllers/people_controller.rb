@@ -3,6 +3,11 @@ class PeopleController < ApplicationController
   
   def index
     @people = Person.all
+    respond_to do |format|
+      format.html
+      format.xml { render_for_api :complete_record, :xml => @people, :root => :people }
+      format.json { render_for_api :complete_record, :json => @people, :root => :people }
+    end
   end
   
   def new
@@ -24,7 +29,11 @@ class PeopleController < ApplicationController
   end
   
   def show
-    
+    respond_to do |format|
+      format.html
+      format.xml { render_for_api :complete_record, :xml => @person }
+      format.json { render_for_api :complete_record, :json => @person }
+    end
   end
   
   def update

@@ -10,6 +10,18 @@ class Person < ActiveRecord::Base
   belongs_to :registration
   belongs_to :company
   
+  acts_as_api
+  api_accessible :complete_record do |template|
+    template.add :fname, :as => :first_name
+    template.add :lname, :as => :last_name
+    template.add :email
+    template.add :job
+    template.add :company_name, :as => :company
+    template.add :registration_name, :as => :registration_type
+    template.add :interests
+    template.add :promotions
+  end
+  
   def full_name
     [fname, lname].join(' ')
   end

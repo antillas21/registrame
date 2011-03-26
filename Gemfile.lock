@@ -28,6 +28,10 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
+    acts_as_api (0.3.0)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      rack (>= 1.1.0)
     arel (2.0.6)
     builder (2.1.2)
     capybara (0.4.0)
@@ -127,6 +131,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_api
   capybara
   cucumber-rails
   formtastic (~> 1.2.3)

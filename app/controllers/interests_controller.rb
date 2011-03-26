@@ -3,6 +3,11 @@ class InterestsController < ApplicationController
 
   def index
     @interests = Interest.all
+    respond_to do |format|
+      format.html
+      format.xml { render_for_api :complete_record, :xml => @interests, :root => :interests }
+      format.json { render_for_api :complete_record, :json => @interests, :root => :interests }
+    end
   end
 
   def new

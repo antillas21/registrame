@@ -3,6 +3,11 @@ class PromotionsController < ApplicationController
 
   def index
     @promotions = Promotion.all
+    respond_to do |format|
+      format.html
+      format.xml { render_for_api :complete_record, :xml => @promotions, :root => :promotions }
+      format.json { render_for_api :complete_record, :json => @promotions, :root => :promotions }
+    end
   end
 
   def new
