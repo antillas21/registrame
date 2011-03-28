@@ -4,9 +4,9 @@ class PagesController < ApplicationController
   end
   
   def companytable
-    @companies = Company.all( :order => "#{companytable_columns(params[:iSortCol_0])} #{params[:sSortDir_0] || "ASC"}", :limit => params[:iDisplayLength], :offset => params[:iDisplayStart], :conditions => [ 'name LIKE ?', "%#{params[:sSearch]}%" ])
+    @companies = Company.where('name LIKE ?', "%#{params[:sSearch]}%").order("#{companytable_columns(params[:iSortCol_0])} #{params[:sSortDir_0] || "ASC"}").limit(params[:iDisplayLength]).offset(params[:iDisplayStart])
     @iTotalRecords = Company.count
-    @iTotalDisplayRecords = Company.count( :conditions => [ 'name LIKE ?', "%#{params[:sSearch]}%" ] )
+    @iTotalDisplayRecords = Company.where('name LIKE ?', "%#{params[:sSearch]}%").count
     @sEcho = params[:sEcho].to_i
     render :layout => false
   end

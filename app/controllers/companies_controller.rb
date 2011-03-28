@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
   before_filter :find_company, :only => [:show, :edit, :update, :destroy]
 
   def index
-    @companies = Company.all
+    @companies = Company.where('name LIKE ?', "%#{params[:search]}%")
     respond_to do |format|
       format.html
       format.xml { render_for_api :name_only, :xml => @companies, :root => :companies }

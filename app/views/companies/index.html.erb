@@ -5,6 +5,44 @@
 	<%= link_to '<span class="plus icon"></span>Agregar Empresa'.html_safe, new_company_path, :class => 'button' %>
 </div>
 
-<div id="Results">
-	
+<div id="companies">
+	<table id="companies">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>JSON</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
+
+<script type="text/javascript">
+	$('table#companies').dataTable({
+		"bJQueryUI": true,
+		"sPaginationType": "full_numbers",
+		"bProcessing": true,
+		"bServerSide": true,
+		"sAjaxSource": "/companytable.html",
+		"oLanguage": {
+					"sProcessing":   "Procesando...",
+					"sLengthMenu":   "Mostrar _MENU_ registros",
+					"sZeroRecords":  "No se encontraron resultados",
+					"sInfo":         "Mostrando desde _START_ hasta _END_ de _TOTAL_ registros",
+					"sInfoEmpty":    "Mostrando desde 0 hasta 0 de 0 registros",
+					"sInfoFiltered": "(filtrado de _MAX_ registros en total)",
+					"sInfoPostFix":  "",
+					"sSearch":       "Buscar empresa:",
+					"sUrl":          "",
+					"oPaginate": {
+						"sFirst":    "Primero",
+						"sPrevious": "Anterior",
+						"sNext":     "Siguiente",
+						"sLast":     "Último"
+					}
+				}
+	});
+</script>

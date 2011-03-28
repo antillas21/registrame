@@ -8,12 +8,9 @@ class Company < ActiveRecord::Base
   acts_as_api
   api_accessible :name_only do |template|
     template.add :name
-    template.add :address1, :as => :address_line_1
-    template.add :address2, :as => :address_line_2
     template.add :city
     template.add :state_name, :as => :state
     template.add :country_name, :as => :country
-    template.add :sector_name, :as => :sector
   end
 
   def state_name
