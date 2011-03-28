@@ -11,6 +11,7 @@ Registrame02::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
   match '/companytable', :controller => 'pages', :action => 'companytable'
   match '/pages/companytable', :controller => 'pages', :action => 'companytable'
+  match '/peopletable', :controller => 'pages', :action => 'peopletable'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

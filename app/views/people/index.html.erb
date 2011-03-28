@@ -6,22 +6,46 @@
 </div>
 
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-			<th>Email</th>
-			<th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @people.each do |person| %>
-      <tr>
-        <td><%= link_to person.full_name, person_path(person) %></td>
-				<td><%= person.email %></td>
-				<td><%= link_to "Editar", edit_person_path(person) %> | <%= link_to "Borrar", person, :method => :delete, :confirm => "Esta seguro que desea borrar este registro?" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div>
+	<table id="people">
+	  <thead>
+	    <tr>
+	      <th>Nombre</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	      <tr>
+	      	<td>JSON</td>
+	      </tr>
+	  </tbody>
+	</table>
+</div>
 
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#people').dataTable({
+			"bJQueryUI": true,
+			"sPaginationType": "full_numbers",
+			"bProcessing": true,
+			"bServerSide": true,
+			"sAjaxSource": "/peopletable.html",
+			"oLanguage": {
+						"sProcessing":   "Procesando...",
+						"sLengthMenu":   "Mostrar _MENU_ registros",
+						"sZeroRecords":  "No se encontraron resultados",
+						"sInfo":         "Mostrando desde _START_ hasta _END_ de _TOTAL_ registros",
+						"sInfoEmpty":    "Mostrando desde 0 hasta 0 de 0 registros",
+						"sInfoFiltered": "(filtrado de _MAX_ registros en total)",
+						"sInfoPostFix":  "",
+						"sSearch":       "Buscar Apellido:",
+						"sUrl":          "",
+						"oPaginate": {
+							"sFirst":    "Primero",
+							"sPrevious": "Anterior",
+							"sNext":     "Siguiente",
+							"sLast":     "Último"
+						}
+					}
+		});
+	});
+</script>

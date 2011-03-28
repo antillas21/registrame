@@ -1,24 +1,33 @@
-<h3><%= @person.lname %>, <%= @person.fname %></h3>
-<%= link_to "Imprimir gafete" %>
-
-<div>
-	<%= @person.registration_name %><br />
-	<%= "#{@person.profile.join("<br />")}".html_safe %><br />
-	<%= "#{@person.company_profile.join("<br />")}".html_safe unless nil? %>
+<div class="ui-widget ui-corner-all">
+	<h3 class="ui-widget-header ui-corner-top widget-padding"><%= @person.full_name %></h3>
+	<div class="ui-widget-content ui-corner-bottom">
+		<div class="widget-padding block">
+			<%= "#{@person.profile.join("<br />")}".html_safe %>
+		</div>
+		<div class="widget-padding block">
+			<%= link_to '<span class="check icon"></span>Imprimir'.html_safe, person_path(@person), :class => 'button left positive primary' %> <%= link_to '<span class="pen icon"></span>Editar'.html_safe, edit_person_path(@person), :class => 'button middle' %> <%= link_to '<span class="trash icon"></span>Borrar'.html_safe, person_path(@person), :method => :delete, :confirm => "Esta seguro?", :class => 'button right negative' %>
+		</div>
+		<div class="clear"></div>
+		<div class="widget-padding block">
+			<%= "#{@person.company_profile.join("<br />")}".html_safe unless nil? %>
+		</div>
+		<% if @person.interests %>
+			<div class="widget-padding block">
+				<h3>Intereses</h3>
+				<% @person.interests.each do |interest| %>
+					<%= interest.name %><br />
+				<% end %>
+			</div>
+		<% end %>
+		<% if @person.promotions %>
+			<div class="widget-padding block">
+				<h3>Se entero del evento por:</h3>
+				<% @person.promotions.each do |promotion| %>
+					<%= promotion.name %><br />
+				<% end %>
+			</div>
+		<% end %>
+		<div class="clear"></div>
+	</div>
 </div>
-<% if @person.interests %>
-	<div>
-		<h3>Intereses</h3>
-		<% @person.interests.each do |interest| %>
-			<%= interest.name %><br />
-		<% end %>
-	</div>
-<% end %>
-<% if @person.promotions %>
-	<div>
-		<h3>Se entero del evento por:</h3>
-		<% @person.promotions.each do |promotion| %>
-			<%= promotion.name %><br />
-		<% end %>
-	</div>
-<% end %>
+
