@@ -1,7 +1,8 @@
 class Person < ActiveRecord::Base
   validates :fname, :lname, :email, :presence => true
+  #NameRegex = /\A[\w\s\.\-\+]+\z/i
+  #validates_format_of :fname, :lname, :with => NameRegex, :message => "No puede contener comillas."
   validates_uniqueness_of :email, :case_sensitive => false
-  
   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates_format_of :email, :with => EmailRegex
   
@@ -9,6 +10,7 @@ class Person < ActiveRecord::Base
   has_and_belongs_to_many :promotions
   belongs_to :registration
   belongs_to :company
+  accepts_nested_attributes_for :company
   
   acts_as_api
   api_accessible :complete_record do |template|

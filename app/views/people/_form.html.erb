@@ -1,4 +1,5 @@
 <%= semantic_form_for @person do |f| %>
+	<%= f.error_messages %>
 	<% if registrations? %>
 		<p><%= f.label "Tipo de registro" %><br />
 			<%= f.input :registration, :as => :radio, :label => false %>

@@ -1,5 +1,7 @@
 class Company < ActiveRecord::Base
   validates_presence_of :name
+  #NameRegex = /\A[\w\s\.\-\+]+\z/i
+  #validates_format_of :name, :with => NameRegex, :message => "No puede contener comillas."
   belongs_to :state
   belongs_to :country
   belongs_to :sector

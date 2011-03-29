@@ -9,7 +9,9 @@
 		</div>
 		<div class="clear"></div>
 		<div class="widget-padding block">
+			<% if @person.company %>
 			<%= "#{@person.company_profile.join("<br />")}".html_safe unless nil? %>
+			<% end %>
 		</div>
 		<% if @person.interests %>
 			<div class="widget-padding block">
