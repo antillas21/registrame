@@ -64,6 +64,7 @@ $(document).ready( function(){
 
 $(document).ready(function(){
 	$('input:submit').button();
+	$('#errorExplanation').addClass('error');
 	$('.datatable').dataTable({
 		"bJQueryUI": true,
 		"sPaginationType": "full_numbers",

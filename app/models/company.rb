@@ -1,11 +1,13 @@
 class Company < ActiveRecord::Base
   validates_presence_of :name
-  #NameRegex = /\A[\w\s\.\-\+]+\z/i
-  #validates_format_of :name, :with => NameRegex, :message => "No puede contener comillas."
+  
   belongs_to :state
   belongs_to :country
   belongs_to :sector
-  has_many :people
+  has_many :people, :dependent => :destroy
+  
+  before_validation :strip_quotes
+  
   
   acts_as_api
   api_accessible :name_only do |template|
@@ -40,6 +42,10 @@ class Company < ActiveRecord::Base
     attributes.map do |attribute|
     self.send(attribute)
     end.reject(&:blank?).compact
+  end
+  
+  def strip_quotes
+    self.name = self.name.to_s.gsub("\"", "")    
   end
   
 end

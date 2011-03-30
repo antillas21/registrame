@@ -1,7 +1,6 @@
 class Person < ActiveRecord::Base
+  before_validation :strip_quotes
   validates :fname, :lname, :email, :presence => true
-  #NameRegex = /\A[\w\s\.\-\+]+\z/i
-  #validates_format_of :fname, :lname, :with => NameRegex, :message => "No puede contener comillas."
   validates_uniqueness_of :email, :case_sensitive => false
   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates_format_of :email, :with => EmailRegex
@@ -49,5 +48,11 @@ class Person < ActiveRecord::Base
   
   def company_profile
     company.profile if company
+  end
+  
+  def strip_quotes
+    self.fname = self.fname.to_s.gsub("\"", "")
+    self.lname = self.lname.to_s.gsub("\"", "")
+    self.job = self.job.to_s.gsub("\"", "")
   end
 end
