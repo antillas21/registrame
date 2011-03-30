@@ -1,15 +1,15 @@
 <div class="span-10">
-	<h2>Empresas</h2>
+	<h2>Companies</h2>
 </div>
 <div class="span-10">
-	<%= link_to '<span class="plus icon"></span>Agregar Empresa'.html_safe, new_company_path, :class => 'button' %>
+	<%= link_to '<span class="plus icon"></span>Add Company'.html_safe, new_company_path, :class => 'button' %>
 </div>
 
 <div id="companies">
 	<table id="companies">
 		<thead>
 			<tr>
-				<th>Nombre</th>
+				<th>Name</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -26,23 +26,6 @@
 		"sPaginationType": "full_numbers",
 		"bProcessing": true,
 		"bServerSide": true,
-		"sAjaxSource": "/companytable.html",
-		"oLanguage": {
-					"sProcessing":   "Procesando...",
-					"sLengthMenu":   "Mostrar _MENU_ registros",
-					"sZeroRecords":  "No se encontraron resultados",
-					"sInfo":         "Mostrando desde _START_ hasta _END_ de _TOTAL_ registros",
-					"sInfoEmpty":    "Mostrando desde 0 hasta 0 de 0 registros",
-					"sInfoFiltered": "(filtrado de _MAX_ registros en total)",
-					"sInfoPostFix":  "",
-					"sSearch":       "Buscar empresa:",
-					"sUrl":          "",
-					"oPaginate": {
-						"sFirst":    "Primero",
-						"sPrevious": "Anterior",
-						"sNext":     "Siguiente",
-						"sLast":     "Último"
-					}
-				}
+		"sAjaxSource": "/companytable.html"
 	});
 </script>

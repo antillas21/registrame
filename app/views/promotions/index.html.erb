@@ -1,22 +1,22 @@
 <div class="span-10">
-	<h2>Medios de Promocion</h2>
+	<h2>Promotion Media</h2>
 </div>
 <div class="span-10">
-	<%= link_to '<span class="plus icon"></span>Agregar Medio de Promocion'.html_safe, new_promotion_path, :class => 'button' %>
+	<%= link_to '<span class="plus icon"></span>Add Promotion Media'.html_safe, new_promotion_path, :class => 'button' %>
 </div>
 
 <table>
   <thead>
     <tr>
-      <th>Nombre</th>
-			<th>Acciones</th>
+      <th>Name</th>
+			<th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @promotions.each do |promotion| %>
       <tr>
         <td><%= promotion.name %></td>
-				<td><%= link_to '<span class="pen icon"></span>Editar'.html_safe, edit_promotion_path(promotion), :class => 'button left' %> <%= link_to '<span class="trash icon"></span>Borrar'.html_safe, promotion, :method => :delete, :confirm => "Esta seguro de querer borrar este medio de promocion?", :class => 'button right negative' %></td>
+				<td><%= link_to '<span class="pen icon"></span>Edit'.html_safe, edit_promotion_path(promotion), :class => 'button left' %> <%= link_to '<span class="trash icon"></span>Delete'.html_safe, promotion, :method => :delete, :confirm => "Are you sure?", :class => 'button right negative' %></td>
       </tr>
     <% end %>
   </tbody>

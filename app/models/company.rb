@@ -8,6 +8,7 @@ class Company < ActiveRecord::Base
   
   before_validation :strip_quotes
   
+  default_scope order('name asc')
   
   acts_as_api
   api_accessible :name_only do |template|

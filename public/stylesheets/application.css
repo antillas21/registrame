@@ -36,3 +36,10 @@ table { margin-bottom: 0;}
 
 /* errors */
 #errorExplanation h2 { color: #8A1F11;}
+
+/* formtastic */
+form.formtastic fieldset > ol > li { margin-bottom: 0;}
+form.formtastic li { margin-bottom: 5px;}
+form.formtastic input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="submit"]) {display: block; width: 400px; font-size: 120%; }
+label { line-height: 24px;}
+form.formtastic abbr { color: #c52019; padding-left: 5px; font-size: 120%;}

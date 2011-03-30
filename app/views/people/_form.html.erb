@@ -1,41 +1,23 @@
 <%= semantic_form_for @person do |f| %>
-	<%= f.error_messages %>
 	<% if registrations? %>
-		<p><%= f.label "Tipo de registro" %><br />
-			<%= f.input :registration, :as => :radio, :label => false %>
+		<p>
+			<%= f.input :registration, :as => :radio, :label => "Registration Type" %>
 		</p>
 	<% end %>
-	<p><%= f.label :fname, "Nombre(s)" %><br />
-		<%= f.text_field :fname %>
-	</p>
-	<p><%= f.label :lname, "Apellido(s)" %><br />
-		<%= f.text_field :lname %>
-	</p>
-	<p><%= f.label :email, "Email" %><br />
-		<%= f.text_field :email %>
-	</p>
-	<p><%= f.label :phone, "Telefono" %><br />
-		<%= f.text_field :phone %>
-	</p>
 	<p>
-		<%= f.label :job, "Puesto" %><br />
-		<%= f.text_field :job %>
-	</p>
-	<p>
-    <%= f.label :company_name, "Empresa" %><br />
-    <%= f.text_field :company_name %>
-  </p>
+		<%= f.input :fname, :label => "First Name" %>
+		<%= f.input :lname, :label => "Last Name" %>
+		<%= f.input :email, :label => "Email" %>
+		<%= f.input :phone %>
+		<%= f.input :job, :label => "Job title" %>
+    <%= f.input :company_name, :label => "Company" %>
 	<% if interests? %>
-		<p><%= f.label "Intereses" %><br />
-			<%= f.input :interests, :as => :check_boxes, :label => false %>
-		</p>
+			<%= f.input :interests, :as => :check_boxes, :label => "Interests" %>
 	<% end %>
 	<% if promotions? %>
-		<p><%= f.label "Como se entero del evento" %><br />
-			<%= f.input :promotions, :as => :check_boxes, :label => false %>
-		</p>
+			<%= f.input :promotions, :as => :check_boxes, :label => "How did you learn about the event?" %>
 	<% end %>
-	<%= f.submit "Registrar" %>
+	<%= f.submit %>
 <% end %>
 
 <script type="text/javascript">

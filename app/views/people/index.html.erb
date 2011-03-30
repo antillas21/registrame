@@ -1,8 +1,8 @@
 <div class="span-10">
-	<h2>Asistentes</h2>
+	<h2>Attendees</h2>
 </div>
 <div class="span-10">
-	<%= link_to '<span class="plus icon"></span>Agregar Asistente'.html_safe, new_person_path, :class => 'button' %>
+	<%= link_to '<span class="plus icon"></span>Add Attendee'.html_safe, new_person_path, :class => 'button' %>
 </div>
 
 
@@ -10,7 +10,7 @@
 	<table id="people">
 	  <thead>
 	    <tr>
-	      <th>Nombre</th>
+	      <th>Full Name</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -28,24 +28,7 @@
 			"sPaginationType": "full_numbers",
 			"bProcessing": true,
 			"bServerSide": true,
-			"sAjaxSource": "/peopletable.html",
-			"oLanguage": {
-						"sProcessing":   "Procesando...",
-						"sLengthMenu":   "Mostrar _MENU_ registros",
-						"sZeroRecords":  "No se encontraron resultados",
-						"sInfo":         "Mostrando desde _START_ hasta _END_ de _TOTAL_ registros",
-						"sInfoEmpty":    "Mostrando desde 0 hasta 0 de 0 registros",
-						"sInfoFiltered": "(filtrado de _MAX_ registros en total)",
-						"sInfoPostFix":  "",
-						"sSearch":       "Buscar Apellido:",
-						"sUrl":          "",
-						"oPaginate": {
-							"sFirst":    "Primero",
-							"sPrevious": "Anterior",
-							"sNext":     "Siguiente",
-							"sLast":     "Último"
-						}
-					}
+			"sAjaxSource": "/peopletable.html"
 		});
 	});
 </script>

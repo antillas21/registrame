@@ -65,6 +65,7 @@ $(document).ready( function(){
 $(document).ready(function(){
 	$('input:submit').button();
 	$('#errorExplanation').addClass('error');
+	$('form.formtastic select, input:checkbox, input:radio, input:file').uniform();
 	$('.datatable').dataTable({
 		"bJQueryUI": true,
 		"sPaginationType": "full_numbers",

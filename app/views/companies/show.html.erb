@@ -5,7 +5,7 @@
 					<%= "#{@company.profile.join("<br />")}".html_safe %>
 		</div>
 		<div class="widget-padding block">
-					<%= link_to '<span class="pen icon"></span>Editar'.html_safe, edit_company_path(@company), :class => 'button left' %> <%= link_to '<span class="trash icon"></span>Borrar'.html_safe, company_path(@company), :method => :delete, :confirm => "Esta seguro?", :class => 'button right negative' %>
+					<%= link_to '<span class="pen icon"></span>Edit'.html_safe, edit_company_path(@company), :class => 'button left' %> <%= link_to '<span class="trash icon"></span>Delete'.html_safe, company_path(@company), :method => :delete, :confirm => "Are you sure?", :class => 'button right negative' %>
 		</div>
 		<div class="clear">
 			
@@ -17,9 +17,9 @@
 	<table class="datatable">
 	  <thead>
 	    <tr>
-	      <th>Nombre</th>
+	      <th>Name</th>
 				<th>Email</th>
-				<th>Acciones</th>
+				<th>Actions</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -27,7 +27,7 @@
 	      <tr>
 	        <td><%= link_to person.full_name, person_path(person) %></td>
 					<td><%= person.email %></td>
-					<td><%= link_to '<span class="pen icon"></span>Editar'.html_safe, edit_person_path(person), :class => 'button left' %> <%= link_to '<span class="trash icon"></span>Borrar'.html_safe, person, :method => :delete, :confirm => "Esta seguro que desea borrar este reistro?", :class => 'button right negative' %></td>
+					<td><%= link_to '<span class="pen icon"></span>Edit'.html_safe, edit_person_path(person), :class => 'button left' %> <%= link_to '<span class="trash icon"></span>Delete'.html_safe, person, :method => :delete, :confirm => "Are you sure?", :class => 'button right negative' %></td>
 	      </tr>
 	    <% end %>
 	  </tbody>
