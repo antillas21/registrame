@@ -1,9 +1,10 @@
 class Person < ActiveRecord::Base
   before_validation :strip_quotes
-  validates :fname, :lname, :email, :presence => true
+  validates :fname, :lname, :email, :phone, :presence => true
   validates_uniqueness_of :email, :case_sensitive => false
   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates_format_of :email, :with => EmailRegex
+  validates_length_of :phone, :is => 14, :message => "should be in this format: (XXX) XXX-XXXX."
   
   has_and_belongs_to_many :interests
   has_and_belongs_to_many :promotions
@@ -36,7 +37,7 @@ class Person < ActiveRecord::Base
   end
   
   def profile(options = {})
-    attributes = [:full_name, :email, :job]
+    attributes = [:full_name, :email, :phone, :job]
     attributes.map do |attribute|
     self.send(attribute)
     end.reject(&:blank?).compact

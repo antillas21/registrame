@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110325200720) do
+ActiveRecord::Schema.define(:version => 20110330174344) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20110325200720) do
     t.datetime "updated_at"
     t.integer  "registration_id"
     t.integer  "company_id"
+    t.string   "phone"
   end
 
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
