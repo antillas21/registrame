@@ -12,9 +12,9 @@ class RegistrationsController < ApplicationController
   def create
     @registration = Registration.new(params[:registration])
     if @registration.save
-      redirect_to registrations_path, :notice => "Tipo de registro agregado."
+      redirect_to registrations_path, :notice => "Added new registration type."
     else
-      flash[:error] = "No se pudo agregar tipo de registro."
+      flash[:error] = "There were some errors. Please correct them before proceeding."
       render 'new'
     end
   end
@@ -29,16 +29,16 @@ class RegistrationsController < ApplicationController
 
   def update
     if @registration.update_attributes(params[:registration])
-      redirect_to registrations_path, :notice => "Se ha actualizado el tipo de registro."
+      redirect_to registrations_path, :notice => "Registration type has been updated."
     else
-      flash[:error] = "No se pudo actualizar el tipo de registro."
+      flash[:error] = "There were some errors. Please correct them before proceeding."
       render 'edit'
     end
   end
 
   def destroy
     @registration.destroy
-    redirect_to registrations_path, :notice => "Se ha eliminado el tipo de registro."
+    redirect_to registrations_path, :notice => "Registration type has been deleted."
   end
 
   private

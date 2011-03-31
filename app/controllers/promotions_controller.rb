@@ -17,9 +17,9 @@ class PromotionsController < ApplicationController
   def create
     @promotion = Promotion.new(params[:promotion])
     if @promotion.save
-      redirect_to promotions_path, :notice => "Medio de promocion agregado."
+      redirect_to promotions_path, :notice => "Added new promotion media."
     else
-      flash[:error] = "No se pudo agregar medio de promocion."
+      flash[:error] = "There were some errors. Please correct them before proceeding."
       render 'new'
     end
   end
@@ -34,16 +34,16 @@ class PromotionsController < ApplicationController
 
   def update
     if @promotion.update_attributes(params[:promotion])
-      redirect_to promotions_path, :notice => "Se ha actualizado el medio de promocion."
+      redirect_to promotions_path, :notice => "Promotion media has been updated."
     else
-      flash[:error] = "No se pudo actualizar el medio de promocion."
+      flash[:error] = "There were some errors. Please correct them before proceeding."
       render 'edit'
     end
   end
 
   def destroy
     @promotion.destroy
-    redirect_to promotions_path, :notice => "Se ha eliminado el medio de promocion."
+    redirect_to promotions_path, :notice => "Promotion media has been deleted."
   end
 
   private

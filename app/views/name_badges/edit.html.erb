@@ -1,4 +1,7 @@
 <h2>Edit Name Badge</h2>
+<div>
+	<p class="notice">Units for lengths and margins should be expressed in inches using decimal notation, example: 3.5 instead of 3 1/2. <strong>Note: Font size units are expressed in pts.</strong></p>
+</div>
 <%= form_for @name_badge do |f| %>
   <p>
   <%= f.label :name %>
@@ -6,32 +9,32 @@
   </p>
   <p>
   <%= f.label :width %>
-  <%= f.text_field :width %>
+  <%= f.text_field :width %> in.
   </p>
   <p>
   <%= f.label :height %>
-  <%= f.text_field :height %>
+  <%= f.text_field :height %> in.
   </p>
   <h3>Margins</h3>
   <p>
   <%= f.label :top %>
-  <%= f.text_field :top %>
+  <%= f.text_field :top %> in.
   </p>
   <p>
   <%= f.label :bottom %>
-  <%= f.text_field :bottom %>
+  <%= f.text_field :bottom %> in.
   </p>
   <p>
   <%= f.label :left %>
-  <%= f.text_field :left %>
+  <%= f.text_field :left %> in.
   </p>
   <p>
   <%= f.label :right %>
-  <%= f.text_field :right %>
+  <%= f.text_field :right %> in.
   </p>
 	<p>
   <%= f.label :fon_size %>
-  <%= f.text_field :font_size %>
+  <%= f.text_field :font_size %> pts.
   </p>
   <%= f.submit "Save" %>
 <% end %>

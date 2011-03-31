@@ -17,9 +17,9 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(params[:person])
     if @person.save
-      redirect_to @person, :notice => 'Nuevo asistente registrado.'
+      redirect_to @person, :notice => 'Added a new attendee.'
     else
-      flash[:error] = 'No se pudo registrar asistente.'
+      flash[:error] = 'There were some errors. Please correct them before proceeding.'
       render 'new'
     end
   end
@@ -38,16 +38,16 @@ class PeopleController < ApplicationController
   
   def update
     if @person.update_attributes(params[:person])
-      redirect_to @person, :notice => "Se ha actualizado el registro."
+      redirect_to @person, :notice => "Attendee has been updated."
     else
-      flash[:error] = "No se pudo actualizar el registro."
+      flash[:error] = "There were some errors. Please correct them before proceeding."
       render 'edit'
     end
   end
   
   def destroy
     @person.destroy
-    redirect_to people_path, :notice => "Se ha eliminado el registro."
+    redirect_to people_path, :notice => "Attendee has been deleted."
   end
   
   private

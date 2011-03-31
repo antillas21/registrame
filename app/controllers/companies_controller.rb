@@ -17,9 +17,9 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(params[:company])
     if @company.save
-      redirect_to @company, :notice => "Empresa agregada."
+      redirect_to @company, :notice => "Added new company."
     else
-      flash[:error] = "No se pudo agregar empresa."
+      flash[:error] = "There were some errors. Please correct them before proceeding."
       render 'new'
     end
   end
@@ -38,16 +38,16 @@ class CompaniesController < ApplicationController
 
   def update
     if @company.update_attributes(params[:company])
-      redirect_to @company, :notice => "Se ha actualizado la empresa."
+      redirect_to @company, :notice => "Company has been updated."
     else
-      flash[:error] = "No se pudo actualizar la empresa."
+      flash[:error] = "There were some errors. Please correct them before proceeding."
       render 'edit'
     end
   end
 
   def destroy
     @company.destroy
-    redirect_to companies_path, :notice => "Se ha eliminado la empresa."
+    redirect_to companies_path, :notice => "Company has been deleted."
   end
 
   private

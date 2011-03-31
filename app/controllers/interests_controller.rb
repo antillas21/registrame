@@ -17,9 +17,9 @@ class InterestsController < ApplicationController
   def create
     @interest = Interest.new(params[:interest])
     if @interest.save
-      redirect_to interests_path, :notice => "Interes agregado."
+      redirect_to interests_path, :notice => "Added new interest."
     else
-      flash[:error] = "No se pudo agregar interes."
+      flash[:error] = "There were some errors. Please correct them before proceeding."
       render 'new'
     end
   end
@@ -34,16 +34,16 @@ class InterestsController < ApplicationController
 
   def update
     if @interest.update_attributes(params[:interest])
-      redirect_to interests_path, :notice => "Se ha actualizado el interes."
+      redirect_to interests_path, :notice => "Interest has been updated."
     else
-      flash[:error] = "No se pudo actualizar el interes."
+      flash[:error] = "There were some errors. Please correct them before proceeding."
       render 'edit'
     end
   end
 
   def destroy
     @interest.destroy
-    redirect_to interests_path, :notice => "Se ha eliminado el interes."
+    redirect_to interests_path, :notice => "Interest has been deleted."
   end
 
   private

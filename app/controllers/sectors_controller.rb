@@ -12,9 +12,9 @@ class SectorsController < ApplicationController
   def create
     @sector = Sector.new(params[:sector])
     if @sector.save
-      redirect_to sectors_path, :notice => "Sector agregado."
+      redirect_to sectors_path, :notice => "Added new sector."
     else
-      flash[:error] = "No se pudo agregar sector."
+      flash[:error] = "There were some errors. Please correct them before proceeding."
       render 'new'
     end
   end
@@ -29,16 +29,16 @@ class SectorsController < ApplicationController
 
   def update
     if @sector.update_attributes(params[:sector])
-      redirect_to sectors_path, :notice => "Se ha actualizado el sector."
+      redirect_to sectors_path, :notice => "Sector has been updated."
     else
-      flash[:error] = "No se pudo actualizar el sector."
+      flash[:error] = "There were some errors. Please correct them before proceeding."
       render 'edit'
     end
   end
 
   def destroy
     @sector.destroy
-    redirect_to sectors_path, :notice => "Se ha eliminado el sector."
+    redirect_to sectors_path, :notice => "Sector has been deleted."
   end
 
   private

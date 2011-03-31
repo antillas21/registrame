@@ -10,9 +10,9 @@ class NameBadgesController < ApplicationController
   def update
     @name_badge = NameBadge.find(params[:id])
     if @name_badge.update_attributes(params[:name_badge])
-      redirect_to @name_badge, :notice => "Se ha actualizado el gafete."
+      redirect_to name_badges_path, :notice => "Name badge has been updated."
     else
-      flash[:alert] = "No se pudo actualizar el gafete."
+      flash[:alert] = "There were some errors. Please correct them before proceeding."
       render 'edit'
     end
   end
