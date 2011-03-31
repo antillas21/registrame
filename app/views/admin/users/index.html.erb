@@ -1,0 +1,6 @@
+<%= link_to "Add User", new_admin_user_path %>
+<ul>
+	<% @users.each do |user| %>
+		<li><%= link_to user.email, [:admin, user] %></li>
+	<% end %>
+</ul>

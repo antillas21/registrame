@@ -13,7 +13,7 @@ describe Admin::UsersController do
     
     it "are not able to access the admin area" do
       get 'index'
-      response.should redirect_to(new_user_session_path)
+      response.should redirect_to(root_path)
       flash[:alert].should eql("You must be an admin to do that.")
     end
   end

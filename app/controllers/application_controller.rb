@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
       authenticate_user!
       unless current_user.admin?
         flash[:alert] = "You must be an admin to do that."
-        redirect_to new_user_session_path
+        redirect_to root_path
       end
     end
 end
