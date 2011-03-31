@@ -4,26 +4,21 @@ Feature: Name badge class
   I want to do so via a webform
 
   Background:
-    Given there is the following name badge:
-    | name    | width | height | left | right | top | bottom |
-    | Default | 3     | 6      | 0.15 | 0.15  | 0.5 | 0.5    |
-    Given I am on the homepage
-    When I follow "Gafete"
-		And I follow "Default"
-
-  Scenario: Checking default name badge size
-    Then I should see "Default"
-    And I should see "Editar"
+		Given there are the following users:
+		| email | password | admin |
+		| admin@example.com | password | true |
+		And I am signed in as them
+		
+    And there is the following name badge:
+    | name    | width | height | left | right | top | bottom | font_size |
+    | Default | 3     | 6      | 0.15 | 0.15  | 0.5 | 0.5    | 16 |
+    Given I am on the name badges page
+		Then I should see "Default"
+    When I follow "Edit"
 
   Scenario: Editing default name badge size
-    When I follow "Editar"
-    And I fill in "Nombre" with "4x3"
-    And I fill in "Ancho" with "4"
-    And I fill in "Alto" with "3"
-    And I fill in "Superior" with "0.2"
-    And I fill in "Inferior" with "0.2"
-    And I fill in "Izquierdo" with "0.2"
-    And I fill in "Derecho" with "0.2"
-    And I press "Guardar"
+    And I fill in "Name" with "4x3"
+		And I fill in "Font size" with "14"
+    And I press "Save"
     Then I should see "4x3"
     And I should not see "Default"

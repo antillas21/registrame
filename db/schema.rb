@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110331183608) do
+ActiveRecord::Schema.define(:version => 20110331193504) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -115,8 +115,8 @@ ActiveRecord::Schema.define(:version => 20110331183608) do
   add_index "states", ["name"], :name => "index_states_on_name"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "", :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.string   "email",                               :default => "",    :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.integer  "sign_in_count",                       :default => 0
     t.datetime "current_sign_in_at"
@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20110331183608) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",                               :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,4 +1,7 @@
 class NameBadgesController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index]
+  before_filter :authorize_admin!, :except => [:index]
+  
   def show
     @name_badge = NameBadge.find(params[:id])
   end
