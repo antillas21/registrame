@@ -1,4 +1,5 @@
 class PromotionsController < ApplicationController
+  before_filter :authorize_admin!
   before_filter :find_promotion, :only => [:show, :edit, :update, :destroy]
 
   def index

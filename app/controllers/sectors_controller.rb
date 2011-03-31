@@ -1,4 +1,6 @@
 class SectorsController < ApplicationController
+  #before_filter :authenticate_user!
+  before_filter :authorize_admin!
   before_filter :find_sector, :only => [:show, :edit, :update, :destroy]
 
   def index

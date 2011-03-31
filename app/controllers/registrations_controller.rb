@@ -1,4 +1,5 @@
 class RegistrationsController < ApplicationController
+  before_filter :authorize_admin!
   before_filter :find_registration, :only => [:show, :edit, :update, :destroy]
 
   def index
