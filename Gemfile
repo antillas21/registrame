@@ -26,6 +26,7 @@ gem 'jquery-rails'
 gem 'formtastic', '~> 1.2.3'
 gem 'dynamic_form'
 gem 'acts_as_api'
+gem 'client_side_validations'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators

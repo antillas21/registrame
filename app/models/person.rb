@@ -1,10 +1,10 @@
 class Person < ActiveRecord::Base
   before_validation :strip_quotes
-  validates_presence_of :fname, :lname, :email, :phone
+  validates_presence_of :fname, :lname, :email
   validates_uniqueness_of :email, :case_sensitive => false
   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates_format_of :email, :with => EmailRegex
-  validates_length_of :phone, :is => 14, :message => "should be in this format: (XXX) XXX-XXXX."
+  validates_length_of :phone, :is => 14, :wrong_length => "should be in the format of (XXX) XXX-XXXX"
   
   has_and_belongs_to_many :interests
   has_and_belongs_to_many :promotions

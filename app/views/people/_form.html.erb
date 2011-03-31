@@ -1,14 +1,11 @@
-<%= semantic_form_for @person do |f| %>
+<% semantic_form_for @person, :validate => true do |f| %>
 	<% if registrations? %>
-		<p>
 			<%= f.input :registration, :as => :radio, :label => "Registration Type" %>
-		</p>
 	<% end %>
-	<p>
 		<%= f.input :fname, :label => "First Name" %>
 		<%= f.input :lname, :label => "Last Name" %>
 		<%= f.input :email, :label => "Email" %>
-		<%= f.input :phone %>
+		<%= f.input :phone, :label => "Phone Number" %>
 		<%= f.input :job, :label => "Job title" %>
     <%= f.input :company_name, :label => "Company" %>
 	<% if interests? %>
