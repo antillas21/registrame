@@ -56,4 +56,8 @@ class Person < ActiveRecord::Base
     self.lname = self.lname.to_s.gsub("\"", "")
     self.job = self.job.to_s.gsub("\"", "")
   end
+  
+  def mecard
+    "MECARD:N:#{full_name};TEL:#{phone};EMAIL:#{email};NOTE:#{company_name};;"
+  end
 end
