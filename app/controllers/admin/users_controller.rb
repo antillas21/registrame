@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::BaseController
-  before_filter :find_user, :only => [:edit, :update, :show, :destroy]
+  before_filter :find_user, :only => [:edit, :update, :destroy]
   def index
     @users = User.all(:order => "email")
   end
@@ -22,13 +22,9 @@ class Admin::UsersController < Admin::BaseController
     
   end
   
-  def show
-    
-  end
-  
   def update
     if @user.update_attributes(params[:user])
-      redirect_to @user, :notice => "User has been updated."
+      redirect_to admin_users_path, :notice => "User has been updated."
     else
       flash[:error] = "User could not be updated."
       render 'edit'
@@ -36,8 +32,13 @@ class Admin::UsersController < Admin::BaseController
   end
   
   def destroy
-    @user.destroy
-    redirect_to admin_users_path, :notice => "User has been deleted."
+    if @user == current_user
+      flash[:error] = "You cannot delete yourself!"
+    else
+      @user.destroy
+      flash[:notice] = "User has been deleted."
+    end
+    redirect_to admin_users_path
   end
   
   private

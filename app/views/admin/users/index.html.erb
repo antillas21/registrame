@@ -1,6 +1,18 @@
 <%= link_to "Add User", new_admin_user_path %>
-<ul>
-	<% @users.each do |user| %>
-		<li><%= link_to user.email, [:admin, user] %></li>
-	<% end %>
-</ul>
+
+<table>
+	<thead>
+		<tr>
+			<th>User</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+			<tr>
+				<td><%= user.email %></td>
+				<td><%= link_to "Edit", edit_admin_user_path(user) %> | <%= link_to "Delete", admin_user_path(user), :method => :delete, :confirm => "Are you sure?" %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

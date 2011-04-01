@@ -22,10 +22,6 @@ Registrame02::Application.routes.draw do
   resources :countries
   resources :name_badges
   resources :people
-  resources :sectors
-  resources :interests
-  resources :promotions
-  resources :registrations
 
   # Sample resource route with options:
   #   resources :products do
@@ -62,6 +58,10 @@ Registrame02::Application.routes.draw do
   namespace :admin do
     root :to => "base#index"
     resources :users
+    resources :sectors
+    resources :interests
+    resources :promotions
+    resources :registrations
   end
 
   # You can have the root of your site routed with "root"
