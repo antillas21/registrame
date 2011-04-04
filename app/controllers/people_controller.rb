@@ -1,6 +1,18 @@
 class PeopleController < ApplicationController
   before_filter :find_person, :only => [:show, :edit, :update, :destroy]
   
+  if NameBadge.count > 0
+    @@label = NameBadge.first
+    prawnto :prawn => {
+                :page_layout => :portrait,
+                :left_margin => (@@label.left * 72),
+                :right_margin => (@@label.right * 72),
+                :top_margin => (@@label.top * 72),
+                :bottom_margin => (@@label.bottom * 72),
+                :page_size => [(@@label.width * 72), (@@label.height * 72)]
+                }  
+  end
+  
   def index
     @people = Person.all
     respond_to do |format|
@@ -34,6 +46,7 @@ class PeopleController < ApplicationController
       format.html
       format.xml { render_for_api :complete_record, :xml => @person }
       format.json { render_for_api :complete_record, :json => @person }
+      format.pdf
     end
   end
   
