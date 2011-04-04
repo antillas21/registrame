@@ -11,6 +11,9 @@
 				<%= "#{@person.company_profile.join("<br />")}".html_safe unless nil? %>
 				<% end %>
 			</div>
+			<div class="holder">
+				<%= image_tag "qrcodes/#{@person.id}.png" %>
+			</div>
 		</div>
 		<div class="widget-padding block">
 			<%= link_to '<span class="check icon"></span>Print Badge'.html_safe, person_path(@person), :class => 'button left positive primary' %> <%= link_to '<span class="pen icon"></span>Edit'.html_safe, edit_person_path(@person), :class => 'button middle' %> <%= link_to '<span class="trash icon"></span>Delete'.html_safe, person_path(@person), :method => :delete, :confirm => "Are you sure?", :class => 'button right negative' %>

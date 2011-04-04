@@ -29,6 +29,7 @@ class PeopleController < ApplicationController
   end
   
   def show
+    qr_encode!
     respond_to do |format|
       format.html
       format.xml { render_for_api :complete_record, :xml => @person }
@@ -53,5 +54,13 @@ class PeopleController < ApplicationController
   private
     def find_person
       @person = Person.find(params[:id])
+    end
+    
+    def qr_encode!
+      qrcodes = "#{RAILS_ROOT}/public/images/qrcodes"
+      @person = Person.find(params[:id])
+      RQR::QRCode.create(:auto_extent => true) do |code|
+        code.save(@person.mecard, "#{qrcodes}/#{@person.id}.png")
+      end
     end
 end
