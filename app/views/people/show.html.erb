@@ -3,9 +3,6 @@
 	<div class="ui-widget-content ui-corner-bottom">
 		<div class="widget-padding block">
 			<%= "#{@person.profile.join("<br />")}".html_safe %>
-			<div class="mecard holder">
-				<%= @person.mecard %>
-			</div>
 			<div id="company" class="holder">
 				<% if @person.company %>
 				<%= "#{@person.company_profile.join("<br />")}".html_safe unless nil? %>
@@ -16,7 +13,7 @@
 			</div>
 		</div>
 		<div class="widget-padding block">
-			<%= link_to '<span class="check icon"></span>Print Badge'.html_safe, person_path(@person), :class => 'button left positive primary' %> <%= link_to '<span class="pen icon"></span>Edit'.html_safe, edit_person_path(@person), :class => 'button middle' %> <%= link_to '<span class="trash icon"></span>Delete'.html_safe, person_path(@person), :method => :delete, :confirm => "Are you sure?", :class => 'button right negative' %>
+			<%= link_to '<span class="check icon"></span>Print Badge'.html_safe, person_path(@person, :format => :pdf), :class => 'button left positive primary' %> <%= link_to '<span class="pen icon"></span>Edit'.html_safe, edit_person_path(@person), :class => 'button middle' %> <%= link_to '<span class="trash icon"></span>Delete'.html_safe, person_path(@person), :method => :delete, :confirm => "Are you sure?", :class => 'button right negative' %>
 			<% if @person.interests %>
 				<div id="interests" class="holder">
 					<h3>Interests</h3>

@@ -5,11 +5,11 @@ class PeopleController < ApplicationController
     @@label = NameBadge.first
     prawnto :prawn => {
                 :page_layout => :portrait,
-                :left_margin => (@@label.left * 72),
-                :right_margin => (@@label.right * 72),
-                :top_margin => (@@label.top * 72),
-                :bottom_margin => (@@label.bottom * 72),
-                :page_size => [(@@label.width * 72), (@@label.height * 72)]
+                :left_margin => ((@@label.left.to_f).in),
+                :right_margin => ((@@label.right.to_f).in),
+                :top_margin => ((@@label.top.to_f).in),
+                :bottom_margin => ((@@label.bottom.to_f).in),
+                :page_size => [((@@label.width.to_f).in), ((@@label.height.to_f).in)]
                 }  
   end
   
@@ -46,7 +46,7 @@ class PeopleController < ApplicationController
       format.html
       format.xml { render_for_api :complete_record, :xml => @person }
       format.json { render_for_api :complete_record, :json => @person }
-      format.pdf
+      format.pdf { printed }
     end
   end
   
@@ -71,9 +71,14 @@ class PeopleController < ApplicationController
     
     def qr_encode!
       qrcodes = "#{RAILS_ROOT}/public/images/qrcodes"
-      @person = Person.find(params[:id])
+      find_person
       RQR::QRCode.create(:auto_extent => true) do |code|
         code.save(@person.mecard, "#{qrcodes}/#{@person.id}.png")
       end
+    end
+    
+    def printed
+      find_person
+      @person.update_attribute(:printed, true)
     end
 end

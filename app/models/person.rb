@@ -24,6 +24,8 @@ class Person < ActiveRecord::Base
     template.add :promotions
   end
   
+  scope :attended, where("printed = ?", true)
+  
   def full_name
     [fname, lname].join(' ')
   end
