@@ -11,15 +11,13 @@
 </head>
 <body>
   <div id="wrapper" class="container">
-    <div id="header" class="span-24 last">
-			<div id="nav" class="prepend-1">
-			<%= link_to '<span class="plus icon"></span>New Attendee'.html_safe, new_person_path, :class => 'big left pill button' %>
-      <%= link_to '<span class="plus icon"></span>New Company'.html_safe, new_company_path, :class => 'big middle pill button' %>
-			<%= link_to '<span class="user icon"></span>Attendees'.html_safe, people_path, :class => 'big middle pill button' %>
-      <%= link_to '<span class="home icon"></span>Companies'.html_safe, companies_path, :class => 'big middle pill button' %>
-      <%= link_to '<span class="book icon"></span>Name Badge'.html_safe, name_badges_path, :class => 'big right pill button' %>
-			</div>
-    </div>
+		<% if current_user && current_user.admin? %>
+			<%= render :partial => 'admin/base/adminheader' %>
+		<% elsif current_user %>
+			<%= render :partial => 'layouts/dataheader' %>
+		<% else %>
+			<%= link_to "Login", new_user_session_path %>
+		<% end %>
     <div id="main" class="span-24 last">
       <div class="content">
       	<% flash.each do |key, value| %>
