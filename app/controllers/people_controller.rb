@@ -9,11 +9,10 @@ class PeopleController < ApplicationController
     @person = Person.new(params[:person])
     if @person.save
       session[:person_id] = @person.id
-      flash[:notice] = 'We have created your record, now please tell us a little about your company.'
       if @person.company
-        redirect_to edit_company_path(@person.company)
+        redirect_to edit_company_path(@person.company), :notice => 'We have created your record, now please tell us a little about your company.'
       else
-        redirect_to @person
+        redirect_to @person, :notice => "Thank you. <strong>This step completes your registration</strong>".html_safe
       end
     else
       flash[:error] = 'There were some errors. Please correct them before proceeding.'

@@ -11,13 +11,7 @@
 </head>
 <body>
   <div id="wrapper" class="container">
-		<% if current_user && current_user.admin? %>
-			<%= render :partial => 'admin/base/adminheader' %>
-		<% elsif current_user %>
-			<%= render :partial => 'layouts/dataheader' %>
-		<% else %>
-			<%= "" %>
-		<% end %>
+		<%= logged_user? %>
     <div id="main" class="span-24 last">
       <div class="content">
       	<% flash.each do |key, value| %>
@@ -30,8 +24,7 @@
     </div>
     <div id="footer" class="span-24 last">
       <div class="content">
-      	&copy; Hecho en Ruby 2011. All rights reserved. This is a work-in-progress and protected under the terms of Creative Commons License. | <%= link_to "login", new_user_session_path %>
-<%= debug(params) if Rails.env.development? %>
+      	&copy; Hecho en Ruby 2011. All rights reserved. This is a work-in-progress and protected under the terms of Creative Commons License. | <%= link_to "login", data_root_path %>
       </div>
     </div>
   </div>
