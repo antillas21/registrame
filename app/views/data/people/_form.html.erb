@@ -1,0 +1,24 @@
+<% semantic_form_for [:data, @person], :validate => true do |f| %>
+	<% if registrations? %>
+			<%= f.input :registration, :as => :radio, :label => "Registration Type" %>
+	<% end %>
+		<%= f.input :fname, :label => "First Name" %>
+		<%= f.input :lname, :label => "Last Name" %>
+		<%= f.input :email, :label => "Email" %>
+		<%= f.input :phone, :label => "Phone Number" %>
+		<%= f.input :job, :label => "Job title" %>
+    <%= f.input :company_name, :label => "Company" %>
+	<% if interests? %>
+			<%= f.input :interests, :as => :check_boxes, :label => "Interests" %>
+	<% end %>
+	<% if promotions? %>
+			<%= f.input :promotions, :as => :check_boxes, :label => "How did you learn about the event?" %>
+	<% end %>
+	<%= f.submit %>
+<% end %>
+
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		jQuery('#person_phone').mask("(999) 999-9999",{placeholder:"#"});
+	});
+</script>

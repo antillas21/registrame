@@ -4,7 +4,7 @@
 "iTotalDisplayRecords": <%= @iTotalDisplayRecords %>,
 "aaData": [ 
 <% @companies.each do |company| %>
-   ["<a href='<%= url_for(company) %>'><%= company.name %></a> | <%= pluralize(company.people.count, 'persona') %>"<%= "]," unless company == @companies.last %>
+   ["<a href='<%= url_for([:data, company]) %>'><%= company.name %></a> | <%= pluralize(company.people.count, 'persona') %>"<%= "]," unless company == @companies.last %>
 <% end %>
    ]
 ]

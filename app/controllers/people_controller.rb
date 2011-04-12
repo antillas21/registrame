@@ -1,27 +1,6 @@
 class PeopleController < ApplicationController
   before_filter :find_person, :only => [:show, :edit, :update, :destroy]
   
-  if NameBadge.count > 0
-    @@label = NameBadge.first
-    prawnto :prawn => {
-                :page_layout => :portrait,
-                :left_margin => ((@@label.left.to_f).in),
-                :right_margin => ((@@label.right.to_f).in),
-                :top_margin => ((@@label.top.to_f).in),
-                :bottom_margin => ((@@label.bottom.to_f).in),
-                :page_size => [((@@label.width.to_f).in), ((@@label.height.to_f).in)]
-                }  
-  end
-  
-  def index
-    @people = Person.all
-    respond_to do |format|
-      format.html
-      format.xml { render_for_api :complete_record, :xml => @people, :root => :people }
-      format.json { render_for_api :complete_record, :json => @people, :root => :people }
-    end
-  end
-  
   def new
     @person = Person.new
   end
@@ -29,7 +8,13 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(params[:person])
     if @person.save
-      redirect_to @person, :notice => 'Added a new attendee.'
+      session[:person_id] = @person.id
+      flash[:notice] = 'We have created your record, now please tell us a little about your company.'
+      if @person.company
+        redirect_to edit_company_path(@person.company)
+      else
+        redirect_to @person
+      end
     else
       flash[:error] = 'There were some errors. Please correct them before proceeding.'
       render 'new'
@@ -41,7 +26,6 @@ class PeopleController < ApplicationController
   end
   
   def show
-    qr_encode!
     respond_to do |format|
       format.html
       format.xml { render_for_api :complete_record, :xml => @person }
@@ -52,7 +36,7 @@ class PeopleController < ApplicationController
   
   def update
     if @person.update_attributes(params[:person])
-      redirect_to @person, :notice => "Attendee has been updated."
+      redirect_to @person, :notice => "Thank you for updating your record."
     else
       flash[:error] = "There were some errors. Please correct them before proceeding."
       render 'edit'
@@ -69,16 +53,4 @@ class PeopleController < ApplicationController
       @person = Person.find(params[:id])
     end
     
-    def qr_encode!
-      qrcodes = "#{RAILS_ROOT}/public/images/qrcodes"
-      find_person
-      RQR::QRCode.create(:auto_extent => true) do |code|
-        code.save(@person.mecard, "#{qrcodes}/#{@person.id}.png")
-      end
-    end
-    
-    def printed
-      find_person
-      @person.update_attribute(:printed, true)
-    end
 end

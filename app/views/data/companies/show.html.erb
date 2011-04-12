@@ -1,0 +1,35 @@
+<div class="ui-widget ui-corner-all">
+	<h3 class="ui-widget-header ui-corner-top widget-padding"><%= @company.name %></h3>
+	<div class="ui-widget-content ui-corner-bottom">
+		<div class="widget-padding block">
+					<%= "#{@company.profile.join("<br />")}".html_safe %>
+		</div>
+		<div class="widget-padding block">
+					<%= link_to '<span class="pen icon"></span>Edit'.html_safe, edit_data_company_path(@company), :class => 'button left' %> <%= link_to '<span class="trash icon"></span>Delete'.html_safe, data_company_path(@company), :method => :delete, :confirm => "Are you sure?", :class => 'button right negative' %>
+		</div>
+		<div class="clear">
+			
+		</div>
+	</div>
+</div>
+
+<div id="staff">
+	<table class="datatable">
+	  <thead>
+	    <tr>
+	      <th>Name</th>
+				<th>Email</th>
+				<th>Actions</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <% @company.people.each do |person| %>
+	      <tr>
+	        <td><%= link_to person.full_name, person_path(person) %></td>
+					<td><%= person.email %></td>
+					<td><%= link_to '<span class="pen icon"></span>Edit'.html_safe, edit_data_person_path(person), :class => 'button left' %> <%= link_to '<span class="trash icon"></span>Delete'.html_safe, data_person_path(person), :method => :delete, :confirm => "Are you sure?", :class => 'button right negative' %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+</div>

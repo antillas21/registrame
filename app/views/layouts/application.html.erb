@@ -16,7 +16,7 @@
 		<% elsif current_user %>
 			<%= render :partial => 'layouts/dataheader' %>
 		<% else %>
-			<%= link_to "Login", new_user_session_path %>
+			<%= "" %>
 		<% end %>
     <div id="main" class="span-24 last">
       <div class="content">
@@ -30,7 +30,8 @@
     </div>
     <div id="footer" class="span-24 last">
       <div class="content">
-      	&copy; Hecho en Ruby 2011. All rights reserved. This is a work-in-progress and protected under the terms of Creative Commons License.
+      	&copy; Hecho en Ruby 2011. All rights reserved. This is a work-in-progress and protected under the terms of Creative Commons License. | <%= link_to "login", new_user_session_path %>
+<%= debug(params) if Rails.env.development? %>
       </div>
     </div>
   </div>

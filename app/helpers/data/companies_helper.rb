@@ -1,0 +1,2 @@
+module Data::CompaniesHelper
+end

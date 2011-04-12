@@ -4,7 +4,7 @@
 "iTotalDisplayRecords": <%= @iTotalDisplayRecords %>,
 "aaData": [ 
 <% @people.each do |person| %>
-   ["<a href='<%= url_for(person) %>'><%= person.lname %>, <%= person.fname %></a>"<%= "]," unless person == @people.last %>
+   ["<a href='<%= url_for([:data, person]) %>'><%= person.lname %>, <%= person.fname %></a>"<%= "]," unless person == @people.last %>
 <% end %>
    ]
 ]

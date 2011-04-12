@@ -6,15 +6,14 @@
 			<div id="company" class="holder">
 				<% if @person.company %>
 				<%= "#{@person.company_profile.join("<br />")}".html_safe unless nil? %>
-				<p>If your company data is incomplete or inaccurate, <%= link_to "please edit here", edit_company_path(@person.company.id) unless @person.company.nil? %></p>
 				<% end %>
 			</div>
 			<div class="holder">
-				
+				<%= image_tag "qrcodes/#{@person.id}.png" %>
 			</div>
 		</div>
 		<div class="widget-padding block">
-			<%= link_to '<span class="pen icon"></span>Edit'.html_safe, edit_person_path(@person), :class => 'button primary' %>
+			<%= link_to '<span class="check icon"></span>Print Badge'.html_safe, data_person_path(@person, :format => :pdf), :class => 'button left positive primary' %> <%= link_to '<span class="pen icon"></span>Edit'.html_safe, edit_data_person_path(@person), :class => 'button middle' %> <%= link_to '<span class="trash icon"></span>Delete'.html_safe, data_person_path(@person), :method => :delete, :confirm => "Are you sure?", :class => 'button right negative' %>
 			<% if @person.interests %>
 				<div id="interests" class="holder">
 					<h3>Interests</h3>
