@@ -14,6 +14,7 @@ Registrame02::Application.routes.draw do
   match '/companytable', :controller => 'pages', :action => 'companytable'
   match '/pages/companytable', :controller => 'pages', :action => 'companytable'
   match '/peopletable', :controller => 'pages', :action => 'peopletable'
+  match '/reporting', :controller => 'pages', :action => 'reporting'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

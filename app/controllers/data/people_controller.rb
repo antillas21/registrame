@@ -41,12 +41,14 @@ class Data::PeopleController < Data::BaseController
   end
   
   def show
-    qr_encode!
     respond_to do |format|
       format.html
       format.xml { render_for_api :complete_record, :xml => @person }
       format.json { render_for_api :complete_record, :json => @person }
-      format.pdf { printed }
+      format.pdf do
+        qr_encode!
+        printed
+      end
     end
   end
   

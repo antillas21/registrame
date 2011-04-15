@@ -21,6 +21,7 @@ a.button.right { margin-left: 0;}
 .holder { margin-top: 20px;}
 .floated { float: left; margin-right: 30px;}
 .info { margin-top: 20px;}
+.count { text-align: right;}
 
 /*
 dataTables
@@ -32,6 +33,7 @@ table { margin-bottom: 0;}
 .dataTables_wrapper tbody td { padding: 10px 5px;}
 .dataTables_wrapper .ui-icon { float: right;}
 .dataTables_wrapper input[type=text] { height: 10px;}
+table#records { margin-top: 30px;}
 
 /* UI overrides */
 .widget-padding { padding: 10px; }
