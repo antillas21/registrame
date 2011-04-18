@@ -63,6 +63,7 @@ Registrame02::Application.routes.draw do
     resources :interests
     resources :promotions
     resources :registrations
+    resources :events
   end
   
   namespace :data do

@@ -4,12 +4,11 @@
 	<div class="floated">
 		<%= image_tag "datacapture.jpg" %>
 	</div>
-	<h4>It's great that you decided to join us.</h4><br />
-	<h4>Remember:</h4>
-	<h4>BajaMak 2011<br />
-		October 13, 2011<br />
-		Valle Bonito Industrial Park<br />
-		Tijuana, Mexico.</h4><br />
 </div>
+<% if app_event %>
+	<h4><%= @app_event.name %></h4>
+	<%= @app_event.venue %>
+	<%= @app_event.info %>
+<% end %>
 
 <%= link_to "Register here", new_person_path, :class => 'button big primary pill'%>
