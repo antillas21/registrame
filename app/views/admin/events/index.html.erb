@@ -4,6 +4,7 @@
 			<h3 class="ui-widget-header ui-corner-top widget-padding"><%= event.name %></h3>
 			<div class="widget-padding">
 				Info:<br />
+				<%= event.date %><br />
 				<%= event.venue %><br />
 				<%= event.info %><br />
 				<%= link_to '<span class="pen icon"></span>Edit'.html_safe, edit_admin_event_path(event), :class => 'button primary' %>

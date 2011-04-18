@@ -7,8 +7,9 @@
 </div>
 <% if app_event %>
 	<h4><%= @app_event.name %></h4>
-	<%= @app_event.venue %>
-	<%= @app_event.info %>
+	<%= @app_event.date %><br />
+	<%= @app_event.venue %><br />
+	<%= @app_event.info %><br />
 <% end %>
 
 <%= link_to "Register here", new_person_path, :class => 'button big primary pill'%>

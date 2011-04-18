@@ -1,6 +1,13 @@
 <%= semantic_form_for [:admin, @event] do |f| %>
 	<%= f.input :name, :label => "Event Name" %>
+	<%= f.input :date, :as => :date_picker %>
 	<%= f.input :venue %>
 	<%= f.input :info %>
 	<%= f.submit %>
 <% end %>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('input.ui-date-picker').datepicker();
+	})
+</script>
