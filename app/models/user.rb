@@ -5,4 +5,12 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model, :remember_me
   attr_accessible :email, :password, :password_confirmation
+  
+  def to_s
+    if self.admin?
+      "#{self.email} - Admin"
+    else
+      "#{self.email}"
+    end
+  end
 end

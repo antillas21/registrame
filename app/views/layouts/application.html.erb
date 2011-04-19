@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Registrame02</title>
+  <title>:registra.me</title>
   <%= stylesheet_link_tag 'screen', :media => 'screen, projection' %>
   <%= stylesheet_link_tag 'css3buttons', 'jquery-ui-1.8.7.custom', 'demo_table', 'demo_table_jui', 'formtastic', 'uniform.aristo', 'TableTools', 'superfish', 'application', :media => 'screen, projection' %>
   <%= stylesheet_link_tag 'print', :media => 'print' %>
@@ -11,7 +11,12 @@
 </head>
 <body>
   <div id="wrapper" class="container">
-		<%= logged_user? %>
+		<div id="header" class="span-24 last">
+			<div class="prepend-1">
+				<%= image_tag "registrame-logo.png" %>
+			</div>
+			<%= logged_user? %>
+		</div>
     <div id="main" class="span-24 last">
       <div class="content">
       	<% flash.each do |key, value| %>
@@ -23,16 +28,23 @@
       </div>
     </div>
     <div id="footer" class="span-24 last">
-      <div class="content">
-      	&copy; Hecho en Ruby 2011. All rights reserved. This is a work-in-progress and protected under the terms of Creative Commons License. | 
-<% if user_signed_in? %>
-	You are logged in as <%= current_user.email %>
-<% else %>
-	<%= link_to "login", data_root_path %>
-<% end %>
-      </div>
+      
     </div>
   </div>
+	<div id="footer" class="container">
+		<div class="content span-24 last">
+			<div class="span-18">
+				&copy; Hecho en Ruby 2011. All rights reserved. This is a work-in-progress and protected under the terms of Creative Commons License.
+			</div>
+			<div class="span-6 last">
+				<% if user_signed_in? %>
+					Logged in as <%= current_user.email %>
+				<% else %>
+					<%= link_to "Login", data_root_path %>
+				<% end %>
+			</div>
+    </div>
+	</div>
 </body>
 </html>
 

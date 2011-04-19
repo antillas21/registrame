@@ -1,6 +1,6 @@
 class Person < ActiveRecord::Base
   before_validation :strip_quotes
-  validates_presence_of :fname, :lname, :email
+  validates_presence_of :fname, :lname, :email, :phone
   validates_uniqueness_of :email, :case_sensitive => false
   EmailRegex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates_format_of :email, :with => EmailRegex

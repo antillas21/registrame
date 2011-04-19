@@ -1,15 +1,18 @@
-<%= image_tag "logo.png" %>
-<h2>Welcome</h2>
 <div>
 	<div class="floated">
 		<%= image_tag "datacapture.jpg" %>
 	</div>
 </div>
 <% if app_event %>
-	<h4><%= @app_event.name %></h4>
-	<%= @app_event.date %><br />
-	<%= @app_event.venue %><br />
-	<%= @app_event.info %><br />
+	<div id="eventinfo">
+		<h4><%= @app_event.name %></h4>
+		<%= @app_event.date_formatted %><br />
+		<%= @app_event.venue %><br />
+		<%= @app_event.website %><br /><br />
+		<%= @app_event.info %><br />
+	</div>
 <% end %>
-
-<%= link_to "Register here", new_person_path, :class => 'button big primary pill'%>
+<div class="clear"></div>
+<div class="full">
+	<%= link_to "Register here", new_person_path, :class => 'button big primary pill'%>
+</div>

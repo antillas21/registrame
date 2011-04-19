@@ -1,0 +1,7 @@
+<h4>Remember to schedule:</h4>
+<% if app_event %>
+	<strong><%= @app_event.name %></strong><br/ >
+	<%= @app_event.date_formatted %><br />
+	<%= @app_event.venue %><br /><br />
+	<%= @app_event.info %>
+<% end %>

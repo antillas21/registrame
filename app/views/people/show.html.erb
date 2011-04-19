@@ -1,6 +1,6 @@
-<div class="ui-widget ui-corner-all">
-	<h3 class="ui-widget-header ui-corner-top widget-padding"><%= @person.full_name %></h3>
-	<div class="ui-widget-content ui-corner-bottom">
+<div class="span-15 colborder">
+	<h3>Thank you for registering</h3>
+	<div>
 		<div class="widget-padding block">
 			<%= "#{@person.profile.join("<br />")}".html_safe %>
 			<div id="company" class="holder">
@@ -9,36 +9,39 @@
 				<%= "#{@person.company_profile.join("<br />")}".html_safe unless nil? %>
 				<p class="info">If your company info is incomplete or inaccurate, <%= link_to "please edit here", edit_company_path(@person.company.id) unless @person.company.nil? %></p>
 				<% end %>
-			</div>
-			<div class="holder">
-				
+				<% if @person.interests %>
+					<div id="interests" class="holder">
+						<h4>Interests</h4>
+						<% @person.interests.each do |interest| %>
+							<%= interest.name %><br />
+						<% end %>
+					</div>
+				<% end %>
+				<% if @person.promotions %>
+					<div id="promotions" class="holder">
+						<h4>Promotion Media:</h4>
+						<% @person.promotions.each do |promotion| %>
+							<%= promotion.name %><br />
+						<% end %>
+					</div>
+				<% end %>
 			</div>
 		</div>
 		<div class="widget-padding block">
 			<%= link_to '<span class="pen icon"></span>Edit'.html_safe, edit_person_path(@person), :class => 'button primary' %>
-			<% if @person.interests %>
-				<div id="interests" class="holder">
-					<h4>Interests</h4>
-					<% @person.interests.each do |interest| %>
-						<%= interest.name %><br />
-					<% end %>
-				</div>
-			<% end %>
-			<% if @person.promotions %>
-				<div id="promotions" class="holder">
-					<h4>Promotion Media:</h4>
-					<% @person.promotions.each do |promotion| %>
-						<%= promotion.name %><br />
-					<% end %>
-				</div>
-			<% end %>
+			
 		</div>
 	</div>
 	<div class="clear"></div>
-	<div class="notice">
-		<p><strong>Remember:</strong> We look forward to meet you at BajaMak Industrial Expo 2011.<br />See you at Valle Bonito Industrial Park in Tijuana, Mexico on October 13, 2011.</p>
+</div>
+<div class="span-6">
+	<% if app_event %>
+	<div id="eventinfo">
+		<%= render 'people/event_info' %>
 	</div>
-	<%= link_to "Back to BajaMak Website", "http://bajamak.com" %> or <%= link_to "Register someone else", new_person_path %>
+		<%= link_to "Back to #{@app_event.name} website", "#{@app_event.website}" %><br />
+	<% end %>
+	<%= link_to "Register someone else", new_person_path %>
 </div>
 
 
