@@ -6,9 +6,9 @@
 <% if app_event %>
 	<div id="eventinfo">
 		<h4><%= @app_event.name %></h4>
-		<%= @app_event.date_formatted %><br />
-		<%= @app_event.venue %><br />
-		<%= @app_event.website %><br /><br />
+		<strong>Date:</strong> <%= @app_event.date_formatted %><br />
+		<strong>Venue:</strong> <%= @app_event.venue %><br />
+		<%= link_to "#{@app_event.website}", "#{@app_event.website}" %><br /><br />
 		<%= @app_event.info %><br />
 	</div>
 <% end %>

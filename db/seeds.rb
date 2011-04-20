@@ -14,9 +14,9 @@ puts "It is VERY IMPORTANT TO CHANGE THIS VALUES."
 
 # Create demo event
 Event.create!(
-  :name => "My Demo Event", :venue => "Some Important Venue",
-  :website => "http://demoevent.com", :date => (Date.today + 3.months),
-  :info => "Enter your description here, please no more than 300 characters."
+  :name => APP_CONFIG['event_name'], :venue => "Some Important Venue",
+  :website => APP_CONFIG['host'], :date => (Date.today + 3.months),
+  :info => "Please enter your event description via the Admin menu by following Config > Event Info."
 )
 puts "\nCreated a demo event. You may edit this info from the Admin Dashboard by following"
 puts "Config > Event Info."
