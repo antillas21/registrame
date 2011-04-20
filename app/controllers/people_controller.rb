@@ -14,6 +14,7 @@ class PeopleController < ApplicationController
       else
         redirect_to @person, :notice => "Thank you. <strong>This step completes your registration</strong>".html_safe
       end
+      PersonMailer.registration_confirmation(@person).deliver
     else
       flash[:error] = 'There were some errors. Please correct them before proceeding.'
       render 'new'

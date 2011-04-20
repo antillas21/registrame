@@ -1,6 +1,6 @@
 <div class="span-15 colborder">
 	<p>Please note that fields marked with a red asterisk are required in order to secure a proper registration record.</p>
-	<% semantic_form_for @person, :validate => true do |f| %>
+	<%= semantic_form_for @person, :validate => true do |f| %>
 		<% if registrations? %>
 				<%= f.input :registration, :as => :radio, :label => "Registration Type" %>
 		<% end %>

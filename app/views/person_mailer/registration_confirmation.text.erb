@@ -1,0 +1,10 @@
+<%= @person.full_name %>,
+
+Thanks for registering in <%= APP_CONFIG['event_name']%>!
+
+This email confirms you have successfully completed registration.
+
+You may review your record anytime: <%= person_url(@person) %>
+and/or edit your info: <%= edit_person_url(@person) %>.
+
+Thanks again and we look forward to meet you at <%= APP_CONFIG['event_name']%>.
