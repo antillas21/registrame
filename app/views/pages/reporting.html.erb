@@ -2,7 +2,7 @@
 	"sEcho": <%= @sEcho %>,
 	"iTotalRecords": <%= @iTotalRecords %>,
 	"iTotalDisplayRecords": <%= @iTotalDisplayRecords %>,
-	"aaData": [ 
+	"aaData": [
 <% @people.each do |person| %>
    ["<%= person.registration_name %>",
 		"<%= person.full_name %>",

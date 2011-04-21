@@ -40,7 +40,9 @@ Pasos:
 + Ejecutar $ rake db:setup (esto creara la base de datos y cargara el contenido de seed.rb para crear la info basica necesaria.)
 + Ahora podemos entrar con las credenciales del usuario admin (__IMPORTANTE__: cambiar las credenciales del usuario para evitar dolores de cabeza, especialmente si tendra la aplicacion en linea para pre-registro.)
 + Popular varios modelos via las siguientes entradas en el menu:
+
 	Config >
+	
 		+ Event Info: configura los datos del evento en que se usa para desplegarlos a las personas que se preregistran en linea.
 		+ Interests: regisra los intereses que pudieran tener los asistentes al evento.
 		+ Promotions: registra los medios de promocion a traves de los cuales los asistentes pudieron enterarse del evento.

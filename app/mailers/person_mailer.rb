@@ -1,6 +1,6 @@
 class PersonMailer < ActionMailer::Base
   default :from => "#{APP_CONFIG['mail_sender_name']} <#{APP_CONFIG['mail_sender_email']}>"
-  
+
   def registration_confirmation(person)
     @person = person
     @event = Event.first

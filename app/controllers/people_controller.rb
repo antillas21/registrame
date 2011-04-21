@@ -1,10 +1,10 @@
 class PeopleController < ApplicationController
   before_filter :find_person, :only => [:show, :edit, :update, :destroy]
-  
+
   def new
     @person = Person.new
   end
-  
+
   def create
     @person = Person.new(params[:person])
     if @person.save
@@ -20,11 +20,11 @@ class PeopleController < ApplicationController
       render 'new'
     end
   end
-  
+
   def edit
-    
+
   end
-  
+
   def show
     respond_to do |format|
       format.html
@@ -33,7 +33,7 @@ class PeopleController < ApplicationController
       format.pdf { printed }
     end
   end
-  
+
   def update
     if @person.update_attributes(params[:person])
       redirect_to @person, :notice => "Thank you for updating your record."
@@ -42,15 +42,14 @@ class PeopleController < ApplicationController
       render 'edit'
     end
   end
-  
+
   def destroy
     @person.destroy
     redirect_to people_path, :notice => "Attendee has been deleted."
   end
-  
+
   private
     def find_person
       @person = Person.find(params[:id])
     end
-    
 end

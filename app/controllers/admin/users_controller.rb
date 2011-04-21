@@ -3,11 +3,11 @@ class Admin::UsersController < Admin::BaseController
   def index
     @users = User.all(:order => "email")
   end
-  
+
   def new
     @user = User.new
   end
-  
+
   def create
     @user = User.new(params[:user])
     if @user.save
@@ -17,11 +17,11 @@ class Admin::UsersController < Admin::BaseController
       render 'new'
     end
   end
-  
+
   def edit
-    
+
   end
-  
+
   def update
     if @user.update_attributes(params[:user])
       redirect_to admin_users_path, :notice => "User has been updated."
@@ -30,7 +30,7 @@ class Admin::UsersController < Admin::BaseController
       render 'edit'
     end
   end
-  
+
   def destroy
     if @user == current_user
       flash[:error] = "You cannot delete yourself!"
@@ -40,7 +40,7 @@ class Admin::UsersController < Admin::BaseController
     end
     redirect_to admin_users_path
   end
-  
+
   private
     def find_user
       @user = User.find(params[:id])
