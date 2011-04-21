@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110419165114) do
+ActiveRecord::Schema.define(:version => 20110421164631) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -25,7 +25,10 @@ ActiveRecord::Schema.define(:version => 20110419165114) do
   end
 
   add_index "companies", ["city"], :name => "index_companies_on_city"
+  add_index "companies", ["country_id"], :name => "index_companies_on_country_id"
   add_index "companies", ["name"], :name => "index_companies_on_name"
+  add_index "companies", ["sector_id"], :name => "index_companies_on_sector_id"
+  add_index "companies", ["state_id"], :name => "index_companies_on_state_id"
 
   create_table "countries", :force => true do |t|
     t.string   "name"
@@ -87,8 +90,10 @@ ActiveRecord::Schema.define(:version => 20110419165114) do
     t.boolean  "printed",         :default => false
   end
 
+  add_index "people", ["company_id"], :name => "index_people_on_company_id"
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
   add_index "people", ["printed"], :name => "index_people_on_printed"
+  add_index "people", ["registration_id"], :name => "index_people_on_registration_id"
 
   create_table "people_promotions", :id => false, :force => true do |t|
     t.integer "person_id"
