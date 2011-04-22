@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :username
   attr_accessor :login
 
+  default_scope order("email")
+
   def to_s
     if self.admin?
       "#{self.username} - Admin"
@@ -17,8 +19,8 @@ class User < ActiveRecord::Base
 
   private
     def self.find_for_database_authentication(warden_conditions)
-       conditions = warden_conditions.dup
-       login = conditions.delete(:login)
-       where(conditions).where(["username = :value OR email = :value", { :value => login }]).first
-     end
+      conditions = warden_conditions.dup
+      login = conditions.delete(:login)
+      where(conditions).where(["username = :value OR email = :value", { :value => login }]).first
+    end
 end

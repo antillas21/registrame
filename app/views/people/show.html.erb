@@ -37,7 +37,7 @@
 <div class="span-6">
 	<% if app_event %>
 	<div id="eventinfo">
-		<%= render 'people/event_info' %>
+		<%= render 'people/event_info', :app_event => @app_event %>
 	</div>
 		<%= link_to "Back to #{@app_event.name} website", "#{@app_event.website}" %><br />
 	<% end %>

@@ -42,7 +42,7 @@ class PagesController < ApplicationController
 
   def reporting
     @people = Person.where('lname LIKE ?', "%#{params[:sSearch]}%").includes(
-      {:company => [:state, :country, :sector]}, :registration
+      {:company => [:state, :country, :sector]}, :registration, :interests, :promotions
       ).order(
           "#{reporting_columns(params[:iSortCol_0])} #{params[:sSortDir_0] || "ASC"}"
       ).limit(
@@ -57,24 +57,26 @@ class PagesController < ApplicationController
   def reporting_columns(column_id)
     case column_id.to_i
     when 0
-      return "lname"
+      return "registrations.name"
     when 1
-      return "email"
+      return "lname"
     when 2
-      return "phone"
+      return "email"
     when 3
-      return "job"
+      return "phone"
     when 4
-      return "companies.name"
+      return "job"
     when 5
-      return "companies.address1"
+      return "companies.name"
     when 6
-      return "companies.city"
+      return "companies.address1"
     when 7
-      return "states.name"
+      return "companies.city"
     when 8
-      return "countries.name"
+      return "states.name"
     when 9
+      return "countries.name"
+    when 10
       return "sectors.name"
     end
   end

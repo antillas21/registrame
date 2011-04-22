@@ -1,4 +1,4 @@
-<% semantic_form_for [:data, @person], :validate => true do |f| %>
+<%= semantic_form_for [:data, @person], :validate => true do |f| %>
 	<% if registrations? %>
 			<%= f.input :registration, :as => :radio, :label => "Registration Type" %>
 	<% end %>

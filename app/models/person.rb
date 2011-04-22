@@ -25,6 +25,10 @@ class Person < ActiveRecord::Base
   end
 
   scope :attended, where("printed = ?", true)
+  delegate :name, :to => :registration, :prefix => true
+  delegate :name, :address1, :city, :to => :company, :prefix => true
+  delegate :name, :to => :promotions, :prefix => true
+  delegate :name, :to => :interests, :prefix => true
 
   def full_name
     [fname, lname].join(' ')
@@ -45,12 +49,12 @@ class Person < ActiveRecord::Base
     end.reject(&:blank?).compact
   end
 
-  def registration_name
-    registration.name if registration
-  end
-
   def company_profile
     company.profile if company
+  end
+
+  def registration_name
+    registration.name if registration
   end
 
   def strip_quotes

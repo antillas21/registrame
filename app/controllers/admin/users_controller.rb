@@ -1,7 +1,7 @@
 class Admin::UsersController < Admin::BaseController
   before_filter :find_user, :only => [:edit, :update, :destroy]
   def index
-    @users = User.all(:order => "email")
+    @users = User.all
   end
 
   def new
@@ -32,7 +32,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def destroy
-    if @user == current_user
+    if @user.admin?
       flash[:error] = "You cannot delete yourself!"
     else
       @user.destroy

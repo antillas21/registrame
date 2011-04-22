@@ -6,4 +6,8 @@ class Interest < ActiveRecord::Base
   api_accessible :complete_record do |template|
     template.add :name
   end
+
+  def to_s
+    "#{self.name}"
+  end
 end

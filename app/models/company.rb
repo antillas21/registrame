@@ -16,6 +16,10 @@ class Company < ActiveRecord::Base
     template.add :country_name, :as => :country
   end
 
+  delegate :name, :to => :country, :prefix => true
+  delegate :name, :to => :state, :prefix => true
+  delegate :name, :to => :sector, :prefix => true
+
   def state_name
     state.name if state
   end
