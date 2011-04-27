@@ -32,21 +32,3 @@
 		</tbody>
 	</table>
 </div>
-
-
-<script type="text/javascript">
-	$('table#records').dataTable({
-		"bProcessing": true,
-		"bServerSide": true,
-		"sAjaxSource": "/reporting.html",
-		"bJQueryUI": true,
-		"sScrollX": "100%",
-		"sPaginationType": "full_numbers",
-		"iDisplayLength": 5,
-		"aLengthMenu": [[5, 10, 25, 50, 100, 250, -1], [5, 10, 25, 50, 100, 250, "All"]],
-		"sDom": 'T<"clear">lfrtip',
-		"oTableTools": {
-					"sSwfPath": "swf/copy_cvs_xls_pdf.swf"
-				}
-	});
-</script>

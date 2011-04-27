@@ -87,6 +87,46 @@ $(document).ready(function(){
 					}
 				}
 	});
+	
+	/* Companies dataTable */
+	$('table#companies').dataTable({
+		"bJQueryUI": true,
+		"sPaginationType": "full_numbers",
+		"bProcessing": true,
+		"bServerSide": true,
+		"sAjaxSource": "/companytable.html"
+	});
+	
+	/* People dataTable */
+	$(document).ready(function() {
+		$('#people').dataTable({
+			"bJQueryUI": true,
+			"sPaginationType": "full_numbers",
+			"bProcessing": true,
+			"bServerSide": true,
+			"sAjaxSource": "/peopletable.html"
+		});
+	});
+	
+	/* Admin Dashboard dataTable => Exportable */
+	$('table#records').dataTable({
+		"bProcessing": true,
+		"bServerSide": true,
+		"sAjaxSource": "/reporting.html",
+		"bJQueryUI": true,
+		"sScrollX": "100%",
+		"sPaginationType": "full_numbers",
+		"iDisplayLength": 5,
+		"aLengthMenu": [[5, 10, 25, 50, 100, 250, -1], [5, 10, 25, 50, 100, 250, "All"]],
+		"sDom": 'T<"clear">lfrtip',
+		"oTableTools": {
+					"sSwfPath": "swf/copy_cvs_xls_pdf.swf"
+				}
+	});
+	
+	$(document).ready(function() {
+		$('ul.sf-menu').superfish().find('ul').bgIframe({opacity:false});
+	});
 });
 
 
