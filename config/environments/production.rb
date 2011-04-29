@@ -49,4 +49,7 @@ Registrame02::Application.configure do
 
   # Load mailer config
   config.action_mailer.delivery_method = :smtp
+  
+  # Devise config
+  config.action_mailer.default_url_options = { :host => APP_CONFIG['host'] }
 end
