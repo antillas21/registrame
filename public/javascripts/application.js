@@ -127,6 +127,10 @@ $(document).ready(function(){
 	$(document).ready(function() {
 		$('ul.sf-menu').superfish().find('ul').bgIframe({opacity:false});
 	});
+	
+	$(document).ready(function() {
+		$('input.ui-date-picker').datepicker();
+	});
 });
 
 

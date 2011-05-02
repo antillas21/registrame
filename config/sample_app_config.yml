@@ -1,25 +1,25 @@
 development:
   host: localhost:3000
   mail_sender_name: My Awesome Event
-  mail_sender_email: email@example.com
-  mail_server: smtp.gmail.com
-  mail_port: 587
+  mail_sender_email: email@yourdomain.com
+  mail_server: smtp.yourdomain.com
+  mail_port: <port>
   mail_username: <username>
   mail_password: <password>
   mail_auth: plain
-  mail_starttls: true
+  mail_starttls: <true|false>
   event_name: My Awesome Event
   
 test:
   
 production:
-  host: http://www.gmail.com
+  host: http://www.yourdomain.com
   mail_sender_name: My Awesome Event
-  mail_sender_email: email@example.com
-  mail_server: smtp.gmail.com
-  mail_port: 587
+  mail_sender_email: email@yourdomain.com
+  mail_server: smtp.yourdomain.com
+  mail_port: <port>
   mail_username: <username>
   mail_password: <password>
   mail_auth: plain
-  mail_starttls: true
+  mail_starttls: <true|false>
   event_name: My Awesome Event

@@ -1,52 +1,58 @@
 # registrame0.2
-registrame0.2 es la segunda version de mi app para llevar el registro de asistentes a una expo o evento. Originalmente escrita en Rails 2.3, esta nueva version se actualiza usando Rails 3.
+registrame0.2 is the second version of this app to register attendees to an expo or trade-show. Originally written in Rails 2.3, this new version updates to Rails 3.
 
-No solo he actualizado la version de Rails en la que funciona, se ha desarrollado lo siguiente.
+Not only Rails version has been updated, but also the following behavior has been added.
 
-+ La configuracion puede ser hecha solo por el usuario admin via login/password.
-+ El gafete del asistente incluye los datos de la persona en formato QRCode.
++ Admin user is the only user authorized to configure application via a login/password and Admin namespace.
++ Name Badge includes attendees info in a QRCode.
 
-## Que hay dentro?
+## What's inside?
 + Rails 3 (3.0.7)
++ Ruby 1.8.7
 + jQuery (1.4.4)
-+ Gemas
-	+ devise (para autenticacion/autorizacion de usuario admin)
-	+ prawn (para generar gafete de asistente en PDF listo para impresion)
-	+ rqr (genera QRCode con los datos del asistente y se imprime en el gafete)
++ Gems
+	+ devise (admin authentication/authorization.)
+	+ prawn (generates attendee name badge in PDF format ready to be printed.)
+	+ rqr (generates QRCode that includes attendee info and is printed in name badge.)
+	+ yaml_db (eases DB engine change if required.)
 
 
-## Cual es el plan?
-Tener tres areas: __admin__ para configuracion y reportes; __data__ para los capturistas en sitio durante un evento; y __publica__ para que los interesados se pre-registren online.
+## What's the plan?
+The app contains three areas: __admin__ for configuration and report generation; __data__ for data capture during an event; an __public__ for those interested in pre-registering online.
 
-+ Area admin:
-	+ Menu de acceso a toda la aplicacion para configurar los distintos modelos de la app.
-	+ Dashboard para crear reportes con la info recolectada durante el registro en formato CSV y PDF.
++ Admin area:
+	+ Menu to access the app configuration options.
+	+ Dashboard to create a report with all collected info in CSV and PDF format.
 	
-+ Area data:
-	+ Acceso a las operaciones basicas de registro, revision de datos e impresion de gafete de asistentes.
-	+ Dashboard con vision general de la cantidad de registros y gafetes impresos, clasificados en los distintos tipos de registro que se especifique en la configuracion.
++ Data area:
+	+ Access to basic registration operations, attendee info revision and name badge printing.
+	+ Dashboard with an overview of total records, total printed name badges, all categorized in registration types (visitor, exhibitor, etc.)
 	
-+ Area publica:
-	+ Los interesados pueden pre-registrarse a traves de esta interfaz.
-	+ Al completar el registro, la aplicacion envia un correo de confirmacion al asistente.
-	+ Usando los enlaces en el correo que recibe, el asistente puede ver/modificar su registro.
++ Public area:
+	+ Interested people may pre-register online through this interface.
+	+ When registration completes, the app sends a confirmation email to attendee.
+	+ By clicking in the email links, attendee is able to view/modify his/her record.
 		
-## Como configurarla?
-La app es un trabajo en proceso aun, este README se actualizara conforme se vaya necesitando.
+## Configuration how-to?
+This app is a work in process, this README file will be updated as needed.
 
-Pasos:
+Steps:
 
-+ Crear archivo config/app_config.yml tomando como base config/sample_app_config.yml
-+ Ejecutar $ rake db:setup (esto creara la base de datos y cargara el contenido de seed.rb para crear la info basica necesaria.)
-+ Ahora podemos entrar con las credenciales del usuario admin (__IMPORTANTE__: cambiar las credenciales del usuario para evitar dolores de cabeza, especialmente si tendra la aplicacion en linea para pre-registro.)
-+ Popular varios modelos via las siguientes entradas en el menu:
++ Create config/app_config.yml file based upon config/sample_app_config.yml
++ Don't forget to use bundler to install all required gems.
++ Run
+		$ rake db:setup
+	(this step will create database and load contents of seed.rb in order to populate database with the minimum set of required info.)
++ Now we may login with the admin user credentials displayed at the end of the rake task (__IMPORTANT__: once logged in, please change admin user credentials to avoid headaches, speccially if the app will be available online to accept pre-registrations.)
++ Populate several models via the following menu entries:
 
 	Config >
+	+ Event Info: configures event information used to display to people who pre-register online.
+	+ Interests: records attendees interests in the event, example: "Meet providers", "Identify potential business partners", etc.
+	+ Registration Types: records registration types, example: Exhibitor, Visitor, Sponsor, Speaker, etc.
+	+ Sectors: records business sectors a company may belong to, example: Industry, Government, Business, etc.
+	+ NameBadge: records name badge features where attendees info will be printed on.
 	
-		+ Event Info: configura los datos del evento en que se usa para desplegarlos a las personas que se preregistran en linea.
-		+ Interests: regisra los intereses que pudieran tener los asistentes al evento.
-		+ Promotions: registra los medios de promocion a traves de los cuales los asistentes pudieron enterarse del evento.
-		+ Registration Types: lleva cuenta de los tipos de registro que pueden existir, ejemplo: Expositor, Visitante, Patrocinador, etc, etc.
-		+ Sectors: registra los sectores a los cuales pueden pertenecer las empresas registradas.
-		+ NameBadge: almacena los datos del gafete en donde se imprimiran los datos de los asistentes.
-	+ Attendees: lleva registro de los visitantes.
++ Attendees: All attendees info is recorded here.
+
+This is all the procedure to make it work.
