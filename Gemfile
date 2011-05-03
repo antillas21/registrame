@@ -43,3 +43,6 @@ group :development, :test do
   gem 'factory_girl'
 end
 
+group :development do
+  gem 'capistrano'
+end
