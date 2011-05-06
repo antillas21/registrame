@@ -61,18 +61,18 @@ class Data::PeopleController < Data::BaseController
     @person.destroy
     redirect_to data_people_path, :notice => "Attendee has been deleted."
   end
+  
+  def qr_encode!
+    qrcodes = "#{RAILS_ROOT}/public/images/qrcodes"
+    find_person
+    RQR::QRCode.create(:auto_extent => true) do |code|
+      code.save(@person.mecard, "#{qrcodes}/#{@person.id}.png")
+    end
+  end
 
   private
     def find_person
       @person = Person.find(params[:id])
-    end
-
-    def qr_encode!
-      qrcodes = "#{RAILS_ROOT}/public/images/qrcodes"
-      find_person
-      RQR::QRCode.create(:auto_extent => true) do |code|
-        code.save(@person.mecard, "#{qrcodes}/#{@person.id}.png")
-      end
     end
 
     def printed
