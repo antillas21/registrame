@@ -94,7 +94,7 @@ $(document).ready(function(){
 		"sPaginationType": "full_numbers",
 		"bProcessing": true,
 		"bServerSide": true,
-		"sAjaxSource": "/pages/companytable.html"
+		"sAjaxSource": "../pages/companytable.html"
 	});
 	
 	/* People dataTable */
@@ -104,7 +104,7 @@ $(document).ready(function(){
 			"sPaginationType": "full_numbers",
 			"bProcessing": true,
 			"bServerSide": true,
-			"sAjaxSource": "/pages/peopletable.html"
+			"sAjaxSource": "../pages/peopletable.html"
 		});
 	});
 	
