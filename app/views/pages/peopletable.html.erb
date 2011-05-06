@@ -1,11 +1,12 @@
 {
-"sEcho": <%=h @sEcho %>,
-"iTotalRecords": <%= @iTotalRecords %>,
-"iTotalDisplayRecords": <%= @iTotalDisplayRecords %>,
-"aaData": [
-<% @people.each do |person| %>
-   ["<a href='<%= url_for([:data, person]) %>'><%= person.lname %>, <%= person.fname %></a>"<%= "]," unless person == @people.last %>
-<% end %>
-   ]
-]
+	"sEcho": <%=h @sEcho %>,
+	"iTotalRecords": <%= @iTotalRecords %>,
+	"iTotalDisplayRecords": <%= @iTotalDisplayRecords %>,
+	"aaData": [
+		<% @people.each do |person| %>
+			["<a href='<%= url_for([:data, person]) %>'><%= person.lname %>, <%= person.fname %></a>"
+			<%= "]," unless person == @people.last %>
+		<% end %>
+		]
+	]
 }

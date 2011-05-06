@@ -9,7 +9,14 @@ class PagesController < ApplicationController
   end
 
   def companytable
-    @companies = Company.where('name LIKE ?', "%#{params[:sSearch]}%").order("#{companytable_columns(params[:iSortCol_0])} #{params[:sSortDir_0] || "ASC"}").limit(params[:iDisplayLength]).offset(params[:iDisplayStart])
+    @companies = Company.where('name LIKE ?', "%#{params[:sSearch]}%"
+    ).order(
+      "#{companytable_columns(params[:iSortCol_0])} #{params[:sSortDir_0] || "ASC"}"
+    ).limit(
+      params[:iDisplayLength]
+    ).offset(
+      params[:iDisplayStart].to_i
+    )
     @iTotalRecords = Company.count
     @iTotalDisplayRecords = Company.where('name LIKE ?', "%#{params[:sSearch]}%").count
     @sEcho = params[:sEcho].to_i
@@ -24,7 +31,15 @@ class PagesController < ApplicationController
   end
 
   def peopletable
-    @people = Person.where('lname LIKE ?', "%#{params[:sSearch]}%").order("#{people_columns(params[:iSortCol_0])} #{params[:sSortDir_0] || "ASC"}").limit(params[:iDisplayLength]).offset(params[:iDisplayStart])
+    @people = Person.where(
+      'lname LIKE ?', "%#{params[:sSearch]}%"
+    ).order(
+      "#{people_columns(params[:iSortCol_0])} #{params[:sSortDir_0] || "ASC"}"
+    ).limit(
+      params[:iDisplayLength]
+    ).offset(
+      params[:iDisplayStart].to_i
+    )
     @iTotalRecords = Person.count
     @iTotalDisplayRecords = Person.where('lname LIKE ?', "%#{params[:sSearch]}%").count
     @sEcho = params[:sEcho].to_i
