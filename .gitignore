@@ -3,6 +3,8 @@ db/*.sqlite3
 log/*.log
 tmp/**/*
 public/images/qrcodes/*.png
+public/images/qrcodes/*.jpg
+public/images/qrcodes/*.tif
 config/app_config.yml
 config/deploy.rb
 Capfile
