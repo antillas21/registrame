@@ -16,6 +16,9 @@ Not only Rails version has been updated, but also the following behavior has bee
 	+ rqr (generates QRCode that includes attendee info and is printed in name badge.)
 	+ yaml_db (eases DB engine change if required.)
 
+A very important note: Ruby version should be 1.8.7-p302 (ruby 1.8.7 (2010-08-16 patchlevel 302)) in order for the rqr gem to compile and work properly. Don't know if rubygems version should also be considered into the equation, if it should, then use rubygems version 1.3.7.
+I guess this note clearly states that I should start looking for alternative sources to make my app work without such dependability.
+
 
 ## What's the plan?
 The app contains three areas: __admin__ for configuration and report generation; __data__ for data capture during an event; an __public__ for those interested in pre-registering online.
