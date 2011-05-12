@@ -66,7 +66,7 @@ class Data::PeopleController < Data::BaseController
     qrcodes = "#{RAILS_ROOT}/public/images/qrcodes"
     find_person
     RQR::QRCode.create(:auto_extent => true) do |code|
-      code.save(@person.mecard, "#{qrcodes}/#{@person.id}.jpg")
+      code.save(@person.mecard, "#{qrcodes}/#{@person.id}.png")
     end
   end
 
