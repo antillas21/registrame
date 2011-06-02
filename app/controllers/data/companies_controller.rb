@@ -1,6 +1,14 @@
 class Data::CompaniesController < Data::BaseController
-  before_filter :find_company, :only => [:show, :edit, :update, :destroy]
-
+  before_filter :find_company, :only => [:show, :edit, :update, :destroy, :people, :encode_people]
+  
+  if NameBadge.count > 0
+    @@label = NameBadge.first
+    prawnto :prawn => { :page_layout => :portrait, :left_margin => ((@@label.left.to_f).in),
+      :right_margin => ((@@label.right.to_f).in), :top_margin => ((@@label.top.to_f).in),
+      :bottom_margin => ((@@label.bottom.to_f).in),
+      :page_size => [((@@label.width.to_f).in), ((@@label.height.to_f).in)] }
+  end
+  
   def index
     @companies = Company.where('name LIKE ?', "%#{params[:search]}%")
     respond_to do |format|
@@ -48,6 +56,25 @@ class Data::CompaniesController < Data::BaseController
   def destroy
     @company.destroy
     redirect_to data_companies_path, :notice => "Company has been deleted."
+  end
+  
+  def people
+    @people = @company.people
+    respond_to do |format|
+      format.html
+      format.pdf { encode_people }
+    end
+  end
+  
+  def encode_people
+    @people = @company.people
+    @qrcodes = "#{RAILS_ROOT}/public/images/qrcodes"
+    @people.each do |person|
+      RQR::QRCode.create(:auto_extent => true) do |code|
+        code.save(person.mecard, "#{@qrcodes}/#{person.id}.png")
+      end
+      person.update_attribute(:printed, true)
+    end
   end
 
   private

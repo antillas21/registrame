@@ -16,6 +16,7 @@ Registrame02::Application.routes.draw do
   match '/peopletable', :controller => 'pages', :action => 'peopletable'
   match '/pages/peopletable', :controller => 'pages', :action => 'peopletable'
   match '/reporting', :controller => 'pages', :action => 'reporting'
+  match '/companies/:id/people', :controller => 'data/companies', :action => 'people', :as => 'company_people'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
@@ -69,7 +70,9 @@ Registrame02::Application.routes.draw do
   namespace :data do
     root :to => "base#index"
     resources :people
-    resources :companies
+    resources :companies do
+      #resources :people
+    end
   end
 
   # You can have the root of your site routed with "root"
