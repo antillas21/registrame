@@ -1,9 +1,0 @@
-:registra.me
-
-Es un pequeño proyecto para solucionar el registro de asistentes a una expo que organiza mi empresa.
-
-:registra.me se encuentra en su primer fase de desarrollo, pero aún así considero que está listo para ser utilizado con la funcionalidad que necesitábamos:
-1. Registrar personas y asignarlas a tipos de asistentes (visitante, expositor, etc.).
-2. Capacidad de configurar un gafete (medidas, márgenes, tamaño de fuente) para imprimir y entregar al asistente.
-
-Lo que actualmente está en desarrollo es la generación de reportes primordialmente. Si alguien desea colaborar en completar esta funcionalidad, toda ayuda es bienvenida.
