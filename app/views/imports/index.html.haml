@@ -1,0 +1,33 @@
+%div.grid_12
+  %div#add-form.grid_8.alpha
+    = form_for @import, { multipart: true, remote: true}  do |f|
+      %fieldset
+        %legend Upload import file
+        %div.clearfix
+          = f.label :document
+          %div.input
+            = f.file_field :document
+            = f.submit "Upload file", class: "btn"
+    - if @import.errors.any?
+      %div{:class => "alert-message block-message error fade in", :data => {:alert => "alert"}}
+        %a{:href => "#", :class => "close"}x
+        %ul
+        - @import.errors.full_messages.each do |error|
+          %li= error
+    %h2.page-header Uploaded files
+    %div#uploaded-files
+      = render @imports unless @imports.nil?
+  %div#sidebar.grid_4.omega
+    %h4 Current Attendee count: #{@current_count}
+    .alert-message.block-message.info
+      %h6 Instructions:
+      %ul
+        %li
+          First, create your .csv file keeping in mind that the following fields are mandatory:
+          %strong first_name, last_name, email
+        %li
+          You may add the following optional fields:
+          registration, phone, company_name, address, city, state_name, country_name
+        %li
+          Order of fields is not important, as long as their headers match the examples above.
+

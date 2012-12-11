@@ -1,0 +1,31 @@
+%h2 Edit Preferences
+
+%div#add-form.grid_12
+  = form_for @preferences do |f|
+    .grid_6.alpha
+      .clearfix
+        = f.label :print_label
+        .input
+          = f.check_box :print_label
+      %h5 Fields to include in Name badge
+      .label-fields
+        - ['full_name', 'email', 'phone', 'company_name', 'address', 'city', 'registration_type'].each do |attribute|
+          .clearfix
+            = f.label attribute.titlecase
+            .input
+              = check_box_tag "preference[label_options][#{attribute}]", "1", @label_options["#{attribute}"].present?
+    .grid_6.omega
+      .clearfix
+        = f.label :create_qrcode
+        .input
+          = f.check_box :create_qrcode
+      %h5 Fields to include in QRCode
+      .qrcode-fields
+        - ['full_name', 'email', 'phone', 'company_name', 'address', 'city'].each do |attribute|
+          .clearfix
+            = f.label attribute.titlecase
+            .input
+              = check_box_tag "preference[qrcode_options][#{attribute}]", "1", @qrcode_options["#{attribute}"].present?
+    .clear
+    .actions
+      = f.submit 'Update preferences', class: 'btn primary'

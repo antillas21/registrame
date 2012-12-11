@@ -1,0 +1,15 @@
+%h2= @attendee.full_name
+%div#attendee-info
+  %p= email_phone(@attendee)
+  %p= @attendee.registration_type
+  %p
+    = @attendee.job
+    %br/
+    = @attendee.company_name
+    %br/
+    = address_data(@attendee)
+%div.actions
+  - if cookies[:label] == "true"
+    = link_to 'Print Badge', namebadge_attendee_path(@attendee), class: 'btn primary'
+  = link_to 'Edit', edit_attendee_path(@attendee), class: 'btn'
+  = link_to 'Delete', attendee_path(@attendee), method: :delete, confirm: 'Are you sure you want to delete this attendee?', class: 'btn danger'
