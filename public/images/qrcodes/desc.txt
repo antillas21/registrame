@@ -1,0 +1,1 @@
+This folder hosts all QR Code images created by the app.

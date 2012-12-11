@@ -1,0 +1,13 @@
+<%= semantic_form_for @company, :validate => true do |f| %>
+	<%= f.input :name, :label => "Company Name" %>
+	<%= f.input :address1, :label => "Address" %>
+  <%= f.text_field :address2 %>
+  <%= f.input :city %>
+  <%= f.input :state_name, :label => "State" %>
+  <%= f.input :country_name, :label => "Country" %>
+	<% if sectors? %>
+    <%= f.input :sector, :as => :radio, :label => "Sector" %>
+	<% end %>
+		<%= f.submit "Continue" %>
+<% end %>
+

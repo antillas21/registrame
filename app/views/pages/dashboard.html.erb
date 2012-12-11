@@ -1,0 +1,47 @@
+<div>
+	<h3>Dashboard</h3>
+	<div>
+		<div class="widget-padding block">
+			<h4>Total records: <%= @people.size %></h4>
+			<% if registrations? %>
+				<table>
+					<thead>
+						<tr>
+							<th>Registration type</th>
+							<th class="count">Count</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @registrations.each do |type| %>
+						<tr>
+							<td><%= type.name %></td>
+							<td class="count"><%= type.people.count %></td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+			<% end %>
+		</div>
+		<div class="widget-padding block">
+			<h4>Badges printed: <%= @attendees.size %></h4>
+			<% if registrations? %>
+				<table>
+					<thead>
+						<tr>
+							<th>Registration type</th>
+							<th class="count">Count</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @registrations.each do |type| %>
+						<tr>
+							<td><%= type.name %></td>
+							<td class="count"><%= type.people.attended.count %></td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+			<% end %>
+		</div>
+	</div>
+</div>

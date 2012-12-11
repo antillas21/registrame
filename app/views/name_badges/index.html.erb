@@ -1,0 +1,17 @@
+<% @name_badges.each do |badge| %>
+	<div class="ui-widget ui-corner-all">
+		<div class="ui-widget-content ui-corner-all">
+			<h3 class="ui-widget-header ui-corner-top widget-padding"><%= badge.name %></h3>
+			<div class="widget-padding">
+				Size: <%= badge.width %> in. x <%= badge.height %> in.<br />
+				<strong>Margins:</strong><br />
+				Top: <%= badge.top %> in.<br />
+				Bottom: <%= badge.bottom %> in.<br />
+				Left: <%= badge.left %> in.<br />
+				Right: <%= badge.right %> in.<br /><br />
+				Font size: <%= badge.font_size %> pts.<br /><br />
+				<%= link_to '<span class="pen icon"></span>Edit'.html_safe, edit_name_badge_path(badge), :class => 'button primary' %>
+			</div>
+		</div>
+	</div>
+<% end %>

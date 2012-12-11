@@ -1,0 +1,24 @@
+<div class="span-10">
+	<h2>Promotion Media</h2>
+</div>
+<div class="span-10">
+	<%= link_to '<span class="plus icon"></span>Add Promotion Media'.html_safe, new_admin_promotion_path, :class => 'button' %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+			<th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @promotions.each do |promotion| %>
+      <tr>
+        <td><%= promotion.name %></td>
+				<td><%= link_to '<span class="pen icon"></span>Edit'.html_safe, edit_admin_promotion_path(promotion), :class => 'button left' %> <%= link_to '<span class="trash icon"></span>Delete'.html_safe, admin_promotion_path(promotion), :method => :delete, :confirm => "Are you sure?", :class => 'button right negative' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

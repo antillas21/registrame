@@ -1,0 +1,2 @@
+module NameBadgesHelper
+end

@@ -1,0 +1,19 @@
+<div id="nav">
+	<ul class="sf-menu">
+		<li><%= link_to "Admin Dashboard", admin_root_path %></li>
+		<li><%= link_to "Attendees", data_people_path %></li>
+		<li><%= link_to "Users", admin_users_path %></li>
+		<li class="current">
+			<a href="#a">Config</a>
+			<ul>
+				<li><%= link_to "Event Info", admin_events_path %></li>
+				<li><%= link_to "Sectors", admin_sectors_path %></li>
+				<li><%= link_to "Interests", admin_interests_path %></li>
+				<li><%= link_to "Promotion Media", admin_promotions_path %></li>
+				<li><%= link_to "Registration Types", admin_registrations_path %></li>
+				<li><%= link_to 'Name Badge', name_badges_path %></li>
+			</ul>
+		</li>
+		<li><%= link_to "Log out", destroy_user_session_path %></li>
+	</ul>
+</div>

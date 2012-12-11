@@ -1,0 +1,30 @@
+{
+	"sEcho": <%= @sEcho %>,
+	"iTotalRecords": <%= @iTotalRecords %>,
+	"iTotalDisplayRecords": <%= @iTotalDisplayRecords %>,
+	"aaData": [
+<% @people.each do |person| %>
+   ["<%= person.registration_name %>",
+		"<%= person.full_name %>",
+		"<%= person.email %>",
+		"<%= person.phone %>",
+		"<%= person.job? ? person.job : ''  %>",
+		"<%= person.company.nil? ? '' : person.company_name %>",
+		"<%= (person.company.nil? || person.company.address1.blank?) ? '' : person.company_address1 %>",
+		"<%= (person.company.nil? || person.company.city.blank?) ? '' : person.company_city %>",
+		"<%= (person.company.nil? || person.company.state.nil?) ? '' : person.company.state_name %>",
+		"<%= (person.company.nil? || person.company.country.nil?) ? '' : person.company.country_name %>"
+		<% if sectors? %>,
+			"<%= (person.company.nil? || person.company.sector.nil?) ? '' : person.company.sector_name %>"
+		<% end %>
+		<% if person.interests %>,
+			"<% person.interests.each do |interest| %><%= interest %><%= '; ' unless interest == person.interests.last %><% end %>"
+		<% end %>
+		<% if person.promotions %>,
+			"<% person.promotions.each do |promotion| %><%= promotion %><%= '; ' unless promotion == person.promotions.last %><% end %>"
+		<% end %>
+		<%= "]," unless person == @people.last %>
+<% end %>
+   ]
+]
+}

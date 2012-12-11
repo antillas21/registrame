@@ -1,0 +1,18 @@
+<div>
+	<div class="floated">
+		<%= image_tag "datacapture.jpg" %>
+	</div>
+</div>
+<% if app_event %>
+	<div id="eventinfo">
+		<h4><%= @app_event.name %></h4>
+		<strong>Date:</strong> <%= @app_event.date_formatted %><br />
+		<strong>Venue:</strong> <%= @app_event.venue %><br />
+		<%= link_to "#{@app_event.website}", "#{@app_event.website}" %><br /><br />
+		<%= @app_event.info %><br />
+	</div>
+<% end %>
+<div class="clear"></div>
+<div class="full">
+	<%= link_to "Register here", new_person_path, :class => 'button big primary pill'%>
+</div>
